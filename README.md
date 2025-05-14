@@ -2,7 +2,8 @@
 
 # Spire UI
 
-A modular and reusable UI component library
+[Spire](https://somasekhar-kothapalli.github.io/Spire-UI/) is a modular and reusable UI component library
+
 Spire UI is a **modular, reusable, and framework-agnostic** UI component library designed for building scalable and responsive interfaces.
 
 ## Folder Structure

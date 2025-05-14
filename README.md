@@ -1,4 +1,8 @@
-![Spire](src/assets/images/logo.svg)
+<div align="center">
+  <img src="src/assets/images/logo.svg" alt="Spire UI Logo">
+  <h3 style="color:#20B2AA;">Spire UI made for Electron</h3>
+</div>
+
 
 # Spire UI
 

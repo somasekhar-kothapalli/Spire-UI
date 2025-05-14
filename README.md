@@ -4,33 +4,13 @@
 
 [Spire](https://somasekhar-kothapalli.github.io/Spire-UI/) is a modular and reusable UI component library
 
-Spire UI is a **modular, reusable, and framework-agnostic** UI component library designed for building scalable and responsive interfaces.
+Spire is a HTML 5 **widget toolkit** for building native-like **Web**, **Electron** and **Hybrid** apps.
 
-## Folder Structure
+Spire follows the Keep It Simple principle and thus is written using plain JS, HTML and CSS. It does not make use of
+any preprocessors or heavy abstraction layers.
 
-spire-ui/
-├── src/
-│ ├── components/
-│ │ └── ... (Individual UI components like Button, Modal, Sidebar)
-│ ├── styles/
-│ │ └── ... (Global styles, themes, CSS variables)
-│ ├── utils/
-│ │ └── ... (Helper functions for interactions)
-│ ├── assets/
-│ │ └── ... (Icons, fonts, images)
-│ ├── index.js
-│ ├── theme.js
-├── dist/
-│ └── ... (Compiled and optimized output)
-├── examples/
-│ ├── button-demo.html
-│ ├── modal-demo.html
-├── docs/
-│ ├── API.md
-│ ├── setup-guide.md
-├── tests/
-│ ├── button.test.js
-│ ├── modal.test.js
-├── package.json
-├── LICENSE
-└── README.md
+Some of the widgets included:
+- Buttons
+
+Visit [Spire UI](https://somasekhar-kothapalli.github.io/Spire-UI/) for a complete list of all supported widgets with demos and
+documentation.

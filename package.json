@@ -1,0 +1,29 @@
+{
+  "name": "spire-ui",
+  "version": "1.0.0",
+  "description": "A modular and reusable UI component library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somasekhar-kothapalli/Spire-UI.git"
+  },
+  "keywords": [
+    "UI",
+    "components",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "responsive",
+    "modular"
+  ],
+  "author": "Somasekhar Kothapalli",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/somasekhar-kothapalli/Spire-UI/issues"
+  },
+  "homepage": "https://github.com/somasekhar-kothapalli/Spire-UI#readme"
+}

@@ -1,0 +1,219 @@
+:root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  interpolate-size: allow-keywords;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  padding: 15px;
+  overflow-y: overlay;
+}
+
+.d-flex {
+  display: flex;
+  width: 100%;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.flex-direction-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+
+.gap-4 {
+  gap: 1.5rem;
+}
+
+.gap-5 {
+  gap: 3rem;
+}
+
+/*****************************************************************************************************************/
+
+/**
+ * Button
+ */
+
+s-button {
+  --min-pressed-time: 150ms;
+}
+@media (pointer: coarse) {
+  s-button {
+    --min-pressed-time: 600ms;
+  }
+}
+a:has(s-button) {
+  text-decoration: none;
+}
+s-button[toggled] {
+  z-index: 1;
+}
+s-button[size="small"] {
+  min-height: 24px;
+}
+s-button[size="large"] {
+  min-height: 38px;
+}
+s-buttons[vertical] > s-button {
+  width: 100%;
+  justify-content: flex-start;
+}
+s-button:not(:defined) {
+  display: none;
+}
+
+/* Label */
+s-button > s-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: center;
+  min-width: 1px;
+  pointer-events: none;
+}
+s-button > s-label ~ s-icon,
+s-button > s-icon ~ s-label {
+  margin: 0 0 0 6px;
+}
+
+/* Menu */
+s-button > s-menu {
+  font-size: 0.875rem;
+}
+
+/* Icon */
+s-button > s-icon {
+  width: 26px;
+  height: 26px;
+}
+s-button[size="small"] > s-icon {
+  width: 22px;
+  height: 22px;
+}
+s-button[size="large"] > s-icon {
+  width: 28px;
+  height: 28px;
+}
+
+/*****************************************************************************************************************/
+
+/**
+ * Button ("normal" skin)
+ */
+
+/*****************************************************************************************************************/
+
+/**
+ * Button ("icon" skin)
+ */
+
+s-button[skin="icon"] {
+  padding: 7.5px 10px;
+  border-radius: 38px;
+  background-color: #e0e0e0;
+}
+
+s-button[skin="icon"][size="small"] {
+  font-size: 22px;
+}
+s-button[skin="icon"][size="large"] {
+  font-size: 28px;
+}
+
+/*****************************************************************************************************************/
+
+/**
+ * Button ("flat" skin)
+ */
+
+s-button[skin="flat"] {
+  background: var(--s-button-flat-background-color, #000000);
+  color: var(--s-button-flat-color, #f1f1f1);
+}
+
+s-button[skin="flat"][disabled] {
+  background: var(--s-button-flat-disabled-background-color, #e0e0e0);
+  color: var(--s-button-flat-disabled-color, #000000);
+}
+
+/*****************************************************************************************************************/
+
+/**
+ * Button ("raised" skin)
+ */
+
+s-button[skin="raised"] {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+s-button[skin="raised"][disabled] {
+  box-shadow: none;
+  background-color: var(--s-button-raised-disabled-background-color, #e0e0e0);
+}
+
+/*****************************************************************************************************************/
+
+/**
+ * Button ("stroked" skin)
+ */
+
+s-button[skin="stroked"] {
+  border: 1px solid var(--s-button-stroked-border-color, #000000);
+}
+
+s-button[skin="stroked"][disabled] {
+  border: 1px solid var(--s-button-stroked-disabled-border-color, #e0e0e0);
+}
+
+/*****************************************************************************************************************/
+
+/**
+ * Buttons
+ */
+
+s-buttons[vertical] {
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+s-buttons:not(:defined) {
+  display: none;
+}
+
+/*****************************************************************************************************************/

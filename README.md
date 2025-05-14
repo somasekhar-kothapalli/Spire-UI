@@ -1,8 +1,6 @@
-<div align="center">
-  <img src="src/assets/images/logo.svg" alt="Spire UI Logo">
-  <h3 style="color:#20B2AA;">Spire UI made for Electron</h3>
-</div>
+[![Spire Logo](src/assets/images/logo.svg)](https://somasekhar-kothapalli.github.io/Spire-UI/)
 
+<h3 align="center" style="color:#20B2AA;">Spire UI made for Electron</h3>
 
 # Spire UI
 
@@ -14,6 +12,7 @@ Spire follows the Keep It Simple principle and thus is written using plain JS, H
 any preprocessors or heavy abstraction layers.
 
 Some of the widgets included:
+
 - Buttons
 
 Visit [Spire UI](https://somasekhar-kothapalli.github.io/Spire-UI/) for a complete list of all supported widgets with demos and

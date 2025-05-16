@@ -2,6 +2,7 @@ import EventEmitter from "./event-emitter.js";
 
 // @singleton
 // @event themechange
+// @event accentcolorchange
 export default new (class SpireTheme extends EventEmitter {
   _theme;
   _accentColor;
@@ -51,15 +52,6 @@ export default new (class SpireTheme extends EventEmitter {
         this._onStorageChange(event)
       );
     }
-
-    // this._applyTheme(this._theme);
-    // this._watchMetaTag("spire-theme", (newTheme) => {
-    //   if (newTheme && newTheme !== this._theme) {
-    //     this._theme = newTheme;
-    //     this._applyTheme(newTheme);
-    //     this.emit("themechange", newTheme);
-    //   }
-    // });
   }
 
   _onHeadChange(mutations) {
@@ -341,43 +333,47 @@ export default new (class SpireTheme extends EventEmitter {
     meta.setAttribute("content", value);
   }
 
-  _applyTheme(themeName) {
-    let themeLink = document.getElementById("theme-style");
-    if (!themeLink) {
-      themeLink = document.createElement("link");
-      themeLink.id = "theme-style";
-      themeLink.rel = "stylesheet";
-      themeLink.onload = () => {
-        this._themeStyleSheet = themeLink.sheet;
-        this._themeReadyCallbacks.forEach((cb) => cb());
-        this._themeReadyCallbacks = []; // Clear callbacks
-      };
-      document.head.appendChild(themeLink);
-    }
-    themeLink.href = `styles/themes/${themeName}.css`;
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  getConfig(key, defaultValue = null) {
+    let rawValue = localStorage.getItem(key);
+    return rawValue === null ? defaultValue : JSON.parse(rawValue);
   }
 
-  _watchMetaTag(name, callback) {
-    // Use MutationObserver for robust meta tag change detection
-    const observer = new MutationObserver((mutationsList) => {
-      for (const mutation of mutationsList) {
-        if (
-          mutation.type === "attributes" &&
-          mutation.attributeName === "content"
-        ) {
-          const metaElement = mutation.target;
-          if (metaElement.name === name) {
-            callback(metaElement.getAttribute("content"));
-          }
-        }
+  setConfig(key, value) {
+    let beforeRawValue = localStorage.getItem(key);
+
+    if (value === null) {
+      delete localStorage[key];
+    } else {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    let afterRawValue = localStorage.getItem(key);
+
+    if (beforeRawValue !== afterRawValue) {
+      this.dispatchEvent(
+        new CustomEvent("configchange", {
+          detail: { key, value, origin: "self" },
+        })
+      );
+    }
+  }
+
+  clearConfig() {
+    if (localStorage.length > 0) {
+      let keys = Object.keys(localStorage);
+      localStorage.clear();
+
+      for (let key of keys) {
+        this.dispatchEvent(
+          new CustomEvent("configchange", {
+            detail: { key, value: null, origin: "self" },
+          })
+        );
       }
-    });
-
-    const metaElement = document.head.querySelector(`meta[name="${name}"]`);
-    if (metaElement) {
-      observer.observe(metaElement, { attributes: true });
     }
-    // Optionally, observe document.head for additions of the meta tag if it might not exist initially
-    observer.observe(document.head, { childList: true, subtree: false });
   }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 })();

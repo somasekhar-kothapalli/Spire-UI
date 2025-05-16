@@ -52,14 +52,14 @@ export default new (class SpireTheme extends EventEmitter {
       );
     }
 
-    this._applyTheme(this._theme);
-    this._watchMetaTag("spire-theme", (newTheme) => {
-      if (newTheme && newTheme !== this._theme) {
-        this._theme = newTheme;
-        this._applyTheme(newTheme);
-        this.emit("themechange", newTheme);
-      }
-    });
+    // this._applyTheme(this._theme);
+    // this._watchMetaTag("spire-theme", (newTheme) => {
+    //   if (newTheme && newTheme !== this._theme) {
+    //     this._theme = newTheme;
+    //     this._applyTheme(newTheme);
+    //     this.emit("themechange", newTheme);
+    //   }
+    // });
   }
 
   _onHeadChange(mutations) {
@@ -96,17 +96,15 @@ export default new (class SpireTheme extends EventEmitter {
     }
   }
 
-  _fetchTheme(themeName) {
+  _fetchTheme(url) {
     return new Promise(async (resolve) => {
-      let response = await fetch(`styles/themes/${themeName}.css`);
+      let response = await fetch(url);
       let themeText = await response.text();
 
       for (let [importRuleURL, importRuleText] of this._getThemeImportRules(
         themeText
       )) {
-        let importText = await this._fetchTheme(
-          importRuleURL.replace(".css", "")
-        );
+        let importText = await this._fetchTheme(importRuleURL);
         themeText = themeText.replace(importRuleText, importText);
       }
 
@@ -148,7 +146,6 @@ export default new (class SpireTheme extends EventEmitter {
     if (this.presetAccentColors[color]) {
       resolvedColor = this.presetAccentColors[color];
     }
-    console.log("resolvedColor", resolvedColor);
 
     let rule = [...this._themeStyleSheet.cssRules]
       .reverse()

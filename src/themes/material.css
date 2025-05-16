@@ -532,11 +532,11 @@ x-tag[toggled]::part(scope) {
   border-color: var(--material-primary-color);
 }
 
-x-tag > x-icon {
+x-tag > s-icon {
   color: var(--material-primary-color);
 }
 
-x-tag[toggled] > x-icon {
+x-tag[toggled] > s-icon {
   color: var(--material-on-primary-color);
 }
 
@@ -678,15 +678,15 @@ x-navitem::part(arrow) {
   --path-data: var(--arrow-right-path-data);
 }
 
-x-navitem > x-icon {
+x-navitem > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
-x-navitem[toggled] > x-icon {
+x-navitem[toggled] > s-icon {
   color: var(--material-on-secondary-container-color);
 }
 
-x-navitem > x-label + x-icon {
+x-navitem > x-label + s-icon {
   color: var(--material-primary-color);
 }
 
@@ -732,7 +732,7 @@ x-menuitem::part(arrow) {
   --path-data: var(--arrow-right-path-data);
 }
 
-x-menuitem > x-icon {
+x-menuitem > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
@@ -1200,7 +1200,7 @@ x-input[error] {
   );
 }
 
-x-input > x-icon {
+x-input > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
@@ -1209,7 +1209,7 @@ x-input > x-label {
   font-weight: 400;
 }
 
-x-input > x-icon + x-label {
+x-input > s-icon + x-label {
   padding-top: 1px;
 }
 
@@ -1242,7 +1242,7 @@ x-numberinput[error] {
   );
 }
 
-x-numberinput > x-icon {
+x-numberinput > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
@@ -1251,7 +1251,7 @@ x-numberinput > x-label {
   font-weight: 400;
 }
 
-x-numberinput > x-icon + x-label {
+x-numberinput > s-icon + x-label {
   padding-top: 1px;
 }
 
@@ -1437,7 +1437,7 @@ x-titlebar::part(icon) {
   height: 18px;
 }
 
-x-titlebar x-icon {
+x-titlebar s-icon {
   color: var(--material-primary-color);
 }
 

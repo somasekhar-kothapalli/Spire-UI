@@ -725,11 +725,11 @@ x-navitem::part(arrow) {
   --path-data: var(--arrow-right-path-data);
 }
 
-x-nav x-icon:first-child {
+x-nav s-icon:first-child {
   opacity: 0.9;
 }
 
-x-nav x-label + x-icon {
+x-nav x-label + s-icon {
   color: var(--accent-color);
 }
 

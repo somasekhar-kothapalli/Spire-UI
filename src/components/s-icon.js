@@ -44,7 +44,7 @@ export default class SIcon extends HTMLElement {
       width: 100%;
       height: 100%;
       overflow: inherit;
-      /* @bugfix: pointerOverEvent.relatedTarget leaks shadow DOM of <x-icon> */
+      /* @bugfix: pointerOverEvent.relatedTarget leaks shadow DOM of <s-icon> */
       pointer-events: none;
     }
 

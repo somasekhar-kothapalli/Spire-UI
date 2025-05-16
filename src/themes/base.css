@@ -310,7 +310,7 @@ x-avatar > img {
   -webkit-user-drag: none;
 }
 
-x-avatar > x-icon {
+x-avatar > s-icon {
   width: 55%;
   height: 55%;
 }
@@ -370,17 +370,17 @@ x-accordion:not([expanded]):not([animating]) > *:not(header) {
   display: none !important;
 }
 
-x-icon[size="small"] {
+s-icon[size="small"] {
   width: 15px;
   height: 15px;
 }
 
-x-icon[size="large"] {
+s-icon[size="large"] {
   width: 21px;
   height: 21px;
 }
 
-x-icon:not(:defined) {
+s-icon:not(:defined) {
   display: none;
 }
 
@@ -459,8 +459,8 @@ s-button > x-label {
   pointer-events: none;
 }
 
-s-button > x-label ~ x-icon,
-s-button > x-icon ~ x-label {
+s-button > x-label ~ s-icon,
+s-button > s-icon ~ x-label {
   margin: 0 0 0 6px;
 }
 
@@ -468,12 +468,12 @@ s-button > x-menu {
   font-size: 0.875rem;
 }
 
-s-button[skin="normal"][size="small"] > x-icon {
+s-button[skin="normal"][size="small"] > s-icon {
   width: 14px;
   height: 14px;
 }
 
-s-button[skin="normal"][size="large"] > x-icon {
+s-button[skin="normal"][size="large"] > s-icon {
   width: 20px;
   height: 20px;
 }
@@ -499,17 +499,17 @@ s-buttons[vertical] > s-button[skin="flat"][size="small"]:not(:first-of-type) {
   margin-top: 5px;
 }
 
-s-button[skin="flat"] > x-icon {
+s-button[skin="flat"] > s-icon {
   width: 26px;
   height: 26px;
 }
 
-s-button[skin="flat"][size="small"] > x-icon {
+s-button[skin="flat"][size="small"] > s-icon {
   width: 22px;
   height: 22px;
 }
 
-s-button[skin="flat"][size="large"] > x-icon {
+s-button[skin="flat"][size="large"] > s-icon {
   width: 28px;
   height: 28px;
 }
@@ -537,17 +537,17 @@ s-buttons[vertical] > s-button[skin="recessed"] + s-button[skin="recessed"] {
   margin-top: 4px;
 }
 
-s-button[skin="recessed"] > x-icon {
+s-button[skin="recessed"] > s-icon {
   width: 16px;
   height: 16px;
 }
 
-s-button[skin="recessed"][size="small"] > x-icon {
+s-button[skin="recessed"][size="small"] > s-icon {
   width: 12px;
   height: 12px;
 }
 
-s-button[skin="recessed"][size="large"] > x-icon {
+s-button[skin="recessed"][size="large"] > s-icon {
   width: 20px;
   height: 20px;
 }
@@ -583,17 +583,17 @@ s-buttons[vertical] > s-button[skin="dock"] + s-button[skin="dock"] {
   margin-top: -1px;
 }
 
-s-button[skin="dock"] > x-icon {
+s-button[skin="dock"] > s-icon {
   width: 17px;
   height: 17px;
 }
 
-s-button[skin="dock"][size="small"] > x-icon {
+s-button[skin="dock"][size="small"] > s-icon {
   width: 14px;
   height: 14px;
 }
 
-s-button[skin="dock"][size="large"] > x-icon {
+s-button[skin="dock"][size="large"] > s-icon {
   width: 20px;
   height: 20px;
 }
@@ -647,7 +647,7 @@ x-tag[size="small"] > x-label {
   font-size: 0.6875rem;
 }
 
-x-tag > x-icon {
+x-tag > s-icon {
   width: 15px;
   height: 15px;
 }
@@ -716,20 +716,20 @@ x-tab:not(:defined) {
   display: none;
 }
 
-x-tab x-icon {
+x-tab s-icon {
   width: 17px;
   height: 17px;
   min-width: 17px;
   color: inherit;
 }
 
-x-tab[size="small"] x-icon {
+x-tab[size="small"] s-icon {
   width: 15px;
   height: 15px;
   min-width: 15px;
 }
 
-x-tab[size="large"] x-icon {
+x-tab[size="large"] s-icon {
   width: 19px;
   height: 19px;
   min-width: 19px;
@@ -744,11 +744,11 @@ x-tab x-label {
   flex: 1;
 }
 
-x-tab x-icon + x-label {
+x-tab s-icon + x-label {
   margin-left: 6px;
 }
 
-x-tab x-box:is([vertical]) x-icon + x-label {
+x-tab x-box:is([vertical]) s-icon + x-label {
   margin-left: 0px;
 }
 
@@ -804,7 +804,7 @@ x-menuitem img {
   height: 16px;
 }
 
-x-menuitem x-icon {
+x-menuitem s-icon {
   width: 16px;
   height: 16px;
 }
@@ -820,7 +820,7 @@ x-menuitem x-label {
 
 x-menuitem img + x-label,
 x-menuitem x-swatch + x-label,
-x-menuitem x-icon + x-label {
+x-menuitem s-icon + x-label {
   margin-left: 8px;
 }
 
@@ -889,7 +889,7 @@ x-nav x-label {
   text-align: start;
 }
 
-x-nav x-icon + x-label {
+x-nav s-icon + x-label {
   margin-left: 14px;
 }
 
@@ -897,18 +897,18 @@ x-nav[collapsed] x-navitem > x-label {
   display: none;
 }
 
-x-nav x-icon {
+x-nav s-icon {
   width: 20px;
   height: 20px;
 }
 
-x-nav x-label + x-icon {
+x-nav x-label + s-icon {
   width: 18px;
   height: 18px;
   margin: 0 0 0 10px;
 }
 
-x-nav[collapsed] x-navitem > x-label + x-icon {
+x-nav[collapsed] x-navitem > x-label + s-icon {
   display: none;
 }
 
@@ -1164,22 +1164,22 @@ x-input + x-input {
   margin-top: 20px;
 }
 
-x-input > x-icon {
+x-input > s-icon {
   width: 15px;
   height: 15px;
   min-width: 15px;
   margin: 0 0 0 8px;
 }
 
-x-input[size="small"] > x-icon {
+x-input[size="small"] > s-icon {
   transform: scale(0.8);
 }
 
-x-input[size="large"] > x-icon {
+x-input[size="large"] > s-icon {
   transform: scale(1.1);
 }
 
-x-input > x-icon:hover {
+x-input > s-icon:hover {
   cursor: default;
 }
 
@@ -1203,7 +1203,7 @@ x-input[empty] > x-label {
   display: block;
 }
 
-x-input > x-icon + x-label {
+x-input > s-icon + x-label {
   padding: 0 5px 0 29px;
 }
 
@@ -1310,6 +1310,6 @@ x-throbber:not(:defined) {
   display: none;
 }
 
-x-titlebar x-icon + x-label {
+x-titlebar s-icon + x-label {
   margin-left: 6px;
 }

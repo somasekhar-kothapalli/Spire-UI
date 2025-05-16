@@ -2,15 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>Spire UI</title>
 
     <!-- Viewport settings -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
-    <title>Spire UI</title>
 
-    <link rel="stylesheet" href="styles/style.css" />
+    <!-- Spire settings -->
+    <meta name="spire-theme" content="blue"></meta>
+    <meta name="spire-icons"></meta>
+    <meta name="spire-accent-color" content="blue"></meta>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +32,8 @@
   <body>
     <h1>Welcome to Spire UI</h1>
     <p>A modular and reusable UI component library.</p>
-    <h1>Buttons Examples</h1>
+    <h1 style="color: var(--accent-color);">Buttons Examples</h1>
+    <h1 style="color: var(--color-primary);">Buttons Examples</h1>
     <!-- Buttons -->
     <div class="d-flex gap-2 flex-wrap flex-direction-row align-items-center">
       <s-button>Primary</s-button>
@@ -38,8 +42,6 @@
       <s-button skin="flat" disabled>Disabled button</s-button>
       <s-button skin="stroked" size="small">Primary</s-button>
       <s-button skin="stroked" disabled>Disabled button</s-button>
-      <s-button skin="raised">Primary</s-button>
-      <s-button skin="raised" disabled>Disabled button</s-button>
       <s-button skin="icon" disabled>🎨</s-button>
       <s-button skin="icon" size="small">🔥</s-button>
       <s-button skin="icon" size="large">🔥</s-button>

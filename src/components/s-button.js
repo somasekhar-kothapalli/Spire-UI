@@ -3,7 +3,7 @@ import { html, css } from "../utils/template.js";
 // @element s-button
 // @event toggle - User toggled the button on or off by clicking it.
 export default class SButton extends HTMLElement {
-  static observedAttributes = ["disabled", "skin"];
+  static observedAttributes = ["disabled", "skin", "size"];
 
   static #shadowTemplate = html`
     <template>
@@ -13,36 +13,85 @@ export default class SButton extends HTMLElement {
 
   static #shadowStyleSheet = css`
     :host {
-      display: flex;
+      user-select: none;
+      -webkit-user-select: none;
+      display: inline-flex;
+      gap: 6px;
       align-items: center;
       justify-content: center;
       width: fit-content;
       height: fit-content;
-      min-height: 32px;
-      padding: 3px 16px;
+      min-height: 36px;
+      padding: 4px 16px;
       box-sizing: border-box;
       opacity: 1;
       position: relative;
       cursor: pointer;
-      user-select: none;
-      -webkit-user-select: none;
-      border-radius: 16px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      color: var(--color-primary);
+      font-size: 16px;
+      transition: all 0.3s ease-in-out;
     }
     :host(:focus) {
       outline: none;
     }
-    :host(:focus:not(:active)) {
-      z-index: 1;
+    :host(:hover) {
+      border-color: var(--color-primary);
+      color: var(--color-primary-foreground);
+      background-color: var(--color-primary);
     }
-    :host([mixed]) {
-      opacity: 0.75;
+    :host(:active) {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background-color: var(--color-primary-foreground);
     }
     :host([disabled]) {
       pointer-events: none;
-      opacity: 0.5;
+      opacity: 0.6;
+      cursor: not-allowed;
     }
     :host([hidden]) {
       display: none;
+    }
+
+    /* Skin variations */
+    :host([skin="flat"]) {
+      background-color: var(--color-primary);
+      color: var(--color-primary-foreground);
+      border-color: var(--color-primary);
+    }
+    :host([skin="flat"]:active) {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background-color: var(--color-primary-foreground);
+    }
+    :host([skin="stroked"]) {
+      background-color: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    :host([skin="stroked"]:hover) {
+      background-color: var(--color-primary);
+      color: var(--color-primary-foreground);
+    }
+    :host([skin="stroked"]:active) {
+      background-color: var(--color-primary-foreground);
+      color: var(--color-primary);
+    }
+    :host([skin="icon"]) {
+      min-width: 36px;
+      padding: 4px;
+    }
+
+    /* Size variations */
+    :host([size="small"]) {
+      min-height: 24px;
+      font-size: 12px;
+    }
+    :host([size="large"]) {
+      min-height: 38px;
+      font-size: 18px;
     }
   `;
 
@@ -80,7 +129,7 @@ export default class SButton extends HTMLElement {
 
   // @property
   // @attribute
-  // @type "normal" || "flat" || "raised" || "stroked" || "icon"
+  // @type "normal" || "flat" || "stroked" || "icon"
   // @default "normal"
   get skin() {
     return this.hasAttribute("skin") ? this.getAttribute("skin") : "normal";
@@ -118,28 +167,66 @@ export default class SButton extends HTMLElement {
     for (let element of this.#shadowRoot.querySelectorAll("[id]")) {
       this["#" + element.id] = element;
     }
+
+    // Add event listeners for handling interactions
+    this.addEventListener("click", this._handleClick);
+    this.addEventListener("keydown", this._handleKeyDown);
   }
 
-  connectedCallback() {}
+  connectedCallback() {
+    this._updateAccessibilityAttributes();
+    this._updateSkinAttribute();
+  }
+
   disconnectedCallback() {}
+
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue === newValue) return;
     if (name === "disabled") {
-      this.updateDisabledAttribute();
+      this._updateAccessibilityAttributes();
     }
     if (name === "skin") {
-      this.updateSkinAttribute();
+      this._updateSkinAttribute();
     }
   }
 
-  updateDisabledAttribute() {
+  _updateAccessibilityAttributes() {
     this.setAttribute("role", "button");
     this.setAttribute("aria-disabled", this.disabled);
   }
 
-  updateSkinAttribute() {
+  _updateSkinAttribute() {
     if (this.hasAttribute("skin") === false) {
       this.setAttribute("skin", "normal");
+    }
+  }
+
+  _handleClick(event) {
+    if (this.disabled) {
+      event.preventDefault();
+      return;
+    }
+
+    // Handle togglable behavior
+    if (this.hasAttribute("togglable")) {
+      this.toggled = !this.toggled;
+      this.dispatchEvent(
+        new CustomEvent("toggle", { detail: { toggled: this.toggled } })
+      );
+    }
+
+    // Add any other click-related logic here
+  }
+
+  _handleKeyDown(event) {
+    if (this.disabled) {
+      return;
+    }
+
+    // Handle keyboard interactions (e.g., Space or Enter to activate)
+    if (event.code === "Space" || event.code === "Enter") {
+      event.preventDefault();
+      this.click(); // Trigger a click event
     }
   }
 }

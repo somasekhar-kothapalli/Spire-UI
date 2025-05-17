@@ -31,6 +31,7 @@ import "./components/s-progressbar.js";
 import "./components/s-radio.js";
 import "./components/s-radios.js";
 import "./components/s-sidebar.js";
+import "./components/s-titlebar.js";
 import "./components/s-tooltip.js";
 
 export default Spire;

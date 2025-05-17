@@ -1552,57 +1552,57 @@ x-throbber {
   color: var(--accent-color);
 }
 
-x-titlebar {
+s-titlebar {
   padding-left: 11px;
   justify-content: flex-start;
 }
 
-x-titlebar::part(buttons) {
+s-titlebar::part(buttons) {
   right: 0;
   top: 0;
 }
 
-x-titlebar::part(button) {
+s-titlebar::part(button) {
   padding: 0 14px;
   color: var(--text-color);
 }
 
-x-titlebar::part(button):hover {
+s-titlebar::part(button):hover {
   background-color: color(srgb 0 0 0 / 0.04);
 }
 
-x-titlebar::part(button):active {
+s-titlebar::part(button):active {
   color: color(srgb 0 0 0 / 0.6063);
   background-color: color(srgb 0 0 0 / 0.03);
 }
 
-x-titlebar::part(minimize-button) {
+s-titlebar::part(minimize-button) {
   --path-data: var(--minimize-path-data);
 }
 
-x-titlebar::part(maximize-button) {
+s-titlebar::part(maximize-button) {
   --path-data: var(--maximize-path-data);
 }
 
-x-titlebar::part(restore-button) {
+s-titlebar::part(restore-button) {
   --path-data: var(--restore-path-data);
 }
 
-x-titlebar::part(close-button) {
+s-titlebar::part(close-button) {
   --path-data: var(--clear-path-data);
 }
 
-x-titlebar::part(close-button):hover {
+s-titlebar::part(close-button):hover {
   color: color(srgb 1 1 1);
   background-color: color(srgb 0.77 0.16 0.11);
 }
 
-x-titlebar::part(close-button):active {
+s-titlebar::part(close-button):active {
   color: color(srgb 1 1 1 / 0.7);
   background-color: color(srgb 0.77 0.16 0.11 / 0.8);
 }
 
-x-titlebar::part(icon) {
+s-titlebar::part(icon) {
   width: 16px;
   height: 16px;
 }

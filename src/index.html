@@ -461,6 +461,34 @@
           <s-icon href="#refresh"></s-icon>
           <s-tooltip href="#about">Refresh</s-tooltip>
         </s-button>
+
+        <h1>Titlebar</h1>
+        <s-titlebar>
+          <s-label>About</s-label>
+        </s-titlebar>
+
+        <script>
+          let titlebar = document.querySelector("s-titlebar");
+        
+          titlebar.addEventListener("buttonclick", (event) => {
+            if (event.detail === "minimize") {
+              window.alert("Minimize window");
+            }
+            else if (event.detail === "maximize") {
+              titlebar.maximized = true;
+            }
+            else if (event.detail === "restore") {
+              titlebar.maximized = false;
+            }
+            if (event.detail === "close") {
+              window.alert("Close window");
+            }
+          });
+        </script>
+        
+        <s-titlebar maximized>
+          <s-label>About</s-label>
+        </s-titlebar>
         
         
       </s-content>

@@ -1387,17 +1387,17 @@ x-throbber {
   color: var(--material-primary-color);
 }
 
-x-titlebar {
+s-titlebar {
   padding-left: 8px;
   justify-content: flex-start;
 }
 
-x-titlebar::part(buttons) {
+s-titlebar::part(buttons) {
   right: 10px;
   gap: 10px;
 }
 
-x-titlebar::part(button) {
+s-titlebar::part(button) {
   width: 22px;
   height: 22px;
   min-width: 22px;
@@ -1406,42 +1406,42 @@ x-titlebar::part(button) {
   border-radius: 4px;
 }
 
-x-titlebar::part(button):hover {
+s-titlebar::part(button):hover {
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.08);
 }
 
-x-titlebar::part(button):active {
+s-titlebar::part(button):active {
   background-color: oklch(
     from var(--material-on-secondary-container-color) l c h / 0.1
   );
 }
 
-x-titlebar::part(minimize-button) {
+s-titlebar::part(minimize-button) {
   --path-data: var(--minimize-path-data);
 }
 
-x-titlebar::part(maximize-button) {
+s-titlebar::part(maximize-button) {
   --path-data: var(--maximize-path-data);
 }
 
-x-titlebar::part(restore-button) {
+s-titlebar::part(restore-button) {
   --path-data: var(--restore-path-data);
 }
 
-x-titlebar::part(close-button) {
+s-titlebar::part(close-button) {
   --path-data: var(--close-path-data);
 }
 
-x-titlebar::part(icon) {
+s-titlebar::part(icon) {
   width: 18px;
   height: 18px;
 }
 
-x-titlebar s-icon {
+s-titlebar s-icon {
   color: var(--material-primary-color);
 }
 
-x-titlebar s-label {
+s-titlebar s-label {
   color: var(--material-primary-color);
   font-weight: 700;
 }

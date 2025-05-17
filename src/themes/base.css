@@ -1318,6 +1318,6 @@ x-throbber:not(:defined) {
   display: none;
 }
 
-x-titlebar s-icon + s-label {
+s-titlebar s-icon + s-label {
   margin-left: 6px;
 }

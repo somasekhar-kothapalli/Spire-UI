@@ -10,7 +10,7 @@ export default class SSidebar extends HTMLElement {
       <s-container>
         <slot name="container"></slot>
       </s-container>
-      <s-footer>
+      <s-footer class="border-top">
         <slot name="footer"></slot>
       </s-footer>
     </template>
@@ -22,7 +22,7 @@ export default class SSidebar extends HTMLElement {
       width: var(--sidebar-width);
       height: 100%;
       position: relative;
-      border-right: 2px solid var(--border-color);
+      border-right: var(--border-width) solid var(--border-color);
       display: block flex;
       flex-flow: column;
       background-color: var(--foreground-color);
@@ -43,13 +43,11 @@ export default class SSidebar extends HTMLElement {
     }
     s-header {
       justify-content: start;
-      border-bottom: 1px solid var(--border-color);
     }
     s-footer {
       display: block;
       padding: 10px;
       justify-content: start;
-      border-top: 1px solid var(--border-color);
     }
     s-container {
       flex: 1;

@@ -1,0 +1,44 @@
+:root {
+  --bs-border-width: var(--border-width);
+  --bs-border-style: var(--border-style);
+  --bs-border-color: var(--border-color);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+.border-right {
+  border-right: var(--bs-border-width) var(--bs-border-style)
+    var(--bs-border-color) !important;
+}
+
+.border-right-0 {
+  border-right: 0 !important;
+}
+
+.border-top {
+  border-top: var(--bs-border-width) var(--bs-border-style)
+    var(--bs-border-color) !important;
+}
+
+.border-top-0 {
+  border-top: 0 !important;
+}
+
+.border-bottom {
+  border-bottom: var(--bs-border-width) var(--bs-border-style)
+    var(--bs-border-color) !important;
+}
+
+.border-bottom-0 {
+  border-bottom: 0 !important;
+}

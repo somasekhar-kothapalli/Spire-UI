@@ -1,15 +1,19 @@
 import EventEmitter from "./event-emitter.js";
 
+import { compareArrays } from "../utils/array.js";
+import { getIcons } from "../utils/icon.js";
+
 // @singleton
 // @event themechange
+// @event iconschange
 // @event configchange
 // @event accentcolorchange
-export default new class Spire extends EventEmitter {
+export default new (class Spire extends EventEmitter {
   // @type string?
   //
   // URL to a CSS file with Spire theme definition.
   get theme() {
-    return this._theme;
+    return this.#theme;
   }
   set theme(value) {
     let metaElement = document.head.querySelector(
@@ -25,11 +29,73 @@ export default new class Spire extends EventEmitter {
     metaElement.setAttribute("content", value);
   }
 
+  // @type Array<string>
+  //
+  // URLs to an SVG files with icons.
+  get icons() {
+    return [...this.#icons];
+  }
+  set icons(urls) {
+    let metaElement = document.head.querySelector(
+      `:scope > meta[name="spire-icons"]`
+    );
+
+    if (!metaElement) {
+      // @legacy
+      {
+        metaElement = document.head.querySelector(
+          `:scope > meta[name="spire-iconsets"]`
+        );
+
+        if (metaElement) {
+          console.warn(
+            `<meta name="spire-iconsets"> has been deprecated. Please use <meta name="spire-icons"> instead.`
+          );
+        }
+      }
+
+      if (!metaElement) {
+        metaElement = document.createElement("meta");
+        metaElement.setAttribute("name", "spire-icons");
+        document.head.append(metaElement);
+      }
+    }
+
+    metaElement.setAttribute("content", urls.join(", "));
+  }
+
+  // @type Array<string>
+  //
+  // URLs to files with localizations.
+  // Each file name should consist from ISO 639 language code (e.g. "en"), optionally followed by "-" and ISO 3166
+  // territory, e.g. "en", "en-US" or "en-GB".
+  get locales() {
+    return [...this.#locales];
+  }
+  set locales(urls) {
+    let metaElement = document.head.querySelector(
+      `:scope > meta[name="spire-locales"]`
+    );
+
+    if (!metaElement) {
+      metaElement = document.createElement("meta");
+      metaElement.setAttribute("name", "spire-locales");
+      document.head.append(metaElement);
+    }
+
+    metaElement.setAttribute("content", urls.join(", "));
+  }
+
+  // @type string
+  get locale() {
+    return this.#localesIds[0] || "en";
+  }
+
   // @type string
   //
   // Accent color.
   get accentColor() {
-    return this._accentColor;
+    return this.#accentColor;
   }
   set accentColor(value) {
     let meta = document.head.querySelector(
@@ -49,10 +115,30 @@ export default new class Spire extends EventEmitter {
 
   get whenThemeReady() {
     return new Promise((resolve) => {
-      if (this._themeReadyCallbacks === null) {
+      if (this.#themeReadyCallbacks === null) {
         resolve();
       } else {
-        this._themeReadyCallbacks.push(resolve);
+        this.#themeReadyCallbacks.push(resolve);
+      }
+    });
+  }
+
+  get whenIconsReady() {
+    return new Promise((resolve) => {
+      if (this.#iconsReadyCalbacks === null) {
+        resolve();
+      } else {
+        this.#iconsReadyCalbacks.push(resolve);
+      }
+    });
+  }
+
+  get whenLocalesReady() {
+    return new Promise((resolve) => {
+      if (this.#localesReadyCallbacks === null) {
+        resolve();
+      } else {
+        this.#localesReadyCallbacks.push(resolve);
       }
     });
   }
@@ -61,14 +147,14 @@ export default new class Spire extends EventEmitter {
 
   // @type CSSStyleSheet
   get themeStyleSheet() {
-    return this._themeStyleSheet;
+    return this.#themeStyleSheet;
   }
 
   // @type Object
   get presetAccentColors() {
     let colors = {};
 
-    for (let rule of this._themeStyleSheet.cssRules) {
+    for (let rule of this.#themeStyleSheet.cssRules) {
       if (rule.type === 1 && rule.selectorText === ":root") {
         let unparsedValue = rule.style.getPropertyValue(
           "--preset-accent-colors"
@@ -90,6 +176,37 @@ export default new class Spire extends EventEmitter {
 
     return colors;
   }
+
+  // @type "none" || "titlecase"
+  get autocapitalize() {
+    return this.#autocapitalize;
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // @type (string) => SVGSymbolElement
+  //
+  // Get an icon matching the given selector.
+  // Selector consists from "#", followed by the icon ID.
+  // Should be called after Spire.whenIconsReady.
+  queryIcon(selector) {
+    selector = selector.startsWith("#") === false ? "#" + selector : selector;
+
+    let icon = null;
+
+    for (let iconsElement of this.#iconsElements) {
+      let matchedIcon = iconsElement.querySelector(selector);
+
+      if (matchedIcon) {
+        icon = matchedIcon;
+        break;
+      }
+    }
+
+    return icon;
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   getConfig(key, defaultValue = null) {
     let rawValue = localStorage.getItem(key);
@@ -133,28 +250,48 @@ export default new class Spire extends EventEmitter {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  _theme = null;
-  _accentColor = null;
+  #theme = null;
+  #accentColor = null;
+  #icons = [];
+  #locales = [];
+  #localesIds = [];
+  #autocapitalize = "none";
 
-  _themeStyleSheet = new CSSStyleSheet();
+  #themeStyleSheet = new CSSStyleSheet();
+  #iconsElements = [];
+  #localesBundle = null;
 
-  _themeReadyCallbacks = [];
+  #themeReadyCallbacks = [];
+  #iconsReadyCalbacks = [];
+  #localesReadyCallbacks = [];
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   constructor() {
     super();
 
-    document.adoptedStyleSheets = [this._themeStyleSheet];
+    document.adoptedStyleSheets = [this.#themeStyleSheet];
 
-    let { theme, accentColor } = this._getSettings();
+    let { theme, accentColor, icons, locales } = this._getSettings();
 
-    this._theme = theme;
-    this._accentColor = accentColor;
+    this.#theme = theme;
+    this.#accentColor = accentColor;
+    this.#icons = icons;
+    this.#locales = locales;
+
+    this.#localesIds = this.#locales.map((locale) => {
+      let fileName = locale.substring(locale.lastIndexOf("/") + 1);
+      return fileName.substring(0, fileName.indexOf("."));
+    });
 
     // Load theme
-    if (this._theme !== null) {
-      this._loadTheme(this._theme);
+    if (this.#theme !== null) {
+      this._loadTheme(this.#theme);
+    }
+
+    // Load icons
+    if (this.#icons.length > 0) {
+      this._loadIcons(this.#icons);
     }
 
     // Observe <head> for changes
@@ -176,23 +313,41 @@ export default new class Spire extends EventEmitter {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   _onHeadChange(mutations) {
-    let oldTheme = this._theme;
-    let oldAccentColor = this._accentColor;
+    let oldTheme = this.#theme;
+    let oldAccentColor = this.#accentColor;
+    let oldIcons = this.#icons;
+    let oldLocales = this.#locales;
 
-    let { theme, accentColor } = this._getSettings();
+    let { theme, accentColor, icons, locales } = this._getSettings();
 
-    this._theme = theme;
-    this._accentColor = accentColor;
+    this.#theme = theme;
+    this.#accentColor = accentColor;
+    this.#icons = icons;
+    this.#locales = locales;
 
-    if (this._theme !== oldTheme) {
-      this._loadTheme(this._theme).then(() => {
+    this.#localesIds = this.#locales.map((locale) => {
+      let fileName = locale.substring(locale.lastIndexOf("/") + 1);
+      return fileName.substring(0, fileName.indexOf("."));
+    });
+
+    if (this.#theme !== oldTheme) {
+      this._loadTheme(this.#theme).then(() => {
         this.dispatchEvent(new CustomEvent("themechange"));
       });
     }
 
-    if (this._accentColor !== oldAccentColor) {
+    if (this.#accentColor !== oldAccentColor) {
       this._updateThemeAccentColor();
       this.dispatchEvent(new CustomEvent("accentcolorchange"));
+    }
+
+    if (compareArrays(this.#icons, oldIcons, true) === false) {
+      this._loadIcons(this.#icons).then(() => {
+        this.dispatchEvent(new CustomEvent("iconschange"));
+
+        // @legacy
+        this.dispatchEvent(new CustomEvent("iconsetschange"));
+      });
     }
   }
 
@@ -229,37 +384,70 @@ export default new class Spire extends EventEmitter {
 
   _loadTheme(url) {
     return new Promise(async (resolve) => {
-      if (this._themeReadyCallbacks === null) {
-        this._themeReadyCallbacks = [];
+      if (this.#themeReadyCallbacks === null) {
+        this.#themeReadyCallbacks = [];
       }
 
       let cssText = await this._fetchTheme(url);
-      this._themeStyleSheet.replaceSync(cssText);
+      this.#themeStyleSheet.replaceSync(cssText);
 
+      this._updateAutocapitalizeProperty();
       this._updateThemeAccentColor();
 
-      if (this._themeReadyCallbacks !== null) {
-        for (let callback of this._themeReadyCallbacks) {
+      if (this.#themeReadyCallbacks !== null) {
+        for (let callback of this.#themeReadyCallbacks) {
           callback();
         }
 
-        this._themeReadyCallbacks = null;
+        this.#themeReadyCallbacks = null;
       }
 
       resolve();
     });
   }
 
+  _loadIcons(urls) {
+    return new Promise(async (resolve) => {
+      if (this.#iconsReadyCalbacks === null) {
+        this.#iconsReadyCalbacks = [];
+      }
+
+      this.#iconsElements = [];
+
+      for (let url of urls) {
+        let iconsElement = await getIcons(url);
+        this.#iconsElements.push(iconsElement);
+      }
+
+      for (let callback of this.#iconsReadyCalbacks) {
+        callback();
+      }
+
+      this.#iconsReadyCalbacks = null;
+      resolve();
+    });
+  }
+
+  _updateAutocapitalizeProperty() {
+    if (this.#localesBundle?.locales[0]?.startsWith("en")) {
+      let computedStyle = getComputedStyle(document.documentElement);
+      this.#autocapitalize =
+        computedStyle.getPropertyValue("--autocapitalize").trim() || "none";
+    } else {
+      this.#autocapitalize = "none";
+    }
+  }
+
   async _updateThemeAccentColor() {
     await this.whenThemeReady;
-    let color = this._accentColor || this.presetAccentColors.blue;
+    let color = this.#accentColor || this.presetAccentColors.blue;
     let resolvedColor = color;
 
     if (this.presetAccentColors[color]) {
       resolvedColor = this.presetAccentColors[color];
     }
 
-    let rule = [...this._themeStyleSheet.cssRules]
+    let rule = [...this.#themeStyleSheet.cssRules]
       .reverse()
       .find(($0) => $0.type === 1 && $0.selectorText === ":root");
 
@@ -312,9 +500,30 @@ export default new class Spire extends EventEmitter {
     let accentColorMeta = document.head.querySelector(
       `:scope > meta[name="spire-accent-color"]`
     );
+    let iconsMeta = document.head.querySelector(
+      `:scope > meta[name="spire-icons"]`
+    );
+    let localesMeta = document.head.querySelector(
+      `:scope > meta[name="spire-locales"]`
+    );
+
+    // @legacy
+    if (!iconsMeta) {
+      iconsMeta = document.head.querySelector(
+        `:scope > meta[name="spire-iconsets"]`
+      );
+
+      if (iconsMeta) {
+        console.warn(
+          `<meta name="spire-iconsets"> has been deprecated in in Spire 0.27.0. Please use <meta name="spire-icons"> instead.`
+        );
+      }
+    }
 
     let theme = null;
     let accentColor = null;
+    let icons = [];
+    let locales = [];
 
     if (themeMeta && themeMeta.content !== "") {
       theme = themeMeta.content;
@@ -324,8 +533,20 @@ export default new class Spire extends EventEmitter {
     } else {
       accentColor = "#000";
     }
+    if (iconsMeta) {
+      icons = iconsMeta.content
+        .split(",")
+        .map((l) => l.trim())
+        .filter((l) => l !== "");
+    }
+    if (localesMeta) {
+      locales = localesMeta.content
+        .split(",")
+        .map((l) => l.trim())
+        .filter((l) => l !== "");
+    }
 
-    return { theme, accentColor };
+    return { theme, accentColor, icons, locales };
   }
 
   _getThemeImportRules(themeText) {
@@ -375,4 +596,26 @@ export default new class Spire extends EventEmitter {
 
     return output;
   }
-};
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // @legacy
+  get iconsets() {
+    console.warn(
+      `"Spire.iconsets" has been deprecated in Spire 0.27.0. Please use "Spire.icons" instead.`
+    );
+    return this.icons;
+  }
+  set iconsets(iconsets) {
+    console.warn(
+      `"Spire.iconsets" has been deprecated in Spire 0.27.0. Please use "Spire.icons" instead.`
+    );
+    this.icons = iconsets;
+  }
+  get whenIconsetsReady() {
+    console.warn(
+      `"Spire.whenIconsetsReady" has been deprecated in Spire 0.27.0. Please use "Spire.whenIconsReady" instead.`
+    );
+    return this.whenIconsReady;
+  }
+})();

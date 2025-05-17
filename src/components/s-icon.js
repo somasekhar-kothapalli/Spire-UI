@@ -1,25 +1,21 @@
+import Spire from "../classes/spire.js";
+
+import { getIcons } from "../utils/icon.js";
 import { html, css } from "../utils/template.js";
 
 // @element s-icon
 export default class SIcon extends HTMLElement {
-  static observedAttributes = ["name", "size"];
+  static observedAttributes = ["href"];
+
   static #shadowTemplate = html`
     <template>
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         id="svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-        <path d="M12 8v4" />
-        <path d="M12 16h.01" />
-      </svg>
+        preserveAspectRatio="none"
+        viewBox="0 0 100 100"
+        width="0px"
+        height="0px"
+      ></svg>
       <slot></slot>
     </template>
   `;
@@ -31,8 +27,8 @@ export default class SIcon extends HTMLElement {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
     }
     :host([disabled]) {
       opacity: 0.5;
@@ -40,65 +36,29 @@ export default class SIcon extends HTMLElement {
     :host([hidden]) {
       display: none;
     }
+
     #svg {
       width: 100%;
       height: 100%;
+      fill: currentColor;
+      stroke: none;
       overflow: inherit;
       /* @bugfix: pointerOverEvent.relatedTarget leaks shadow DOM of <s-icon> */
       pointer-events: none;
     }
-
-    /* Add styles for different sizes if needed */
-    :host([size="small"]) {
-      width: 16px;
-      height: 16px;
-    }
-    :host([size="large"]) {
-      width: 32px;
-      height: 32px;
-    }
   `;
 
-  shadowRoot = null;
-  _defaultIconsChangeListener = null;
-  constructor() {
-    super();
-    this.shadowRoot = this.attachShadow({ mode: "closed" });
-    this.shadowRoot.adoptedStyleSheets = [SIcon.#shadowStyleSheet];
-    this.shadowRoot.append(
-      document.importNode(SIcon.#shadowTemplate.content, true)
-    );
-
-    for (let element of this.shadowRoot.querySelectorAll("[id]")) {
-      this["#" + element.id] = element;
-    }
-  }
-
-  // Lifecycle callbacks
-  connectedCallback() {}
-
-  disconnectedCallback() {}
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue === newValue) {
-      return;
-    } else if (name === "name") {
-      this._updateIcon();
-    }
-    // Handle changes for other observed attributes if necessary
-  }
-
-  // Properties linked to attributes
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // @property
   // @attribute
   // @type string
   // @default ""
-  get name() {
-    return this.hasAttribute("name") ? this.getAttribute("name") : "";
+  get href() {
+    return this.hasAttribute("href") ? this.getAttribute("href") : "";
   }
-  set name(name) {
-    this.setAttribute("name", name);
+  set href(href) {
+    this.setAttribute("href", href);
   }
 
   // @property
@@ -128,9 +88,111 @@ export default class SIcon extends HTMLElement {
       : this.removeAttribute("size");
   }
 
-  // Private method to update the icon
-  _updateIcon() {
-    let iconName = this.name.trim();
+  #shadowRoot = null;
+  #defaultIconsChangeListener = null;
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  constructor() {
+    super();
+
+    this.#shadowRoot = this.attachShadow({ mode: "closed" });
+    this.#shadowRoot.adoptedStyleSheets = [SIcon.#shadowStyleSheet];
+    this.#shadowRoot.append(
+      document.importNode(SIcon.#shadowTemplate.content, true)
+    );
+
+    for (let element of this.#shadowRoot.querySelectorAll("[id]")) {
+      this["#" + element.id] = element;
+    }
+
+    this.addEventListener("pointerenter", () => this._onPointerEnter());
+    this.addEventListener("pointerleave", () => this._onPointerLeave());
+  }
+
+  connectedCallback() {
+    Spire.addEventListener(
+      "iconschange",
+      (this.#defaultIconsChangeListener = () => {
+        this._update();
+      })
+    );
+  }
+
+  disconnectedCallback() {
+    Spire.removeEventListener("iconschange", this.#defaultIconsChangeListener);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) {
+      return;
+    } else if (name === "href") {
+      this._update();
+    }
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  _onPointerEnter() {
+    let tooltip = this.querySelector(":scope > x-tooltip");
+
+    if (tooltip && tooltip.disabled === false) {
+      tooltip.open(this);
+    }
+  }
+
+  _onPointerLeave() {
+    let tooltip = this.querySelector(":scope > x-tooltip");
+
+    if (tooltip) {
+      tooltip.close();
+    }
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  async _update() {
+    let symbol = null;
+    let href = this.href.trim();
+
+    if (href !== "") {
+      let path = null;
+      let id = null;
+
+      if (href.includes("#")) {
+        let parts = href.split("#");
+
+        if (parts[0] !== "") {
+          path = parts[0];
+        }
+        if (parts[1] !== "") {
+          id = parts[1];
+        }
+      }
+
+      if (id !== null) {
+        // Default icons
+        if (path === null) {
+          await Spire.whenIconsReady;
+          symbol = Spire.queryIcon("#" + CSS.escape(id));
+        }
+        // Custom icons
+        else {
+          let iconsElement = await getIcons(path);
+
+          if (iconsElement) {
+            symbol = iconsElement.querySelector("#" + CSS.escape(id));
+          }
+        }
+      }
+    }
+
+    if (symbol) {
+      this["#svg"].setAttribute("viewBox", symbol.getAttribute("viewBox"));
+      this["#svg"].innerHTML = symbol.innerHTML;
+    } else {
+      this["#svg"].innerHTML = "";
+    }
   }
 }
 

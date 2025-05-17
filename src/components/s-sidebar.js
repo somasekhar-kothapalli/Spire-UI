@@ -124,7 +124,7 @@ export default class SSidebar extends HTMLElement {
   _updateSidebarHeader() {
     this.sidebarHeaderContainer.innerHTML = this.expandable
       ? `
-      <s-button class="toggle-btn" id="toggle" skin="icon-outlined"> <s-icon src="menu"></s-icon> </s-button>
+      <s-button class="toggle-btn" id="toggle" skin="icon-outlined"> <s-icon href="#menu"></s-icon> </s-button>
       <slot name="header">Default Header</slot>
       `
       : `<slot name="header">Default Header</slot>`;

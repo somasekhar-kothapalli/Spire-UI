@@ -928,7 +928,7 @@ s-nav[collapsed] s-navitem::part(arrow) {
   display: none;
 }
 
-x-contextmenu:not(:defined) {
+s-contextmenu:not(:defined) {
   display: none;
 }
 

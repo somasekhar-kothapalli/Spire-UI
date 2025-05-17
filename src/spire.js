@@ -10,6 +10,7 @@ import "./components/s-buttons.js";
 import "./components/s-card.js";
 import "./components/s-checkbox.js";
 import "./components/s-content.js";
+import "./components/s-contextmenu.js";
 import "./components/s-drawer.js";
 import "./components/s-footer.js";
 import "./components/s-header.js";

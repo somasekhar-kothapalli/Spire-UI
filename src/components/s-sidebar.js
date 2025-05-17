@@ -1,6 +1,6 @@
 import { normalize } from "../utils/math.js";
 import { html, css } from "../utils/template.js";
-import SpireTheme from "../utils/theme.js";
+import Spire from "../classes/spire.js";
 
 export default class SSidebar extends HTMLElement {
   static observedAttributes = ["expanded", "expandable"];
@@ -84,7 +84,7 @@ export default class SSidebar extends HTMLElement {
 
     this.#shadowRoot = this.attachShadow({ mode: "closed" });
     this.#shadowRoot.adoptedStyleSheets = [
-      SpireTheme.themeStyleSheet,
+      Spire.themeStyleSheet,
       SSidebar.#shadowStyleSheet,
     ];
     this.#shadowRoot.append(

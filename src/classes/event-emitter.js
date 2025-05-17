@@ -1,23 +1,16 @@
 export default class EventEmitter {
-  _events = {};
-
-  emit(eventName, ...args) {
-    if (!this._events || !this._events[eventName]) return;
-    for (const listener of this._events[eventName]) {
-      listener(...args);
-    }
-  }
+  #events = {};
 
   // @type (string, Function) => void
   addEventListener(eventName, listener) {
-    if (!this._events) {
-      this._events = {};
+    if (!this.#events) {
+      this.#events = {};
     }
 
-    let listeners = this._events[eventName];
+    let listeners = this.#events[eventName];
 
     if (!listeners) {
-      this._events[eventName] = listeners = [];
+      this.#events[eventName] = listeners = [];
     }
 
     listeners.push(listener);
@@ -32,28 +25,28 @@ export default class EventEmitter {
 
   // @type (string, Function) => void
   removeEventListener(eventName, listener) {
-    if (!this._events || !this._events[eventName]) {
+    if (!this.#events || !this.#events[eventName]) {
       return;
     }
 
     var temp = [];
 
-    for (var i = 0; i < this._events[eventName].length; i += 1) {
-      if (this._events[eventName][i] !== listener) {
-        temp.push(this._events[eventName][i]);
+    for (var i = 0; i < this.#events[eventName].length; i += 1) {
+      if (this.#events[eventName][i] !== listener) {
+        temp.push(this.#events[eventName][i]);
       }
     }
 
-    this._events[eventName] = temp;
+    this.#events[eventName] = temp;
   }
 
   // @type (CustomEvent) => void
   dispatchEvent(event) {
-    if (!this._events) {
+    if (!this.#events) {
       return;
     }
 
-    let listeners = this._events[event.type];
+    let listeners = this.#events[event.type];
 
     if (!listeners) {
       return;
@@ -62,7 +55,7 @@ export default class EventEmitter {
     // If there is an error in any of the listeners then it will be thrown only after all listeners were fired,
     // this is necessary to prevent error in one listener from stopping all subsequent listeners
 
-    let cachedError = null;
+    let catchedError = null;
 
     for (let i = listeners.length - 1; i >= 0; i -= 1) {
       let listener = listeners[i];
@@ -71,8 +64,8 @@ export default class EventEmitter {
       try {
         result = listener.call(window, event);
       } catch (error) {
-        if (cachedError === null) {
-          cachedError = error;
+        if (catchedError === null) {
+          catchedError = error;
         }
       }
 
@@ -82,8 +75,8 @@ export default class EventEmitter {
       }
     }
 
-    if (cachedError) {
-      throw cachedError;
+    if (catchedError) {
+      throw catchedError;
     }
   }
 }

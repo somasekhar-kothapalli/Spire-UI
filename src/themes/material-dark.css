@@ -46,7 +46,7 @@ x-input[error] {
   --selection-background-color: var(--material-error-color);
 }
 
-x-numberinput[error] {
+s-numberinput[error] {
   --selection-background-color: var(--material-error-color);
 }
 

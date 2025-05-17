@@ -200,8 +200,27 @@
           <s-label>Open bottom</s-label>
           <s-drawer position="bottom"></s-drawer>
         </s-button>
+
+        <h1>Notification</h1>
+        <s-button>
+          <s-label>Open notification</s-label>
+          <s-notification>Sample notification text with a <a href="https://xel-toolkit.org" target="_blank">link</a>.</s-notification>
+        </s-button>
+        <s-button>
+          <s-label>Open notification</s-label>
+          <s-notification timeout="2000">This notification will disappear after 2000 milliseconds.</s-notification>
+        </s-button>
         
-        
+
+        <h1>Number input</h1>      
+        <s-numberinput value="0"></s-numberinput>
+        <s-numberinput value="499" prefix="$" min="0">
+          <x-stepper></x-stepper>
+        </s-numberinput>
+        <s-numberinput value="100" suffix=" px">
+          <x-stepper></x-stepper>
+        </s-numberinput>
+
       </s-content>
     
       <s-footer slot="footer">© 2025 My Company</s-footer>

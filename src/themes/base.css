@@ -1024,19 +1024,19 @@ x-popover > footer:last-child {
   border-bottom-right-radius: inherit;
 }
 
-x-notification[size="small"] {
+s-notification[size="small"] {
   padding: 3px 12px;
 }
 
-x-notification[size="large"] {
+s-notification[size="large"] {
   padding: 8px 12px;
 }
 
-x-notification:not(:defined) {
+s-notification:not(:defined) {
   display: none;
 }
 
-x-notification > p {
+s-notification > p {
   margin: 0;
 }
 
@@ -1215,23 +1215,23 @@ x-input > s-icon + s-label {
   padding: 0 5px 0 29px;
 }
 
-x-numberinput[size="small"] {
+s-numberinput[size="small"] {
   height: 24px;
 }
 
-x-numberinput[size="large"] {
+s-numberinput[size="large"] {
   height: 38px;
 }
 
-x-numberinput:focus {
+s-numberinput:focus {
   z-index: 10;
 }
 
-x-numberinput:not(:defined) {
+s-numberinput:not(:defined) {
   display: none;
 }
 
-x-numberinput > s-label {
+s-numberinput > s-label {
   display: none;
   position: absolute;
   top: 50%;
@@ -1247,15 +1247,15 @@ x-numberinput > s-label {
   pointer-events: none;
 }
 
-x-numberinput[empty] > s-label {
+s-numberinput[empty] > s-label {
   display: block;
 }
 
-x-numberinput[size="small"][error]::before {
+s-numberinput[size="small"][error]::before {
   top: 27px;
 }
 
-x-numberinput[size="large"][error]::before {
+s-numberinput[size="large"][error]::before {
   top: 41px;
 }
 

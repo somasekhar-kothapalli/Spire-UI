@@ -922,22 +922,22 @@ x-popover > footer {
   border-top-color: var(--border-color);
 }
 
-x-notification {
+s-notification {
   color: color(srgb 1 1 1);
   background-color: color(srgb 0.16 0.16 0.16);
   border-radius: var(--border-radius);
   box-shadow: 0 4px 8px color(srgb 0 0 0 / 0.14);
 }
 
-x-notification a {
+s-notification a {
   color: oklch(from var(--accent-color) calc(l + 0.15) c h);
 }
 
-x-notification a:hover {
+s-notification a:hover {
   color: oklch(from var(--accent-color) calc(l + 0.15) c h);
 }
 
-x-notification a:active {
+s-notification a:active {
   color: oklch(from var(--accent-color) calc(l + 0.25) c h);
 }
 
@@ -1317,7 +1317,7 @@ x-input > s-label {
   color: color(srgb 0 0 0 / 0.32);
 }
 
-x-numberinput {
+s-numberinput {
   background-color: color(srgb 1 1 1 / 0.7);
   border-color: var(--border-color);
   border-width: 1px;
@@ -1326,24 +1326,24 @@ x-numberinput {
   line-height: 1.5;
 }
 
-x-numberinput:focus:has(x-stepper) {
+s-numberinput:focus:has(x-stepper) {
   padding-right: 16px;
 }
 
-x-numberinput:hover {
+s-numberinput:hover {
   background-color: color(srgb 0.98 0.98 0.98 / 0.5);
 }
 
-x-numberinput:focus {
+s-numberinput:focus {
   background-color: color(srgb 1 1 1);
 }
 
-x-numberinput[error] {
+s-numberinput[error] {
   --selection-color: white;
   --selection-background-color: var(--error-color);
 }
 
-x-numberinput::before {
+s-numberinput::before {
   position: absolute;
   left: 0px;
   bottom: -1px;
@@ -1354,25 +1354,25 @@ x-numberinput::before {
   content: "";
 }
 
-x-numberinput:focus::before {
+s-numberinput:focus::before {
   height: 2px;
   background-color: var(--accent-color);
 }
 
-x-numberinput[error]::before {
+s-numberinput[error]::before {
   height: 2px;
   background-color: var(--error-color);
 }
 
-x-numberinput[disabled]::before {
+s-numberinput[disabled]::before {
   display: none;
 }
 
-x-numberinput > s-label {
+s-numberinput > s-label {
   color: color(srgb 0 0 0 / 0.32);
 }
 
-x-numberinput > x-stepper {
+s-numberinput > x-stepper {
   width: 16px;
   height: 11px;
   padding: 0;
@@ -1382,7 +1382,7 @@ x-numberinput > x-stepper {
   pointer-events: none;
 }
 
-x-numberinput:focus > x-stepper {
+s-numberinput:focus > x-stepper {
   position: absolute;
   right: -12px;
   width: 26px;
@@ -1398,16 +1398,16 @@ x-numberinput:focus > x-stepper {
   pointer-events: all;
 }
 
-x-numberinput[size="small"]:not(:focus) > x-stepper {
+s-numberinput[size="small"]:not(:focus) > x-stepper {
   transform: scale(0.6);
 }
 
-x-numberinput[size="large"]:not(:focus) > x-stepper {
+s-numberinput[size="large"]:not(:focus) > x-stepper {
   transform: scale(1.1) translateX(-2px);
 }
 
-x-numberinput:not(:focus) > x-stepper::part(increment-button),
-x-numberinput:not(:focus) > x-stepper::part(decrement-button) {
+s-numberinput:not(:focus) > x-stepper::part(increment-button),
+s-numberinput:not(:focus) > x-stepper::part(decrement-button) {
   opacity: 0.5;
 }
 

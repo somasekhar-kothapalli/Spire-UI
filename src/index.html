@@ -86,7 +86,7 @@
           <s-icon href="#person"></s-icon>
         </s-avatar>
         <s-avatar>
-          <x-label>AB</x-label>
+          <s-label>AB</s-label>
         </s-avatar>
         
         <h1>Button</h1>
@@ -159,6 +159,29 @@
         <s-checkbox>
           <s-label>This is sample description</s-label>
         </s-checkbox>
+
+        <h1>Dialog</h1>
+        <s-button>
+          <s-label>Open</s-label>
+          <dialog></dialog>
+        </s-button>
+        <s-button>
+          <s-label>Open</s-label>
+        
+          <dialog style="max-width: 500px;">
+            <h3>Use Google's location service?</h3>
+            <p>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</p>
+        
+            <footer>
+              <s-button id="disagree-button">
+                <s-label>Disagree</s-label>
+              </s-button>
+              <s-button autofocus toggled id="agree-button">
+                <s-label>Agree</s-label>
+              </s-button>
+            </footer>
+          </dialog>
+        </s-button>
 
       </s-content>
     

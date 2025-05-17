@@ -190,7 +190,7 @@ x-avatar {
   border-radius: 999px;
 }
 
-x-avatar > x-label {
+x-avatar > s-label {
   font-weight: 700;
 }
 
@@ -221,7 +221,7 @@ x-accordion::part(arrow):focus {
   outline-color: var(--material-primary-color);
 }
 
-x-accordion > header > x-label {
+x-accordion > header > s-label {
   color: var(--material-on-secondary-container-color);
   font-weight: 700;
 }
@@ -296,7 +296,7 @@ s-button::before {
   border-radius: inherit;
 }
 
-s-button > x-label {
+s-button > s-label {
   font-weight: 500;
 }
 
@@ -421,7 +421,7 @@ s-button[skin="recessed"][pressed]::before {
   opacity: 0.1;
 }
 
-s-button[skin="recessed"] > x-label {
+s-button[skin="recessed"] > s-label {
   font-size: 0.75rem;
   text-align: center;
 }
@@ -573,7 +573,7 @@ x-tagsinput > x-tag {
   background-color: transparent;
 }
 
-x-tagsinput > x-label {
+x-tagsinput > s-label {
   color: oklch(from var(--material-on-surface-variant-color) l c h / 0.7);
   font-weight: 400;
 }
@@ -609,28 +609,28 @@ x-tab::part(selection-indicator) {
   transition-duration: var(--material-motion-duration-short-2);
 }
 
-x-navitem:focus {
+s-navitem:focus {
   outline-width: 0px;
 }
 
-x-navitem::part(button) {
+s-navitem::part(button) {
   position: relative;
   color: var(--material-on-surface-color);
   border-radius: 99px;
 }
 
-x-navitem[toggled]::part(button) {
+s-navitem[toggled]::part(button) {
   background-color: var(--material-secondary-container-color);
 }
 
-x-navitem:focus::part(button) {
+s-navitem:focus::part(button) {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-primary-color);
   outline-offset: -1px;
 }
 
-x-navitem::part(button)::before {
+s-navitem::part(button)::before {
   display: none;
   position: absolute;
   width: 100%;
@@ -640,53 +640,53 @@ x-navitem::part(button)::before {
   pointer-events: none;
 }
 
-x-navitem::part(button):hover::before {
+s-navitem::part(button):hover::before {
   display: block;
   background-color: var(--material-on-surface-color);
   opacity: 0.08;
 }
 
-x-navitem[pressed]::part(button):hover::before {
+s-navitem[pressed]::part(button):hover::before {
   display: block;
   background-color: var(--material-on-secondary-container-color);
   opacity: 0.1;
 }
 
-x-navitem[toggled]::part(button):hover::before {
+s-navitem[toggled]::part(button):hover::before {
   display: block;
   background-color: var(--material-on-secondary-container-color);
   opacity: 0.08;
 }
 
-x-navitem[toggled][pressed]::part(button):hover::before {
+s-navitem[toggled][pressed]::part(button):hover::before {
   display: block;
   background-color: var(--material-on-secondary-container-color);
   opacity: 0.1;
 }
 
-x-navitem > x-label {
+s-navitem > s-label {
   color: var(--material-on-surface-variant-color);
   font-weight: 500;
 }
 
-x-navitem[toggled] > x-label {
+s-navitem[toggled] > s-label {
   color: var(--material-on-secondary-container-color);
 }
 
-x-navitem::part(arrow) {
+s-navitem::part(arrow) {
   color: var(--material-on-surface-variant-color);
   --path-data: var(--arrow-right-path-data);
 }
 
-x-navitem > s-icon {
+s-navitem > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
-x-navitem[toggled] > s-icon {
+s-navitem[toggled] > s-icon {
   color: var(--material-on-secondary-container-color);
 }
 
-x-navitem > x-label + s-icon {
+s-navitem > s-label + s-icon {
   color: var(--material-primary-color);
 }
 
@@ -1204,12 +1204,12 @@ x-input > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
-x-input > x-label {
+x-input > s-label {
   color: oklch(from var(--material-on-surface-variant-color) l c h / 0.7);
   font-weight: 400;
 }
 
-x-input > s-icon + x-label {
+x-input > s-icon + s-label {
   padding-top: 1px;
 }
 
@@ -1246,12 +1246,12 @@ x-numberinput > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
-x-numberinput > x-label {
+x-numberinput > s-label {
   color: oklch(from var(--material-on-surface-variant-color) l c h / 0.7);
   font-weight: 400;
 }
 
-x-numberinput > s-icon + x-label {
+x-numberinput > s-icon + s-label {
   padding-top: 1px;
 }
 
@@ -1317,7 +1317,7 @@ x-texteditor[error] {
   );
 }
 
-x-texteditor > x-label {
+x-texteditor > s-label {
   color: oklch(from var(--material-on-surface-variant-color) l c h / 0.7);
   font-weight: 400;
 }
@@ -1360,7 +1360,7 @@ x-colorinput[size="small"]::part(arrow) {
   padding: 4px 4px 4px 0;
 }
 
-x-colorinput > x-label {
+x-colorinput > s-label {
   color: oklch(from var(--material-on-surface-variant-color) l c h / 0.7);
   font-weight: 400;
 }
@@ -1441,7 +1441,7 @@ x-titlebar s-icon {
   color: var(--material-primary-color);
 }
 
-x-titlebar x-label {
+x-titlebar s-label {
   color: var(--material-primary-color);
   font-weight: 700;
 }

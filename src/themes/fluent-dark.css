@@ -258,7 +258,7 @@ x-avatar {
   border-radius: 999px;
 }
 
-x-avatar > x-label {
+x-avatar > s-label {
   font-weight: 500;
 }
 
@@ -289,7 +289,7 @@ x-accordion::part(arrow):focus {
   outline-color: color(srgb 1 1 1);
 }
 
-x-accordion > header > x-label {
+x-accordion > header > s-label {
   font-weight: 500;
 }
 
@@ -517,7 +517,7 @@ s-button[skin="recessed"][toggled][pressed] {
   background-color: color(srgb 1 1 1);
 }
 
-s-button[skin="recessed"] > x-label {
+s-button[skin="recessed"] > s-label {
   font-size: 0.75rem;
   font-weight: 700;
   text-align: center;
@@ -649,7 +649,7 @@ x-tagsinput[disabled]::before {
   display: none;
 }
 
-x-tagsinput > x-label {
+x-tagsinput > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 
@@ -705,41 +705,41 @@ x-tab[toggled]:active::before {
   width: 12px;
 }
 
-x-navitem:focus {
+s-navitem:focus {
   outline-width: 0;
 }
 
-x-navitem::part(button) {
+s-navitem::part(button) {
   position: relative;
   color: color(srgb 1 1 1);
   border-radius: 7px;
 }
 
-x-navitem::part(button):hover {
+s-navitem::part(button):hover {
   background-color: color(srgb 1 1 1 / 0.0605);
 }
 
-x-navitem[toggled]::part(button) {
+s-navitem[toggled]::part(button) {
   background-color: color(srgb 1 1 1 / 0.0605);
 }
 
-x-navitem[pressed]::part(button) {
+s-navitem[pressed]::part(button) {
   color: color(srgb 1 1 1 / 0.786);
   background-color: color(srgb 1 1 1/ 0.0326);
 }
 
-x-navitem:focus::part(button) {
+s-navitem:focus::part(button) {
   outline-width: 2px;
   outline-style: solid;
   outline-color: color(srgb 1 1 1);
   outline-offset: 2px;
 }
 
-x-navitem[disabled] {
+s-navitem[disabled] {
   opacity: 0.5;
 }
 
-x-navitem::part(button)::before {
+s-navitem::part(button)::before {
   position: absolute;
   left: 0;
   width: 3px;
@@ -752,25 +752,25 @@ x-navitem::part(button)::before {
   content: "";
 }
 
-x-navitem[toggled]::part(button)::before {
+s-navitem[toggled]::part(button)::before {
   height: 50%;
 }
 
-x-navitem[pressed]::part(button)::before {
+s-navitem[pressed]::part(button)::before {
   height: 30%;
 }
 
-x-navitem::part(arrow) {
+s-navitem::part(arrow) {
   color: color(srgb 1 1 1 / 0.786);
   transform: scale(1.2);
   --path-data: var(--arrow-right-path-data);
 }
 
-x-nav s-icon:first-child {
+s-nav s-icon:first-child {
   opacity: 0.9;
 }
 
-x-nav x-label + s-icon {
+s-nav s-label + s-icon {
   color: var(--accent-color);
 }
 
@@ -1009,7 +1009,7 @@ x-checkbox[toggled][disabled]::part(indicator) {
   border-color: transparent;
 }
 
-x-checkbox[disabled] > x-label {
+x-checkbox[disabled] > s-label {
   opacity: 0.3;
   filter: saturate(0);
 }
@@ -1336,7 +1336,7 @@ x-input[disabled]::before {
   display: none;
 }
 
-x-input > x-label {
+x-input > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 
@@ -1391,7 +1391,7 @@ x-numberinput[disabled]::before {
   display: none;
 }
 
-x-numberinput > x-label {
+x-numberinput > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 
@@ -1463,7 +1463,7 @@ x-texteditor[disabled] {
   box-shadow: none;
 }
 
-x-texteditor > x-label {
+x-texteditor > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 
@@ -1508,7 +1508,7 @@ x-colorinput[disabled]::before {
   display: none;
 }
 
-x-colorinput > x-label {
+x-colorinput > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 

@@ -323,16 +323,16 @@ x-avatar > s-icon {
   height: 55%;
 }
 
-x-avatar > x-label {
+x-avatar > s-label {
   font-size: 1rem;
   pointer-events: none;
 }
 
-x-avatar[size="small"] > x-label {
+x-avatar[size="small"] > s-label {
   font-size: 0.75rem;
 }
 
-x-avatar[size="large"] > x-label {
+x-avatar[size="large"] > s-label {
   font-size: 1.5rem;
 }
 
@@ -366,7 +366,7 @@ x-accordion[size="large"] > header {
   padding-left: 22px;
 }
 
-x-accordion > header > x-label:first-child {
+x-accordion > header > s-label:first-child {
   flex: 1;
 }
 
@@ -392,7 +392,7 @@ s-icon:not(:defined) {
   display: none;
 }
 
-x-label:not(:defined) {
+s-label:not(:defined) {
   display: none;
 }
 
@@ -457,7 +457,7 @@ s-button:not(:defined) {
   display: none;
 }
 
-s-button > x-label {
+s-button > s-label {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -467,8 +467,8 @@ s-button > x-label {
   pointer-events: none;
 }
 
-s-button > x-label ~ s-icon,
-s-button > s-icon ~ x-label {
+s-button > s-label ~ s-icon,
+s-button > s-icon ~ s-label {
   margin: 0 0 0 6px;
 }
 
@@ -643,15 +643,15 @@ x-tag[size="large"] > x-swatch {
   height: 16px;
 }
 
-x-tag > x-label {
+x-tag > s-label {
   font-size: 0.75rem;
 }
 
-x-tag :not(x-label) + x-label {
+x-tag :not(s-label) + s-label {
   margin-left: 0.25rem;
 }
 
-x-tag[size="small"] > x-label {
+x-tag[size="small"] > s-label {
   font-size: 0.6875rem;
 }
 
@@ -696,7 +696,7 @@ x-tagsinput:not(:defined) {
   display: none;
 }
 
-x-tagsinput > x-label {
+x-tagsinput > s-label {
   position: absolute;
   top: 50%;
   left: 8px;
@@ -743,7 +743,7 @@ x-tab[size="large"] s-icon {
   min-width: 19px;
 }
 
-x-tab x-label {
+x-tab s-label {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -752,11 +752,11 @@ x-tab x-label {
   flex: 1;
 }
 
-x-tab s-icon + x-label {
+x-tab s-icon + s-label {
   margin-left: 6px;
 }
 
-x-tab x-box:is([vertical]) s-icon + x-label {
+x-tab x-box:is([vertical]) s-icon + s-label {
   margin-left: 0px;
 }
 
@@ -817,7 +817,7 @@ x-menuitem s-icon {
   height: 16px;
 }
 
-x-menuitem x-label {
+x-menuitem s-label {
   display: block;
   flex: 1;
   white-space: nowrap;
@@ -826,9 +826,9 @@ x-menuitem x-label {
   font-size: inherit;
 }
 
-x-menuitem img + x-label,
-x-menuitem x-swatch + x-label,
-x-menuitem s-icon + x-label {
+x-menuitem img + s-label,
+x-menuitem x-swatch + s-label,
+x-menuitem s-icon + s-label {
   margin-left: 8px;
 }
 
@@ -836,7 +836,7 @@ x-menuitem x-shortcut {
   margin-left: auto;
 }
 
-x-menuitem x-label + x-shortcut {
+x-menuitem s-label + x-shortcut {
   margin-left: 8px;
 }
 
@@ -858,35 +858,35 @@ x-menubar > x-menuitem {
   min-height: 0;
 }
 
-x-navitem + x-navitem,
-a:has(x-navitem) + a:has(x-navitem),
-a:has(x-navitem) + x-navitem,
-x-navitem + a:has(x-navitem) {
+s-navitem + s-navitem,
+a:has(s-navitem) + a:has(s-navitem),
+a:has(s-navitem) + s-navitem,
+s-navitem + a:has(s-navitem) {
   margin: 3px 0;
 }
 
-x-nav x-nav > *:first-child {
+s-nav s-nav > *:first-child {
   margin-top: 3px;
 }
 
-x-nav x-nav > *:last-child {
+s-nav s-nav > *:last-child {
   margin-bottom: 0;
 }
 
-x-nav x-nav > * {
+s-nav s-nav > * {
   margin-left: 34px !important;
 }
 
-x-nav x-nav > * {
+s-nav s-nav > * {
   max-width: calc(100% - 34px) !important;
 }
 
-x-nav > a {
+s-nav > a {
   display: block;
   text-decoration: none;
 }
 
-x-nav x-label {
+s-nav s-label {
   max-width: 100%;
   flex: 1 1 0%;
   overflow: hidden;
@@ -897,34 +897,34 @@ x-nav x-label {
   text-align: start;
 }
 
-x-nav s-icon + x-label {
+s-nav s-icon + s-label {
   margin-left: 14px;
 }
 
-x-nav[collapsed] x-navitem > x-label {
+s-nav[collapsed] s-navitem > s-label {
   display: none;
 }
 
-x-nav s-icon {
+s-nav s-icon {
   width: 20px;
   height: 20px;
 }
 
-x-nav x-label + s-icon {
+s-nav s-label + s-icon {
   width: 18px;
   height: 18px;
   margin: 0 0 0 10px;
 }
 
-x-nav[collapsed] x-navitem > x-label + s-icon {
+s-nav[collapsed] s-navitem > s-label + s-icon {
   display: none;
 }
 
-x-nav[collapsed] x-navitem::part(button) {
+s-nav[collapsed] s-navitem::part(button) {
   padding: 0;
 }
 
-x-nav[collapsed] x-navitem::part(arrow) {
+s-nav[collapsed] s-navitem::part(arrow) {
   display: none;
 }
 
@@ -1058,7 +1058,7 @@ x-checkbox[size="large"]::part(indicator) {
   height: 21px;
 }
 
-x-checkbox > x-label {
+x-checkbox > s-label {
   display: block;
   margin-left: 8px;
   padding: 1px 0;
@@ -1082,16 +1082,16 @@ x-radio[size="large"]::part(indicator) {
   height: 21px;
 }
 
-x-radio > x-label {
+x-radio > s-label {
   margin: 0 0 0 8px;
   padding: 1px 0;
 }
 
-x-radio[size="small"] > x-label {
+x-radio[size="small"] > s-label {
   margin-left: 6px;
 }
 
-x-radio[size="large"] > x-label {
+x-radio[size="large"] > s-label {
   margin-left: 10px;
 }
 
@@ -1117,16 +1117,16 @@ x-switch[size="small"]::part(indicator) {
   height: 12px;
 }
 
-x-switch > x-label {
+x-switch > s-label {
   margin: 0 0 0 8px;
   padding: 1px 0;
 }
 
-x-switch[size="small"] > x-label {
+x-switch[size="small"] > s-label {
   margin-left: 6px;
 }
 
-x-switch[size="large"] > x-label {
+x-switch[size="large"] > s-label {
   margin-left: 10px;
 }
 
@@ -1191,7 +1191,7 @@ x-input > s-icon:hover {
   cursor: default;
 }
 
-x-input > x-label {
+x-input > s-label {
   display: none;
   position: absolute;
   top: 50%;
@@ -1207,11 +1207,11 @@ x-input > x-label {
   pointer-events: none;
 }
 
-x-input[empty] > x-label {
+x-input[empty] > s-label {
   display: block;
 }
 
-x-input > s-icon + x-label {
+x-input > s-icon + s-label {
   padding: 0 5px 0 29px;
 }
 
@@ -1231,7 +1231,7 @@ x-numberinput:not(:defined) {
   display: none;
 }
 
-x-numberinput > x-label {
+x-numberinput > s-label {
   display: none;
   position: absolute;
   top: 50%;
@@ -1247,7 +1247,7 @@ x-numberinput > x-label {
   pointer-events: none;
 }
 
-x-numberinput[empty] > x-label {
+x-numberinput[empty] > s-label {
   display: block;
 }
 
@@ -1267,7 +1267,7 @@ x-texteditor:not(:defined) {
   display: none;
 }
 
-x-texteditor > x-label {
+x-texteditor > s-label {
   display: none;
   position: absolute;
   width: 100%;
@@ -1280,7 +1280,7 @@ x-texteditor > x-label {
   pointer-events: none;
 }
 
-x-texteditor[empty] > x-label {
+x-texteditor[empty] > s-label {
   display: block;
 }
 
@@ -1318,6 +1318,6 @@ x-throbber:not(:defined) {
   display: none;
 }
 
-x-titlebar s-icon + x-label {
+x-titlebar s-icon + s-label {
   margin-left: 6px;
 }

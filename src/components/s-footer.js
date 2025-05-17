@@ -7,11 +7,13 @@ export default class SFooter extends HTMLElement {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: fit-content;
-      padding: 0px;
+      height: var(--footer-height);
+      width: 100%;
+      padding: 15px 20px;
       background: var(--background-color);
       color: var(--text-color);
-      transition: width 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      border-top: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
     }
   `;
 

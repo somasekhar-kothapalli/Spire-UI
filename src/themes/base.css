@@ -1064,38 +1064,38 @@ s-checkbox > s-label {
   padding: 1px 0;
 }
 
-x-radio + x-radio {
+s-radio + s-radio {
   margin-top: 6px;
 }
 
-x-radio:not(:defined) {
+s-radio:not(:defined) {
   display: none;
 }
 
-x-radio[size="small"]::part(indicator) {
+s-radio[size="small"]::part(indicator) {
   width: 17px;
   height: 17px;
 }
 
-x-radio[size="large"]::part(indicator) {
+s-radio[size="large"]::part(indicator) {
   width: 21px;
   height: 21px;
 }
 
-x-radio > s-label {
+s-radio > s-label {
   margin: 0 0 0 8px;
   padding: 1px 0;
 }
 
-x-radio[size="small"] > s-label {
+s-radio[size="small"] > s-label {
   margin-left: 6px;
 }
 
-x-radio[size="large"] > s-label {
+s-radio[size="large"] > s-label {
   margin-left: 10px;
 }
 
-x-radios:not(:defined) {
+s-radios:not(:defined) {
   display: none;
 }
 

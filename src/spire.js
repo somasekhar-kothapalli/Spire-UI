@@ -28,6 +28,8 @@ import "./components/s-numberinput.js";
 import "./components/s-pager.js";
 import "./components/s-popover.js";
 import "./components/s-progressbar.js";
+import "./components/s-radio.js";
+import "./components/s-radios.js";
 import "./components/s-sidebar.js";
 
 export default Spire;

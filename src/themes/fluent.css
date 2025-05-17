@@ -998,7 +998,7 @@ s-checkbox[toggled]:active::part(indicator) {
   border-color: transparent;
 }
 
-x-radio:focus {
+s-radio:focus {
   border-radius: 2px;
   outline-width: 2px;
   outline-style: solid;
@@ -1006,44 +1006,44 @@ x-radio:focus {
   outline-offset: 2px;
 }
 
-x-radio[disabled] {
+s-radio[disabled] {
   filter: saturate(0);
 }
 
-x-radio[disabled][toggled] {
+s-radio[disabled][toggled] {
   opacity: 0.5;
 }
 
-x-radio::part(indicator) {
+s-radio::part(indicator) {
   background-color: color(srgb 0 0 0 / 0.0241);
   border-color: color(srgb 0 0 0 / 0.6063);
   border-width: 1px;
   border-style: solid;
 }
 
-x-radio:hover::part(indicator) {
+s-radio:hover::part(indicator) {
   background-color: color(srgb 0 0 0 / 0.0578);
 }
 
-x-radio:active::part(indicator) {
+s-radio:active::part(indicator) {
   background-color: color(srgb 0 0 0 / 0.0924);
   border-color: color(srgb 0 0 0 / 0.2169);
 }
 
-x-radio[toggled]::part(indicator) {
+s-radio[toggled]::part(indicator) {
   background-color: var(--accent-color);
   border-color: transparent;
 }
 
-x-radio[toggled]:hover::part(indicator) {
+s-radio[toggled]:hover::part(indicator) {
   background-color: oklch(from var(--accent-color) l c h / 0.9);
 }
 
-x-radio[toggled]:active::part(indicator) {
+s-radio[toggled]:active::part(indicator) {
   background-color: oklch(from var(--accent-color) l c h / 0.8);
 }
 
-x-radio::part(indicator-dot) {
+s-radio::part(indicator-dot) {
   transform: scale(0.45);
   background-color: color(srgb 1 1 1);
   outline-width: 2px;
@@ -1052,24 +1052,24 @@ x-radio::part(indicator-dot) {
   visibility: hidden;
 }
 
-x-radio[toggled]::part(indicator-dot) {
+s-radio[toggled]::part(indicator-dot) {
   visibility: visible;
   transition-property: transform;
   transition-duration: 0.333s;
   transition-timing-function: cubic-bezier(0, 0, 0, 1);
 }
 
-x-radio[toggled]:active::part(indicator-dot) {
+s-radio[toggled]:active::part(indicator-dot) {
   transform: scale(0.33);
 }
 
-x-radio[mixed]::part(indicator-dot) {
+s-radio[mixed]::part(indicator-dot) {
   height: 16%;
   transform: scale(0.5);
   border-radius: 3px;
 }
 
-x-radio[mixed]:active::part(indicator-dot) {
+s-radio[mixed]:active::part(indicator-dot) {
   transform: scale(0.5);
 }
 

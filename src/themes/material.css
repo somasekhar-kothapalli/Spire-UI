@@ -887,7 +887,7 @@ s-checkbox:hover::part(indicator) {
   border-color: var(--material-on-surface-color);
 }
 
-x-radio:active::part(indicator) {
+s-radio:active::part(indicator) {
   border-color: var(--material-on-surface-color);
 }
 
@@ -949,38 +949,38 @@ s-checkbox[toggled]:focus::part(indicator)::before {
   background-color: var(--material-primary-color);
 }
 
-x-radio::part(indicator) {
+s-radio::part(indicator) {
   border-width: 2px;
   border-style: solid;
   border-color: var(--material-on-surface-variant-color);
 }
 
-x-radio:hover::part(indicator) {
+s-radio:hover::part(indicator) {
   border-color: var(--material-on-surface-color);
 }
 
-x-radio:active::part(indicator) {
+s-radio:active::part(indicator) {
   border-color: var(--material-on-surface-color);
 }
 
-x-radio[toggled]::part(indicator) {
+s-radio[toggled]::part(indicator) {
   border-color: var(--material-primary-color);
 }
 
-x-radio::part(indicator-dot) {
+s-radio::part(indicator-dot) {
   background-color: var(--material-primary-color);
 }
 
-x-radio[toggled]::part(indicator-dot) {
+s-radio[toggled]::part(indicator-dot) {
   transform: scale(0.6);
 }
 
-x-radio[toggled][mixed]::part(indicator-dot) {
+s-radio[toggled][mixed]::part(indicator-dot) {
   transform: scale(0.55);
   border-radius: 3px;
 }
 
-x-radio::part(indicator)::before {
+s-radio::part(indicator)::before {
   display: none;
   position: absolute;
   top: 50%;
@@ -995,36 +995,36 @@ x-radio::part(indicator)::before {
   pointer-events: none;
 }
 
-x-radio:hover::part(indicator)::before {
+s-radio:hover::part(indicator)::before {
   display: block;
   transform: scale(1);
   background-color: var(--material-on-surface-color);
   opacity: 0.08;
 }
 
-x-radio:active::part(indicator)::before {
+s-radio:active::part(indicator)::before {
   display: block;
   transform: scale(1);
   background-color: var(--material-primary-color);
   opacity: 0.1;
 }
 
-x-radio:focus::part(indicator)::before {
+s-radio:focus::part(indicator)::before {
   display: block;
   transform: scale(2.2);
   background-color: var(--material-on-surface-color);
   opacity: 0.1;
 }
 
-x-radio[toggled]:hover::part(indicator)::before {
+s-radio[toggled]:hover::part(indicator)::before {
   background-color: var(--material-primary-color);
 }
 
-x-radio[toggled]:active::part(indicator)::before {
+s-radio[toggled]:active::part(indicator)::before {
   background-color: var(--material-on-surface-color);
 }
 
-x-radio[toggled]:focus::part(indicator)::before {
+s-radio[toggled]:focus::part(indicator)::before {
   background-color: var(--material-primary-color);
 }
 

@@ -434,6 +434,27 @@
           let callback = () => bar.value >= 1 ? bar.value = 0 : bar.value += 0.15;
           setInterval(callback, 1000);
         </script>
+
+        <h1>Radio</h1>
+        <s-radio toggled></s-radio>
+        <s-radio disabled></s-radio>
+        <s-radio toggled disabled></s-radio>
+
+        <h1>Radios</h1>
+        <s-radios>
+          <s-radio>
+            <s-label>First option</s-label>
+          </s-radio>
+          <s-radio>
+            <s-label>Second option</s-label>
+          </s-radio>
+          <s-radio toggled mixed>
+            <s-label>Mixed option</s-label>
+          </s-radio>
+          <s-radio disabled>
+            <s-label>Disabled option</s-label>
+          </s-radio>
+        </s-radios>
         
       </s-content>
     

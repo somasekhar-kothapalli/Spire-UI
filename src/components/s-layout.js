@@ -16,8 +16,6 @@ export default class SLayout extends HTMLElement {
       height: 100%;
       width: 100%;
       overflow: hidden;
-      --header-height: 45px;
-      --footer-height: 45px;
     }
 
     .s-container {

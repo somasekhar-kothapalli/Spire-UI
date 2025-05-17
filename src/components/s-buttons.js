@@ -151,7 +151,7 @@ export default class SButtons extends HTMLElement {
       return;
     }
 
-    let clickedButton = event.target.closest("x-button");
+    let clickedButton = event.target.closest("s-button");
     let canToggle =
       clickedButton &&
       clickedButton.disabled === false &&

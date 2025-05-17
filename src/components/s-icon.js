@@ -134,7 +134,7 @@ export default class SIcon extends HTMLElement {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   _onPointerEnter() {
-    let tooltip = this.querySelector(":scope > x-tooltip");
+    let tooltip = this.querySelector(":scope > s-tooltip");
 
     if (tooltip && tooltip.disabled === false) {
       tooltip.open(this);
@@ -142,7 +142,7 @@ export default class SIcon extends HTMLElement {
   }
 
   _onPointerLeave() {
-    let tooltip = this.querySelector(":scope > x-tooltip");
+    let tooltip = this.querySelector(":scope > s-tooltip");
 
     if (tooltip) {
       tooltip.close();

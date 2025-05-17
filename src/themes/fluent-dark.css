@@ -293,7 +293,7 @@ s-accordion > header > s-label {
   font-weight: 500;
 }
 
-x-tooltip {
+s-tooltip {
   color: var(--text-color);
   background-color: color(srgb 0.17 0.17 0.17);
   border-color: var(--border-color);

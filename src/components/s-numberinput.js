@@ -746,7 +746,7 @@ export default class SNumberInput extends HTMLElement {
   }
 
   #onPointerEnter() {
-    let tooltip = this.querySelector(":scope > x-tooltip");
+    let tooltip = this.querySelector(":scope > s-tooltip");
 
     if (tooltip && tooltip.disabled === false) {
       tooltip.open(this);
@@ -754,7 +754,7 @@ export default class SNumberInput extends HTMLElement {
   }
 
   #onPointerLeave() {
-    let tooltip = this.querySelector(":scope > x-tooltip");
+    let tooltip = this.querySelector(":scope > s-tooltip");
 
     if (tooltip) {
       tooltip.close();

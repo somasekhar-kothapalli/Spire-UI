@@ -226,7 +226,7 @@ s-accordion > header > s-label {
   font-weight: 700;
 }
 
-x-tooltip {
+s-tooltip {
   color: var(--material-on-surface-inverse-color);
   background-color: var(--material-surface-inverse-color);
   border-width: 0px;

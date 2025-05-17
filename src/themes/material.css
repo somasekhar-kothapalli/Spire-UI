@@ -184,13 +184,13 @@ td {
   }
 }
 
-x-avatar {
+s-avatar {
   background-color: var(--material-surface-container-highest-color);
   border-width: 0px;
   border-radius: 999px;
 }
 
-x-avatar > s-label {
+s-avatar > s-label {
   font-weight: 700;
 }
 

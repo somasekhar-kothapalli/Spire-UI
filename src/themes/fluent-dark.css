@@ -251,14 +251,14 @@ img {
   }
 }
 
-x-avatar {
+s-avatar {
   color: color(srgb 1 1 1 / 0.786);
   background-color: color(srgb 1 1 1 / 0.1);
   border-width: 0px;
   border-radius: 999px;
 }
 
-x-avatar > s-label {
+s-avatar > s-label {
   font-weight: 500;
 }
 

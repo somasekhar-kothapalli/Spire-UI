@@ -1,6 +1,7 @@
 import Spire from "./classes/spire.js";
 
 import "./components/s-accordion.js";
+import "./components/s-avatar.js";
 import "./components/s-box.js";
 import "./components/s-button.js";
 import "./components/s-buttons.js";

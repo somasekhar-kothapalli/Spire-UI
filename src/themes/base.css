@@ -302,37 +302,37 @@ s-card > h6:first-child {
   margin-top: 0;
 }
 
-x-avatar[size="small"] {
+s-avatar[size="small"] {
   width: 28px;
   height: 28px;
 }
 
-x-avatar[size="large"] {
+s-avatar[size="large"] {
   width: 54px;
   height: 54px;
 }
 
-x-avatar > img {
+s-avatar > img {
   width: 100%;
   height: 100%;
   -webkit-user-drag: none;
 }
 
-x-avatar > s-icon {
+s-avatar > s-icon {
   width: 55%;
   height: 55%;
 }
 
-x-avatar > s-label {
+s-avatar > s-label {
   font-size: 1rem;
   pointer-events: none;
 }
 
-x-avatar[size="small"] > s-label {
+s-avatar[size="small"] > s-label {
   font-size: 0.75rem;
 }
 
-x-avatar[size="large"] > s-label {
+s-avatar[size="large"] > s-label {
   font-size: 1.5rem;
 }
 

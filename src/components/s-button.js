@@ -13,38 +13,28 @@ export default class SButton extends HTMLElement {
 
   static #shadowStyleSheet = css`
     :host {
-      user-select: none;
-      -webkit-user-select: none;
-      display: inline-flex;
+      display: flex;
       gap: 6px;
       align-items: center;
       justify-content: center;
       width: fit-content;
       height: fit-content;
-      min-height: 36px;
-      padding: 4px 16px;
+      min-height: 32px;
+      padding: 2px 14px;
       box-sizing: border-box;
       opacity: 1;
       position: relative;
       cursor: pointer;
-      font-size: 16px;
-      border: 2px solid var(--border-color);
-      border-radius: var(--border-radius);
-      color: var(--text-color);
       transition: all 0.3s ease-in-out;
     }
     :host(:focus) {
       outline: none;
     }
-    :host(:hover) {
-      border-color: var(--accent-color);
-      color: var(--accent-color);
-      background-color: var(--color-primary);
+    :host(:focus:not(:active)) {
+      z-index: 1;
     }
-    :host(:active) {
-      border-color: var(--accent-color);
-      color: var(--accent-color);
-      background-color: var(--color-primary-foreground);
+    :host([mixed]) {
+      opacity: 0.75;
     }
     :host([disabled]) {
       pointer-events: none;
@@ -53,49 +43,6 @@ export default class SButton extends HTMLElement {
     }
     :host([hidden]) {
       display: none;
-    }
-
-    /* Skin variations */
-    :host([skin="flat"]) {
-      background-color: var(--color-primary);
-      color: var(--color-primary-foreground);
-      border-color: var(--color-primary);
-    }
-    :host([skin="flat"]:active) {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-      background-color: var(--color-primary-foreground);
-    }
-    :host([skin="stroked"]) {
-      background-color: transparent;
-      color: var(--color-primary);
-      border-color: var(--color-primary);
-    }
-    :host([skin="stroked"]:hover) {
-      background-color: var(--color-primary);
-      color: var(--color-primary-foreground);
-    }
-    :host([skin="stroked"]:active) {
-      background-color: var(--color-primary-foreground);
-      color: var(--color-primary);
-    }
-    :host([skin="icon"]) {
-      min-width: 36px;
-      padding: 10px;
-    }
-    :host([skin="icon-outlined"]) {
-      padding: 10px;
-      background: var(--background-color);
-    }
-
-    /* Size variations */
-    :host([size="small"]) {
-      min-height: 24px;
-      font-size: 12px;
-    }
-    :host([size="large"]) {
-      min-height: 38px;
-      font-size: 18px;
     }
   `;
 
@@ -133,7 +80,7 @@ export default class SButton extends HTMLElement {
 
   // @property
   // @attribute
-  // @type "normal" || "flat" || "stroked" || "icon" || "icon-outlined"
+  // @type "normal" || "flat" || "outlined" || "icon" || "icon-outlined" || "recessed" || "dock"
   // @default "normal"
   get skin() {
     return this.hasAttribute("skin") ? this.getAttribute("skin") : "normal";
@@ -210,16 +157,18 @@ export default class SButton extends HTMLElement {
       event.preventDefault();
       return;
     }
-
-    // Handle togglable behavior
-    if (this.hasAttribute("togglable")) {
-      this.toggled = !this.toggled;
-      this.dispatchEvent(
-        new CustomEvent("toggle", { detail: { toggled: this.toggled } })
-      );
-    }
+    this.setAttribute("pressed", "");
+    setTimeout(() => {
+      this.removeAttribute("pressed");
+    }, 100);
 
     // Add any other click-related logic here
+    // Toggle the button
+    if (this.hasAttribute("togglable") && event.defaultPrevented === false) {
+      this.removeAttribute("pressed");
+      this.toggled = !this.toggled;
+      this.dispatchEvent(new CustomEvent("toggle"));
+    }
   }
 
   _handleKeyDown(event) {

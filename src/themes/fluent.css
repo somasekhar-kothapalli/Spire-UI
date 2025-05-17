@@ -362,6 +362,47 @@ s-button[disabled] {
   opacity: 0.4;
 }
 
+s-button[skin="outlined"] {
+  color: var(--accent-color);
+  border-style: solid;
+  border-color: var(--accent-color);
+  border-radius: var(--border-radius);
+}
+s-button[skin="outlined"]:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+s-button[skin="outlined"][pressed] {
+  background-color: var(--foreground-color);
+  color: var(--text-color);
+}
+
+s-button[skin="icon"] {
+  padding: 10px;
+}
+s-button[skin="icon"][size="small"] {
+  padding: 5px;
+}
+
+s-button[skin="icon-outlined"] {
+  color: var(--accent-color);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--accent-color);
+  padding: 10px;
+  background: var(--background-color);
+}
+s-button[skin="icon-outlined"][size="small"] {
+  padding: 5px;
+}
+s-button[skin="icon-outlined"]:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+s-button[skin="icon-outlined"][pressed] {
+  background-color: var(--foreground-color);
+  color: var(--text-color);
+}
+
 s-button[skin="normal"] {
   color: var(--text-color);
   background-color: color(srgb 1 1 1 / 0.7);

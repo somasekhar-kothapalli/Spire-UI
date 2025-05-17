@@ -7,5 +7,6 @@ import "./components/s-container.js";
 import "./components/s-header.js";
 import "./components/s-footer.js";
 import "./components/s-sidebar.js";
+import "./components/s-layout.js";
 
 export default Spire;

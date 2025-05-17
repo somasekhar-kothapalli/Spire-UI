@@ -8,12 +8,10 @@ export default class SHeader extends HTMLElement {
       align-items: center;
       justify-content: space-between;
       height: var(--header-height);
-      width: 100%;
-      padding: 15px 20px;
+      padding: 0px;
       background: var(--background-color);
       color: var(--text-color);
       transition: all 0.3s ease-in-out;
-      border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
     }
   `;
 

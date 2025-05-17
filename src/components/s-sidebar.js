@@ -6,7 +6,7 @@ export default class SSidebar extends HTMLElement {
   static observedAttributes = ["expanded", "expandable"];
   static #shadowTemplate = html`
     <template>
-      <s-header id="sidebar-header" class="border-bottom"> </s-header>
+      <s-header id="sidebar-header"> </s-header>
       <s-container>
         <slot name="container"></slot>
       </s-container>
@@ -18,18 +18,15 @@ export default class SSidebar extends HTMLElement {
 
   static #shadowStyleSheet = css`
     :host {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      color: var(--text-color);
+      background-color: var(--foreground-color);
       width: var(--sidebar-width);
       height: 100%;
       position: relative;
-      border-right: var(--border-width) solid var(--border-color);
-      display: block flex;
-      flex-flow: column;
-      background-color: var(--foreground-color);
-      color: var(--text-color);
-      transition: width 0.3s ease-in-out;
       overflow: hidden;
-      justify-content: space-between;
+      transition: all 0.3s ease-in-out;
     }
     :host([hidden]) {
       display: none;
@@ -43,16 +40,19 @@ export default class SSidebar extends HTMLElement {
     }
     s-header {
       justify-content: start;
+      background: transparent;
     }
     s-footer {
       display: block;
       padding: 10px;
       justify-content: start;
+      background: transparent;
     }
     s-container {
       flex: 1;
       overflow-y: auto;
-      padding: 10px;
+      background: var(--foreground-color);
+      padding: 15px;
     }
   `;
 

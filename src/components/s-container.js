@@ -5,7 +5,7 @@ export default class SContainer extends HTMLElement {
   static #shadowStyleSheet = css`
     :host {
       display: block;
-      padding: 15px 20px;
+      padding: 0px;
       background: var(--background-color);
       color: var(--text-color);
       transition: width 0.3s ease-in-out;
@@ -13,8 +13,9 @@ export default class SContainer extends HTMLElement {
       overflow-y: scroll;
     }
     :host::-webkit-scrollbar {
-      width: 10px;
+      width: 6px;
       background: var(--foreground-color);
+      margin-inline-end: 20px;
     }
     :host::-webkit-scrollbar-thumb {
       background: var(--accent-color);

@@ -1,57 +1,86 @@
-
 import { normalize } from "../utils/math.js";
 import { html, css } from "../utils/template.js";
 import SpireTheme from "../utils/theme.js";
 
-class SSidebar extends HTMLElement {
+export default class SSidebar extends HTMLElement {
+  static observedAttributes = ["expanded", "expandable"];
   static #shadowTemplate = html`
     <template>
-      <div id="resize-grippie"></div>
-      <slot></slot>
+      <s-header id="sidebar-header" class="border-bottom"> </s-header>
+      <s-container>
+        <slot name="container"></slot>
+      </s-container>
+      <s-footer>
+        <slot name="footer"></slot>
+      </s-footer>
     </template>
   `;
 
   static #shadowStyleSheet = css`
     :host {
-      width: 250px;
+      display: block;
+      width: var(--sidebar-width);
       height: 100%;
       position: relative;
-      border-right: 1px solid transparent;
+      border-right: 2px solid var(--border-color);
       display: block flex;
       flex-flow: column;
-      min-width: 185px;
-      max-width: 350px;
+      background-color: var(--foreground-color);
+      color: var(--text-color);
+      transition: width 0.3s ease-in-out;
+      overflow: hidden;
+      justify-content: space-between;
     }
     :host([hidden]) {
       display: none;
     }
-
-    /**
-     * Resize grippie
-     */
-
-    #resize-grippie {
-      position: absolute;
-      width: 8px;
-      height: 100%;
-      background: transparent;
-      top: 0;
-      right: -8px;
-      cursor: col-resize;
-      z-index: 2;
-      touch-action: pan-y;
+    :host([expanded="true"]) {
+      width: var(--sidebar-width);
+    }
+    :host([expanded="false"]),
+    :host([expandable="false"]) {
+      width: var(--sidebar-width-collapsed);
+    }
+    s-header {
+      justify-content: start;
+      border-bottom: 1px solid var(--border-color);
+    }
+    s-footer {
+      display: block;
+      padding: 10px;
+      justify-content: start;
+      border-top: 1px solid var(--border-color);
+    }
+    s-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
     }
   `;
 
-  #shadowRoot;
-  #width = null;
+  get expanded() {
+    return this.hasAttribute("expanded")
+      ? this.getAttribute("expanded")
+      : "false";
+  }
+  set expanded(expanded) {
+    this.setAttribute("expanded", expanded);
+  }
+  get expandable() {
+    return this.hasAttribute("expandable")
+      ? this.getAttribute("expandable") !== "false"
+      : true;
+  }
+  set expandable(value) {
+    value
+      ? this.setAttribute("expandable", "true")
+      : this.setAttribute("expandable", "false");
+  }
 
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  #shadowRoot;
 
   constructor() {
     super();
-
-    this.#width = SpireTheme.getConfig("s-sidebar:width", null);
 
     this.#shadowRoot = this.attachShadow({ mode: "closed" });
     this.#shadowRoot.adoptedStyleSheets = [
@@ -62,90 +91,79 @@ class SSidebar extends HTMLElement {
       document.importNode(SSidebar.#shadowTemplate.content, true)
     );
 
+    this.sidebarHeaderContainer =
+      this.#shadowRoot.querySelector("#sidebar-header");
+    this._updateSidebarHeader();
+
+    this.footerElement = this.#shadowRoot.querySelector("s-footer");
+    this.footerSlot = this.#shadowRoot.querySelector('slot[name="footer"]');
+    this.footerSlot.addEventListener("slotchange", () =>
+      this._updateFooterVisibility()
+    );
+    this._updateFooterVisibility();
     for (let element of this.#shadowRoot.querySelectorAll("[id]")) {
       this["#" + element.id] = element;
     }
 
-    this["#resize-grippie"].addEventListener("pointerdown", (event) =>
-      this.#onResizeGrippiePointerdown(event)
-    );
+    for (let element of this.#shadowRoot.querySelectorAll("[id]")) {
+      this["#" + element.id] = element;
+    }
   }
 
   connectedCallback() {
-    this.#update();
+    this._updateExpandedAttribute();
   }
 
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  disconnectedCallback() {}
 
-  #onResizeGrippiePointerdown(pointerDownEvent) {
-    if (pointerDownEvent.buttons > 1) {
-      return;
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === "expanded") {
+      this._updateExpandedAttribute();
+    } else if (name === "expandable") {
+      this._updateSidebarHeader();
     }
-
-    let initialWidth = this.clientWidth;
-    let width = initialWidth;
-    let pointerMoveListener, pointerUpOrCancelListener;
-
-    this["#resize-grippie"].setPointerCapture(pointerDownEvent.pointerId);
-    pointerDownEvent.preventDefault();
-
-    let { minWidth, maxWidth } = getComputedStyle(this);
-    minWidth = parseInt(minWidth);
-    maxWidth = parseInt(maxWidth);
-
-    this["#resize-grippie"].addEventListener(
-      "pointermove",
-      (pointerMoveListener = (pointerMoveEvent) => {
-        width =
-          initialWidth - (pointerDownEvent.clientX - pointerMoveEvent.clientX);
-        width = normalize(
-          width,
-          minWidth,
-          Math.min(maxWidth, window.innerWidth - 200)
-        );
-
-        this.style.width = width + "px";
-        this.dispatchEvent(new CustomEvent("resize"));
-      })
-    );
-
-    this["#resize-grippie"].addEventListener(
-      "pointerup",
-      (pointerUpOrCancelListener = () => {
-        this["#resize-grippie"].removeEventListener(
-          "pointermove",
-          pointerMoveListener
-        );
-        this["#resize-grippie"].removeEventListener(
-          "pointerup",
-          pointerUpOrCancelListener
-        );
-        this["#resize-grippie"].removeEventListener(
-          "pointercancel",
-          pointerUpOrCancelListener
-        );
-
-        this.#width = width;
-        SpireTheme.setConfig("s-sidebar:width", width);
-
-        this.#update();
-      })
-    );
-
-    this["#resize-grippie"].addEventListener(
-      "pointercancel",
-      pointerUpOrCancelListener
-    );
   }
 
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  #update() {
-    if (this.#width === null) {
-      this.style.width = null;
-    } else {
-      this.style.width = this.#width + "px";
+  _updateSidebarHeader() {
+    this.sidebarHeaderContainer.style.padding = this.expandable
+      ? "10px"
+      : "0px";
+    this.sidebarHeaderContainer.innerHTML = this.expandable
+      ? `<s-button class="toggle-btn" id="toggle" skin="icon-outlined"> <s-icon src="menu"></s-icon> </s-button>`
+      : "";
+    if (this.expandable) {
+      this.toggleButton =
+        this.sidebarHeaderContainer.querySelector(".toggle-btn");
+      this.toggleButton.addEventListener(
+        "click",
+        this._toggleSidebar.bind(this)
+      );
     }
+  }
+
+  _toggleSidebar() {
+    if (this.expandable) {
+      this.setAttribute(
+        "expanded",
+        this.getAttribute("expanded") === "true" ? "false" : "true"
+      );
+      document.dispatchEvent(
+        new CustomEvent("sidebar-toggled", {
+          detail: { collapsed: this.expanded },
+        })
+      );
+    }
+  }
+
+  _updateExpandedAttribute() {
+    if (!this.hasAttribute("expanded")) {
+      this.setAttribute("expanded", this.expandable ? "true" : "false");
+    }
+  }
+
+  _updateFooterVisibility() {
+    const hasFooter = this.footerSlot.assignedNodes().length > 0;
+    this.footerElement.style.display = hasFooter ? "" : "none";
   }
 }
 

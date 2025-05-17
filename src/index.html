@@ -30,149 +30,44 @@
     <script src="spire.js" type="module"></script>
   </head>
   <body>
-    <!-- <s-sidebar id="sidebar" expandable="true">
-      <div slot="container">
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-      </div>
-      <div slot="footer">
-        <s-button>Primary</s-button>
-      </div>
-    </s-sidebar>
-    <p>A modular and reusable UI component library.</p>
-    <h1 style="color: var(--accent-color);">Buttons Examples</h1>
-    <h1 style="color: var(--color-primary);">Buttons Examples</h1>
-    <div class="d-flex gap-2 fles-wrap fles-row align-items-center">
-      <s-button>Primary</s-button>
-      <s-button disabled>Disabled button</s-button>
-      <s-button skin="flat">Primary</s-button>
-      <s-button skin="flat" disabled>Disabled button</s-button>
-      <s-button skin="outlined">Primary</s-button>
-      <s-button skin="recessed">Primary</s-button>
-      <s-button skin="dock">🎨</s-button>
-      <s-button skin="icon" disabled>🎨</s-button>
-      <s-button skin="icon" size="small">🔥</s-button>
-      <s-button skin="icon" size="large">🔥</s-button>
-      <s-button skin="icon" size="large">1️⃣</s-button>
-      <s-button skin="icon" size="large">2️⃣</s-button>
-      <s-button skin="icon" size="small">2️⃣</s-button>
-      <s-button skin="icon-outlined" size="small">2️⃣</s-button>
-    </div> -->
     <s-layout>
-      <div slot="sidebar-container">
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-      </div>
-      <div slot="sidebar-footer">
-        <s-button class="w-100">Primary</s-button>
-      </div>
-      <div slot="container-header">
-        <s-button class="toggle-btn" id="toggle" skin="icon-outlined"> <s-icon src="menu"></s-icon> </s-button>
-      </div>
-      <div slot="container-content">
-        <s-button class="toggle-btn" id="toggle" skin="icon-outlined"> <s-icon src="menu"></s-icon> </s-button>
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-        <h1>Welcome to Spire UI</h1>
-        sidebar
-      </div>
-      <div slot="container-footer">
-        <s-button class="toggle-btn" id="toggle" skin="icon-outlined"> <s-icon src="menu"></s-icon> </s-button>
-      </div>
+      <s-header slot="header">My App Header</s-header>
+      
+      <s-sidebar slot="sidebar">
+        <div slot="header">header</div>
+        <div slot="content">
+          <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </div>
+        <!-- <div slot="footer">© 2025 My Company</div> -->
+      </s-sidebar>
+    
+      <s-content slot="content">
+        <p>A modular and reusable UI component library.</p>
+        <h1 style="color: var(--accent-color);">Buttons Examples</h1>
+        <h1 style="color: var(--text-color);">Buttons Examples</h1>
+        <div class="d-flex gap-2 flex-wrap fles-row align-items-center">
+          <s-button>Primary</s-button>
+          <s-button disabled>Disabled button</s-button>
+          <s-button skin="flat">Primary</s-button>
+          <s-button skin="flat" disabled>Disabled button</s-button>
+          <s-button skin="outlined">Primary</s-button>
+          <s-button skin="recessed">Primary</s-button>
+          <s-button skin="dock">🎨</s-button>
+          <s-button skin="icon" disabled>🎨</s-button>
+          <s-button skin="icon" size="small">🔥</s-button>
+          <s-button skin="icon" size="large">🔥</s-button>
+          <s-button skin="icon" size="large">1️⃣</s-button>
+          <s-button skin="icon" size="large">2️⃣</s-button>
+          <s-button skin="icon" size="small">2️⃣</s-button>
+          <s-button skin="icon-outlined" size="small">2️⃣</s-button>
+        </div>
+      </s-content>
+    
+      <s-footer slot="footer">© 2025 My Company</s-footer>
     </s-layout>
   </body>
 </html>

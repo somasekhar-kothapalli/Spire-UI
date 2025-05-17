@@ -3,6 +3,7 @@ import { createElement } from "../utils/element.js";
 
 export default class SSidebar extends HTMLElement {
   static observedAttributes = ["expanded", "expandable"];
+
   static #shadowTemplate = html`
     <template>
       <s-header id="sidebar-header"> </s-header>
@@ -49,7 +50,7 @@ export default class SSidebar extends HTMLElement {
       flex: 1;
       overflow-y: auto;
       background: var(--foreground-color);
-      padding: 10px 15px;
+      padding: 15px 10px;
       overflow-x: hidden;
     }
 
@@ -58,13 +59,8 @@ export default class SSidebar extends HTMLElement {
       height: fit-content;
     }
 
-    s-header {
-      border-bottom: 1px solid gray;
-    }
-
     s-footer {
       height: fit-content;
-      border-top: 1px solid gray;
     }
   `;
 
@@ -148,8 +144,10 @@ export default class SSidebar extends HTMLElement {
         "expanded",
         this.getAttribute("expanded") === "true" ? "false" : "true"
       );
-      document.dispatchEvent(
-        new CustomEvent("sidebar-toggled", {
+      this.dispatchEvent(
+        new CustomEvent("sidebar-toggle", {
+          bubbles: true,
+          composed: true,
           detail: { collapsed: this.expanded },
         })
       );

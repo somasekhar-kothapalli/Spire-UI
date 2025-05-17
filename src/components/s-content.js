@@ -4,6 +4,13 @@ export default class SContent extends HTMLElement {
   static #shadowTemplate = html` <template> <slot></slot> </template> `;
   static #shadowStyleSheet = css`
     :host {
+      display: block;
+      padding: 0px;
+      background: var(--background-color);
+      color: var(--text-color);
+      transition: width 0.3s ease-in-out;
+      overflow-x: hidden;
+      overflow-y: scroll;
     }
   `;
 

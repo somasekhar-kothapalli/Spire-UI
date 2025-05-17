@@ -2,51 +2,64 @@ import { html, css } from "../utils/template.js";
 export default class SLayout extends HTMLElement {
   static #shadowTemplate = html`
     <template>
-      <s-sidebar id="sidebar" expandable="true">
-        <div slot="container">
-          <slot name="sidebar-container"></slot>
-        </div>
-        <div slot="footer">
-          <slot name="sidebar-footer"></slot>
-        </div>
-      </s-sidebar>
-      <main class="s-container">
-
-        <s-container id="container-content">
-          <slot name="container-content"></slot>
-        </s-container>
-      </main>
+      <div class="s-container">
+        <slot name="header"></slot>
+        <slot name="sidebar"></slot>
+        <slot name="content"></slot>
+        <slot name="footer"></slot>
+      </div>
     </template>
   `;
   static #shadowStyleSheet = css`
     :host {
-      display: flex;
-      flex-direction: row;
-      color: var(--text-color);
-      background-color: var(--foreground-color);
+      display: block;
       height: 100%;
       width: 100%;
       overflow: hidden;
+      --header-height: 45px;
+      --footer-height: 45px;
     }
 
     .s-container {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      margin: 10px 10px 10px 0px;
+      display: grid;
+      padding: 0;
+      grid-template-areas:
+        "sidebar header"
+        "sidebar content"
+        "sidebar footer";
+      grid-template-columns: var(--sidebar-width) 1fr;
+      grid-template-rows: var(--header-height) 1fr var(--footer-height);
+      height: 100%;
+      overflow: hidden;
+      transition: grid-template-columns 0.3s ease-in-out;
     }
 
-    .s-content {
-      display: block;
-      background: var(--background-color);
-      border: 1px solid var(--s-primary-color);
-      color: var(--text-color);
-      overflow: auto;
-      height: 100%;
+    :host([collapsed]) .s-container {
+      grid-template-columns: var(--sidebar-width-collapsed) 1fr;
     }
-    s-container {
+
+    ::slotted(s-header) {
+      grid-area: header;
+      padding: 10px;
+      height: var(--header-height);
+    }
+
+    ::slotted(s-sidebar) {
+      grid-area: sidebar;
+      overflow-y: auto;
+    }
+
+    ::slotted(s-content) {
+      grid-area: content;
+      overflow-y: auto;
+      overflow-x: hidden;
       padding: 15px;
-      border-radius: 16px;
+    }
+
+    ::slotted(s-footer) {
+      grid-area: footer;
+      padding: 10px;
+      height: var(--footer-height);
     }
   `;
 
@@ -60,6 +73,44 @@ export default class SLayout extends HTMLElement {
     this.#shadowRoot.append(
       document.importNode(SLayout.#shadowTemplate.content, true)
     );
+
+    this.addEventListener("sidebar-toggle", this._onSidebarToggle.bind(this));
+  }
+
+  connectedCallback() {
+    this._requestAnimationFrame();
+  }
+
+  disconnectedCallback() {}
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) return;
+  }
+
+  // Wait for the DOM to render before accessing slot content
+  _requestAnimationFrame() {
+    const sidebarSlot = this.#shadowRoot.querySelector('slot[name="sidebar"]');
+    const sidebarNodes = sidebarSlot.assignedElements();
+
+    if (sidebarNodes.length > 0) {
+      const sidebarEl = sidebarNodes[0];
+
+      // ✅ Read collapsed attribute from s-sidebar
+      const expandedAttr = sidebarEl.getAttribute("expanded");
+
+      if (expandedAttr === "" || expandedAttr === "false") {
+        this.setAttribute("collapsed", "");
+      }
+    }
+  }
+
+  _onSidebarToggle(event) {
+    const collapsed = event?.detail?.collapsed;
+    if (collapsed === "false") {
+      this.setAttribute("collapsed", "");
+    } else {
+      this.removeAttribute("collapsed");
+    }
   }
 }
 

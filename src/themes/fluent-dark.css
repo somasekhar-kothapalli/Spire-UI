@@ -860,14 +860,14 @@ dialog > footer > s-button {
   flex: 1;
 }
 
-x-pager {
+s-pager {
   --prev-path-data: var(--arrow-left-path-data);
   --next-path-data: var(--arrow-right-path-data);
   --first-path-data: var(--double-arrow-left-path-data);
   --last-path-data: var(--double-arrow-right-path-data);
 }
 
-x-pager::part(item) {
+s-pager::part(item) {
   color: var(--text-color);
   background-color: color(srgb 1 1 1 / 0.0605);
   border-color: var(--border-color);
@@ -875,38 +875,38 @@ x-pager::part(item) {
   font-weight: 500;
 }
 
-x-pager::part(item):hover {
+s-pager::part(item):hover {
   background-color: color(srgb 1 1 1 / 0.0837);
 }
 
-x-pager::part(item):active {
+s-pager::part(item):active {
   color: color(srgb 1 1 1 / 0.786);
   background-color: color(srgb 1 1 1 / 0.0326);
 }
 
-x-pager::part(item):focus {
+s-pager::part(item):focus {
   outline-width: 2px;
   outline-style: solid;
   outline-color: color(srgb 1 1 1);
   outline-offset: 2px;
 }
 
-x-pager::part(toggled-item) {
+s-pager::part(toggled-item) {
   color: color(srgb 0 0 0);
   background-color: var(--accent-color);
   border-color: transparent;
 }
 
-x-pager::part(toggled-item):hover {
+s-pager::part(toggled-item):hover {
   background-color: var(--accent-color);
 }
 
-x-pager::part(toggled-item):active {
+s-pager::part(toggled-item):active {
   color: color(srgb 0 0 0 / 0.5);
   background-color: oklch(from var(--accent-color) l c h / 80%);
 }
 
-x-popover {
+s-popover {
   color: var(--text-color);
   background-color: var(--foreground-color);
   border-width: 1px;
@@ -918,7 +918,7 @@ x-popover {
   --open-transition: none;
 }
 
-x-popover > footer {
+s-popover > footer {
   background-color: var(--background-color);
   border-top-width: 1px;
   border-top-style: solid;
@@ -1551,12 +1551,12 @@ x-colorinput::part(arrow) {
   padding-left: 0;
 }
 
-x-progressbar {
+s-progressbar {
   height: 3px;
   border-radius: 99px;
 }
 
-x-progressbar::before {
+s-progressbar::before {
   position: absolute;
   top: 1px;
   width: 100%;
@@ -1566,7 +1566,7 @@ x-progressbar::before {
   content: "";
 }
 
-x-progressbar::part(bar) {
+s-progressbar::part(bar) {
   background-color: var(--accent-color);
   border-radius: 99px;
 }

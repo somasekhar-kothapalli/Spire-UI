@@ -25,6 +25,9 @@ import "./components/s-nav.js";
 import "./components/s-navitem.js";
 import "./components/s-notification.js";
 import "./components/s-numberinput.js";
+import "./components/s-pager.js";
+import "./components/s-popover.js";
+import "./components/s-progressbar.js";
 import "./components/s-sidebar.js";
 
 export default Spire;

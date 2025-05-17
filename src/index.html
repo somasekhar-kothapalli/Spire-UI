@@ -305,13 +305,13 @@
         
             <s-menu>
               <s-menuitem>
-                <x-icon href="#history-undo"></x-icon>
+                <s-icon href="#history-undo"></s-icon>
                 <s-label>Undo</s-label>
                 <x-shortcut value="Control+Z"></x-shortcut>
               </s-menuitem>
         
               <s-menuitem disabled>
-                <x-icon href="#history-redo"></x-icon>
+                <s-icon href="#history-redo"></s-icon>
                 <s-label>Redo</s-label>
                 <x-shortcut value="Control+Shift+Z"></x-shortcut>
               </s-menuitem>
@@ -319,19 +319,19 @@
               <hr>
         
               <s-menuitem>
-                <x-icon href="#cut"></x-icon>
+                <s-icon href="#cut"></s-icon>
                 <s-label>Cut</s-label>
                 <x-shortcut value="Control+X"></x-shortcut>
               </s-menuitem>
         
               <s-menuitem>
-                <x-icon href="#copy"></x-icon>
+                <s-icon href="#copy"></s-icon>
                 <s-label>Copy</s-label>
                 <x-shortcut value="Control+C"></x-shortcut>
               </s-menuitem>
         
               <s-menuitem>
-                <x-icon href="#paste"></x-icon>
+                <s-icon href="#paste"></s-icon>
                 <s-label>Paste</s-label>
                 <x-shortcut value="Control+V"></x-shortcut>
               </s-menuitem>
@@ -357,7 +357,7 @@
         
             <s-menu>
               <s-menuitem>
-                <x-icon href="#help"></x-icon>
+                <s-icon href="#help"></s-icon>
                 <s-label>Documentation</s-label>
               </s-menuitem>
             </s-menu>
@@ -404,6 +404,36 @@
             </s-menu>
           </s-contextmenu>
         </s-card>
+
+        <h1>Pager</h1>
+        <s-pager value="1" max="5"></s-pager>
+        <s-pager value="1" max="5" controls="first last prev next nth"></s-pager>
+        <s-pager max="200"></s-pager>
+        <s-pager href="https://boxy-svg.com/ideas"></s-pager>
+
+        <h1>Popover</h1>
+        <s-button>
+          <s-icon href="#settings"></s-icon>
+        
+          <s-popover modal>
+            <s-label>Primary content</s-label>
+            <footer>
+              <s-label>Footer content</s-label>
+            </footer>
+          </s-popover>
+        </s-button>
+
+        <h1>Progress bar</h1>
+        <s-progressbar value="0.5"></s-progressbar>
+        <s-progressbar value="0.5" size="small"></s-progressbar>
+        <s-progressbar value="0.5" style="margin: 20px 0;"></s-progressbar>
+        <s-progressbar value="0.5" size="large"></s-progressbar>
+
+        <script>
+          let bar = document.querySelector("s-progressbar");
+          let callback = () => bar.value >= 1 ? bar.value = 0 : bar.value += 0.15;
+          setInterval(callback, 1000);
+        </script>
         
       </s-content>
     

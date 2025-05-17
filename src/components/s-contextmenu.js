@@ -54,7 +54,7 @@ export default class SContextMenu extends HTMLElement {
       document.importNode(SContextMenu.#shadowTemplate.content, true)
     );
 
-    this["#backdrop"] = createElement("x-backdrop");
+    this["#backdrop"] = createElement("s-backdrop");
     this["#backdrop"].style.background = "rgba(0, 0, 0, 0)";
     this["#backdrop"].addEventListener("contextmenu", (event) =>
       this.#onBackdropContextMenu(event)

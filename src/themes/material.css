@@ -812,35 +812,35 @@ s-drawer[position="bottom"] {
   border-radius: 16px 16px 0 0;
 }
 
-x-pager::part(item) {
+s-pager::part(item) {
   min-width: 30px;
   color: var(--material-on-surface-color);
   border-color: transparent;
   border-radius: 99px;
 }
 
-x-pager::part(item):hover {
+s-pager::part(item):hover {
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.08);
 }
 
-x-pager::part(item):active {
+s-pager::part(item):active {
   background-color: oklch(from var(--material-primary-color) l c h / 0.2);
 }
 
-x-pager::part(item):focus {
+s-pager::part(item):focus {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-primary-color);
   outline-offset: -1px;
 }
 
-x-pager::part(toggled-item),
-x-pager::part(toggled-item):hover {
+s-pager::part(toggled-item),
+s-pager::part(toggled-item):hover {
   color: var(--material-on-primary-color);
   background-color: var(--material-primary-color);
 }
 
-x-popover {
+s-popover {
   color: var(--material-on-surface-color);
   background-color: var(--material-surface-container-high-color);
   border-radius: 4px;
@@ -848,14 +848,14 @@ x-popover {
   --open-transition: none;
 }
 
-x-popover > footer {
+s-popover > footer {
   background-color: var(--material-surface-container-highest-color);
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: var(--material-outline-variant-color);
 }
 
-x-popover::part(arrow-path) {
+s-popover::part(arrow-path) {
   filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 6px 10px);
 }
 
@@ -1373,12 +1373,12 @@ x-colorselect {
   border-radius: 4px;
 }
 
-x-progressbar {
+s-progressbar {
   background-color: var(--material-secondary-container-color);
   border-radius: 99px;
 }
 
-x-progressbar::part(bar) {
+s-progressbar::part(bar) {
   background-color: var(--material-primary-color);
   border-radius: 99px;
 }

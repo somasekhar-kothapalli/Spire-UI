@@ -12,6 +12,7 @@ import "./components/s-checkbox.js";
 import "./components/s-content.js";
 import "./components/s-footer.js";
 import "./components/s-header.js";
+import "./components/s-drawer.js";
 import "./components/s-icon.js";
 import "./components/s-label.js";
 import "./components/s-nav.js";

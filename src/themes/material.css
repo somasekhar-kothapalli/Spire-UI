@@ -779,7 +779,7 @@ dialog > footer {
   border-top-color: var(--material-outline-variant-color);
 }
 
-x-drawer {
+s-drawer {
   box-sizing: border-box;
   overflow: hidden;
   background-color: var(--material-surface-container-low-color);
@@ -788,25 +788,25 @@ x-drawer {
   transition-duration: var(--material-motion-duration-short-4);
 }
 
-x-drawer[position="left"] {
+s-drawer[position="left"] {
   margin: 8px 0;
   height: calc(100% - 16px);
   border-radius: 0 16px 16px 0;
 }
 
-x-drawer[position="right"] {
+s-drawer[position="right"] {
   margin: 8px 0;
   height: calc(100% - 16px);
   border-radius: 16px 0 0 16px;
 }
 
-x-drawer[position="top"] {
+s-drawer[position="top"] {
   margin: 0 8px;
   width: calc(100% - 16px);
   border-radius: 0 0 16px 16px;
 }
 
-x-drawer[position="bottom"] {
+s-drawer[position="bottom"] {
   margin: 0 8px;
   width: calc(100% - 16px);
   border-radius: 16px 16px 0 0;

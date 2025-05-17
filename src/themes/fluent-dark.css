@@ -301,7 +301,7 @@ s-tooltip {
   box-shadow: 0 4px 8px color(srgb 0 0 0 / 0.26);
 }
 
-x-stepper {
+s-stepper {
   width: 40px;
   height: 70px;
   padding: 5px;
@@ -313,37 +313,37 @@ x-stepper {
   border-radius: 7px;
 }
 
-x-stepper::part(increment-button),
-x-stepper::part(decrement-button) {
+s-stepper::part(increment-button),
+s-stepper::part(decrement-button) {
   border-radius: 3px;
 }
 
-x-stepper::part(increment-button):hover,
-x-stepper::part(decrement-button):hover {
+s-stepper::part(increment-button):hover,
+s-stepper::part(decrement-button):hover {
   background-color: color(srgb 1 1 1 / 0.0837);
 }
 
-x-stepper[pressed="increment"]::part(increment-button),
-x-stepper[pressed="decrement"]::part(decrement-button) {
+s-stepper[pressed="increment"]::part(increment-button),
+s-stepper[pressed="decrement"]::part(decrement-button) {
   color: inherit;
   background-color: color(srgb 1 1 1 / 0.0326);
 }
 
-x-stepper::part(increment-arrow),
-x-stepper::part(decrement-arrow) {
+s-stepper::part(increment-arrow),
+s-stepper::part(decrement-arrow) {
   width: 18px;
   height: 18px;
 }
 
-x-stepper::part(increment-arrow) {
+s-stepper::part(increment-arrow) {
   --path-data: var(--arrow-up-path-data);
 }
 
-x-stepper::part(decrement-arrow) {
+s-stepper::part(decrement-arrow) {
   --path-data: var(--arrow-down-path-data);
 }
 
-x-swatch {
+s-swatch {
   border-color: var(--border-color);
   border-radius: var(--border-radius);
 }
@@ -556,59 +556,59 @@ s-button[skin="dock"]:focus {
   outline-offset: -2px;
 }
 
-x-tag {
+s-tag {
   background-color: color(srgb 1 1 1 / 0.0605);
   border-color: transparent;
   border-radius: 99px;
 }
 
-x-tag:hover {
+s-tag:hover {
   background-color: color(srgb 1 1 1 / 0.0837);
 }
 
-x-tag:active {
+s-tag:active {
   filter: brightness(0.8);
 }
 
-x-tag:focus {
+s-tag:focus {
   outline-width: 2px;
   outline-style: solid;
   outline-color: color(srgb 1 1 1);
   outline-offset: 2px;
 }
 
-x-tag[toggled] {
+s-tag[toggled] {
   color: color(srgb 0 0 0);
   background-color: var(--accent-color);
   border-color: transparent;
 }
 
-x-tag[toggled]:hover {
+s-tag[toggled]:hover {
   filter: brightness(0.99);
 }
 
-x-tag[toggled]:active {
+s-tag[toggled]:active {
   filter: brightness(0.8);
 }
 
-x-tag::part(remove-button) {
+s-tag::part(remove-button) {
   --path-data: var(--clear-path-data);
 }
 
-x-tag::part(remove-button):hover {
+s-tag::part(remove-button):hover {
   color: color(srgb 0 0 0);
 }
 
-x-tag::part(scope) {
+s-tag::part(scope) {
   background-color: var(--foreground-color);
   border-color: var(--border-color);
 }
 
-x-tag[scoped]::part(main) {
+s-tag[scoped]::part(main) {
   background-color: var(--background-color);
 }
 
-x-tagsinput {
+s-tagsinput {
   background-color: color(srgb 1 1 1 / 0.0605);
   border-color: var(--border-color);
   border-width: 1px;
@@ -616,15 +616,15 @@ x-tagsinput {
   border-radius: 3px;
 }
 
-x-tagsinput:hover {
+s-tagsinput:hover {
   background-color: color(srgb 1 1 1 / 0.0737);
 }
 
-x-tagsinput:focus {
+s-tagsinput:focus {
   background-color: color(srgb 1 1 1 / 0);
 }
 
-x-tagsinput::before {
+s-tagsinput::before {
   position: absolute;
   bottom: -1px;
   left: 0px;
@@ -635,56 +635,56 @@ x-tagsinput::before {
   content: "";
 }
 
-x-tagsinput:focus::before {
+s-tagsinput:focus::before {
   height: 2px;
   background-color: var(--accent-color);
 }
 
-x-tagsinput[error]::before {
+s-tagsinput[error]::before {
   height: 2px;
   background-color: var(--error-color);
 }
 
-x-tagsinput[disabled]::before {
+s-tagsinput[disabled]::before {
   display: none;
 }
 
-x-tagsinput > s-label {
+s-tagsinput > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 
-x-tabs {
+s-tabs {
   background-color: color(srgb 1 1 1 / 0);
   border-radius: var(--border-radius);
   box-shadow: 0 0 0px 1px color(srgb 1 1 1 / 0.0698);
 }
 
-x-tab {
+s-tab {
   border-radius: var(--border-radius);
 }
 
-x-tab:hover {
+s-tab:hover {
   background-color: color(srgb 1 1 1 / 0.0605);
 }
 
-x-tab:active {
+s-tab:active {
   color: color(srgb 1 1 1 / 0.786);
   background-color: color(srgb 1 1 1 / 0.04019);
 }
 
-x-tab[toggled] {
+s-tab[toggled] {
   background-color: color(srgb 1 1 1 / 0.0605);
   box-shadow: 0 0 0px 1px var(--border-color);
 }
 
-x-tab:focus {
+s-tab:focus {
   outline-width: 2px;
   outline-style: solid;
   outline-color: color(srgb 1 1 1);
   outline-offset: 2px;
 }
 
-x-tab::before {
+s-tab::before {
   position: absolute;
   width: 0px;
   height: 2px;
@@ -697,11 +697,11 @@ x-tab::before {
   content: "";
 }
 
-x-tab[toggled]::before {
+s-tab[toggled]::before {
   width: 16px;
 }
 
-x-tab[toggled]:active::before {
+s-tab[toggled]:active::before {
   width: 12px;
 }
 
@@ -1087,7 +1087,7 @@ s-radio[mixed]:active::part(indicator-dot) {
   transform: scale(0.5);
 }
 
-x-switch:focus {
+s-switch:focus {
   border-radius: 2px;
   outline-width: 2px;
   outline-style: solid;
@@ -1095,16 +1095,16 @@ x-switch:focus {
   outline-offset: 2px;
 }
 
-x-switch[disabled] {
+s-switch[disabled] {
   opacity: 0.5;
 }
 
-x-switch::part(indicator) {
+s-switch::part(indicator) {
   width: 34px;
   height: 15px;
 }
 
-x-switch::part(indicator-thumb) {
+s-switch::part(indicator-thumb) {
   width: 12px;
   height: 12px;
   left: 10px;
@@ -1115,58 +1115,58 @@ x-switch::part(indicator-thumb) {
   transition-timing-function: cubic-bezier(0.55, 0.55, 0, 1);
 }
 
-x-switch:active::part(indicator-thumb) {
+s-switch:active::part(indicator-thumb) {
   width: 16px;
   margin-left: 2px;
 }
 
-x-switch[toggled]::part(indicator-thumb) {
+s-switch[toggled]::part(indicator-thumb) {
   left: calc(100% - 10px);
   background-color: color(srgb 0 0 0);
 }
 
-x-switch[toggled]:active::part(indicator-thumb) {
+s-switch[toggled]:active::part(indicator-thumb) {
   margin-left: -2px;
 }
 
-x-switch[mixed]::part(indicator-thumb) {
+s-switch[mixed]::part(indicator-thumb) {
   left: 50% !important;
   margin-left: 0;
 }
 
-x-switch[toggled][disabled]::part(indicator-thumb) {
+s-switch[toggled][disabled]::part(indicator-thumb) {
   background-color: color(srgb 1 1 1 / 0.786);
 }
 
-x-switch[size="small"]::part(indicator-thumb) {
+s-switch[size="small"]::part(indicator-thumb) {
   width: 8px;
   height: 8px;
   left: 8px;
 }
 
-x-switch[size="small"]:active::part(indicator-thumb) {
+s-switch[size="small"]:active::part(indicator-thumb) {
   width: 12px;
 }
 
-x-switch[size="small"][toggled]::part(indicator-thumb) {
+s-switch[size="small"][toggled]::part(indicator-thumb) {
   left: calc(100% - 8px);
 }
 
-x-switch[size="large"]::part(indicator-thumb) {
+s-switch[size="large"]::part(indicator-thumb) {
   width: 14px;
   height: 14px;
   left: 12px;
 }
 
-x-switch[size="large"]:active::part(indicator-thumb) {
+s-switch[size="large"]:active::part(indicator-thumb) {
   width: 18px;
 }
 
-x-switch[size="large"][toggled]::part(indicator-thumb) {
+s-switch[size="large"][toggled]::part(indicator-thumb) {
   left: calc(100% - 12px);
 }
 
-x-switch::part(indicator-track) {
+s-switch::part(indicator-track) {
   height: 100%;
   background-color: color(srgb 0 0 0 / 0.1);
   border-color: color(srgb 1 1 1 / 0.6047);
@@ -1175,29 +1175,29 @@ x-switch::part(indicator-track) {
   border-radius: 999px;
 }
 
-x-switch:hover::part(indicator-track) {
+s-switch:hover::part(indicator-track) {
   background-color: color(srgb 1 1 1 / 0.0419);
 }
 
-x-switch:active::part(indicator-track) {
+s-switch:active::part(indicator-track) {
   background-color: color(srgb 1 1 1 / 0.0698);
   border-color: color(srgb 1 1 1 / 0.6047);
 }
 
-x-switch[toggled]::part(indicator-track) {
+s-switch[toggled]::part(indicator-track) {
   background-color: var(--accent-color);
   border-color: transparent;
 }
 
-x-switch[toggled]:hover::part(indicator-track) {
+s-switch[toggled]:hover::part(indicator-track) {
   background-color: oklch(from var(--accent-color) l c h / 0.9);
 }
 
-x-switch[toggled]:active::part(indicator-track) {
+s-switch[toggled]:active::part(indicator-track) {
   background-color: oklch(from var(--accent-color) l c h / 0.8);
 }
 
-x-switch[toggled][disabled]::part(indicator-track) {
+s-switch[toggled][disabled]::part(indicator-track) {
   background-color: color(srgb 1 1 1 / 0.1581);
 }
 
@@ -1247,21 +1247,21 @@ x-select s-menuitem::part(checkmark) {
   --path-data: M 0 0 L 100 0 L 100 100 L 0 100 Z;
 }
 
-x-slider[disabled] {
+s-slider[disabled] {
   filter: saturate(0);
 }
 
-x-slider::part(groove-track) {
+s-slider::part(groove-track) {
   background-color: color(srgb 1 1 1 / 0.5442);
   border-radius: 99px;
 }
 
-x-slider::part(range-track) {
+s-slider::part(range-track) {
   background-color: var(--accent-color);
   border-radius: 99px;
 }
 
-x-slider::part(thumb) {
+s-slider::part(thumb) {
   background-color: var(--accent-color);
   border-color: color(srgb 0.27 0.27 0.27);
   border-width: 4.5px;
@@ -1275,22 +1275,22 @@ x-slider::part(thumb) {
   transition-timing-function: cubic-bezier(0.55, 0.55, 0, 1);
 }
 
-x-slider[dragging="start"]::part(start-thumb),
-x-slider[dragging="end"]::part(end-thumb) {
+s-slider[dragging="start"]::part(start-thumb),
+s-slider[dragging="end"]::part(end-thumb) {
   border-width: 6px;
 }
 
-x-slider::part(thumb):focus {
+s-slider::part(thumb):focus {
   outline-width: 2px;
   outline-style: solid;
   outline-color: color(srgb 1 1 1);
 }
 
-x-slider::part(tick) {
+s-slider::part(tick) {
   background-color: color(srgb 1 1 1 / 0.5442);
 }
 
-x-input {
+s-input {
   background-color: color(srgb 1 1 1 / 0.0605);
   border-color: var(--border-color);
   border-width: 1px;
@@ -1298,20 +1298,20 @@ x-input {
   border-radius: 3px;
 }
 
-x-input:hover {
+s-input:hover {
   background-color: color(srgb 1 1 1 / 0.0737);
 }
 
-x-input:focus {
+s-input:focus {
   background-color: color(srgb 1 1 1 / 0);
 }
 
-x-input[error] {
+s-input[error] {
   --selection-color: white;
   --selection-background-color: var(--error-color);
 }
 
-x-input::before {
+s-input::before {
   position: absolute;
   left: 0px;
   bottom: -1px;
@@ -1322,21 +1322,21 @@ x-input::before {
   content: "";
 }
 
-x-input:focus::before {
+s-input:focus::before {
   height: 2px;
   background-color: var(--accent-color);
 }
 
-x-input[error]::before {
+s-input[error]::before {
   height: 2px;
   background-color: var(--error-color);
 }
 
-x-input[disabled]::before {
+s-input[disabled]::before {
   display: none;
 }
 
-x-input > s-label {
+s-input > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 
@@ -1349,7 +1349,7 @@ s-numberinput {
   line-height: 1.5;
 }
 
-s-numberinput:focus:has(x-stepper) {
+s-numberinput:focus:has(s-stepper) {
   padding-right: 16px;
 }
 
@@ -1395,7 +1395,7 @@ s-numberinput > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 
-s-numberinput > x-stepper {
+s-numberinput > s-stepper {
   width: 16px;
   height: 11px;
   padding: 0;
@@ -1405,7 +1405,7 @@ s-numberinput > x-stepper {
   pointer-events: none;
 }
 
-s-numberinput:focus > x-stepper {
+s-numberinput:focus > s-stepper {
   position: absolute;
   right: -12px;
   width: 26px;
@@ -1421,20 +1421,20 @@ s-numberinput:focus > x-stepper {
   pointer-events: all;
 }
 
-s-numberinput[size="small"]:not(:focus) > x-stepper {
+s-numberinput[size="small"]:not(:focus) > s-stepper {
   transform: scale(0.6);
 }
 
-s-numberinput[size="large"]:not(:focus) > x-stepper {
+s-numberinput[size="large"]:not(:focus) > s-stepper {
   transform: scale(1.1) translateX(-2px);
 }
 
-s-numberinput:not(:focus) > x-stepper::part(increment-button),
-s-numberinput:not(:focus) > x-stepper::part(decrement-button) {
+s-numberinput:not(:focus) > s-stepper::part(increment-button),
+s-numberinput:not(:focus) > s-stepper::part(decrement-button) {
   opacity: 0.5;
 }
 
-x-texteditor {
+s-texteditor {
   background-color: color(srgb 1 1 1 / 0.0605);
   border-color: var(--border-color);
   border-width: 1px;
@@ -1443,27 +1443,27 @@ x-texteditor {
   border-bottom-color: color(srgb 1 1 1 / 0.54);
 }
 
-x-texteditor:hover {
+s-texteditor:hover {
   background-color: color(srgb 1 1 1 / 0.0737);
 }
 
-x-texteditor:focus {
+s-texteditor:focus {
   background-color: color(srgb 1 1 1 / 0);
   border-bottom-color: var(--border-color);
   box-shadow: 0px -2px 0 0px inset var(--accent-color);
 }
 
-x-texteditor[error] {
+s-texteditor[error] {
   border-bottom-color: var(--border-color);
   box-shadow: 0px -2px 0 0px inset var(--error-color);
 }
 
-x-texteditor[disabled] {
+s-texteditor[disabled] {
   border-bottom-color: var(--border-color);
   box-shadow: none;
 }
 
-x-texteditor > s-label {
+s-texteditor > s-label {
   color: color(srgb 1 1 1 / 0.4);
 }
 
@@ -1571,7 +1571,7 @@ s-progressbar::part(bar) {
   border-radius: 99px;
 }
 
-x-throbber {
+s-throbber {
   color: var(--accent-color);
 }
 

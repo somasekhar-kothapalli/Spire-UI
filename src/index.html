@@ -215,10 +215,10 @@
         <h1>Number input</h1>      
         <s-numberinput value="0"></s-numberinput>
         <s-numberinput value="499" prefix="$" min="0">
-          <x-stepper></x-stepper>
+          <s-stepper></s-stepper>
         </s-numberinput>
         <s-numberinput value="100" suffix=" px">
-          <x-stepper></x-stepper>
+          <s-stepper></s-stepper>
         </s-numberinput>
 
         <h1>Menu</h1>
@@ -278,24 +278,24 @@
             <s-menu>
               <s-menuitem>
                 <s-label>New</s-label>
-                <x-shortcut value="Control+N"></x-shortcut>
+                <s-shortcut value="Control+N"></s-shortcut>
               </s-menuitem>
         
               <s-menuitem>
                 <s-label>Open…</s-label>
-                <x-shortcut value="Control+O"></x-shortcut>
+                <s-shortcut value="Control+O"></s-shortcut>
               </s-menuitem>
         
               <hr>
         
               <s-menuitem>
                 <s-label>Save</s-label>
-                <x-shortcut value="Control+S"></x-shortcut>
+                <s-shortcut value="Control+S"></s-shortcut>
               </s-menuitem>
         
               <s-menuitem>
                 <s-label>Save as…</s-label>
-                <x-shortcut value="Control+Shift+S"></x-shortcut>
+                <s-shortcut value="Control+Shift+S"></s-shortcut>
               </s-menuitem>
             </s-menu>
           </s-menuitem>
@@ -307,13 +307,13 @@
               <s-menuitem>
                 <s-icon href="#history-undo"></s-icon>
                 <s-label>Undo</s-label>
-                <x-shortcut value="Control+Z"></x-shortcut>
+                <s-shortcut value="Control+Z"></s-shortcut>
               </s-menuitem>
         
               <s-menuitem disabled>
                 <s-icon href="#history-redo"></s-icon>
                 <s-label>Redo</s-label>
-                <x-shortcut value="Control+Shift+Z"></x-shortcut>
+                <s-shortcut value="Control+Shift+Z"></s-shortcut>
               </s-menuitem>
         
               <hr>
@@ -321,19 +321,19 @@
               <s-menuitem>
                 <s-icon href="#cut"></s-icon>
                 <s-label>Cut</s-label>
-                <x-shortcut value="Control+X"></x-shortcut>
+                <s-shortcut value="Control+X"></s-shortcut>
               </s-menuitem>
         
               <s-menuitem>
                 <s-icon href="#copy"></s-icon>
                 <s-label>Copy</s-label>
-                <x-shortcut value="Control+C"></x-shortcut>
+                <s-shortcut value="Control+C"></s-shortcut>
               </s-menuitem>
         
               <s-menuitem>
                 <s-icon href="#paste"></s-icon>
                 <s-label>Paste</s-label>
-                <x-shortcut value="Control+V"></x-shortcut>
+                <s-shortcut value="Control+V"></s-shortcut>
               </s-menuitem>
             </s-menu>
           </s-menuitem>
@@ -489,8 +489,146 @@
         <s-titlebar maximized>
           <s-label>About</s-label>
         </s-titlebar>
+
+        <h1>Throbber</h1>
+        <s-throbber></s-throbber>
+        <s-box style="gap: 10px;">
+          <s-throbber size="small"></s-throbber>
+          <s-throbber></s-throbber>
+          <s-throbber size="large"></s-throbber>
+        </s-box>
+
+        <h1>Text editor</h1>
+        <s-texteditor>
+          <s-label>Name</s-label>
+        </s-texteditor>
+        <s-texteditor value="There is a typo here" spellcheck></s-texteditor>
+        <s-texteditor value="Sample value" disabled></s-texteditor>
+
+        <h1>Tags input</h1>
+
+        <s-tagsinput>
+          <s-tag value="tag-1">
+            <s-label>Tag 1</s-label>
+          </s-tag>
         
+          <s-tag value="tag-2">
+            <s-label>Tag 2</s-label>
+          </s-tag>
         
+          <s-tag value="tag-3">
+            <s-label>Tag 3</s-label>
+          </s-tag>
+        </s-tagsinput>
+
+        <s-tagsinput>
+          <s-tag value="red">
+            <s-swatch value="#fc7b7e"></s-swatch>
+            <s-label>Red</s-label>
+          </s-tag>
+        
+          <s-tag value="green">
+            <s-swatch value="#83e283"></s-swatch>
+            <s-label>Green</s-label>
+          </s-tag>
+        
+          <s-tag value="yellow">
+            <s-swatch value="#fde05b"></s-swatch>
+            <s-label>Yellow</s-label>
+          </s-tag>
+        </s-tagsinput>
+
+        <h1>Tab</h1>
+        <s-tabs>
+          <s-tab toggled>
+            <s-icon href="#mail"></s-icon>
+            <s-label>Item one</s-label>
+          </s-tab>
+        </s-tabs>
+        <s-tabs>
+          <s-tab toggled>
+            <s-icon href="#mail"></s-icon>
+          </s-tab>
+        </s-tabs>
+
+        <h1>Tabs</h1>
+        <s-tabs>
+          <s-tab toggled>
+            <s-icon href="#mail"></s-icon>
+            <s-label>Item one</s-label>
+          </s-tab>
+        
+          <s-tab>
+            <s-icon href="#send"></s-icon>
+            <s-label>Item two</s-label>
+          </s-tab>
+        
+          <s-tab>
+            <s-icon href="#wrench"></s-icon>
+            <s-label>Item three</s-label>
+          </s-tab>
+        </s-tabs>
+        <s-tabs>
+          <s-tab toggled>
+            <s-icon href="#mail"></s-icon>
+          </s-tab>
+        
+          <s-tab>
+            <s-icon href="#send"></s-icon>
+          </s-tab>
+        
+          <s-tab>
+            <s-icon href="#wrench"></s-icon>
+          </s-tab>
+        </s-tabs>
+
+        <h1>Switch</h1>
+        <s-switch></s-switch>
+        <s-switch toggled></s-switch>
+        <s-switch disabled></s-switch>
+        <s-switch toggled disabled></s-switch>
+        <s-switch>
+          <s-label>Switch</s-label>
+        </s-switch>
+        <s-switch>
+          <s-label><strong>Switch</strong></s-label>
+          <s-label>Description with a <a href="#">link</a></s-label>
+        </s-switch>
+
+        <h1>Swatch</h1>
+        <s-swatch></s-swatch>
+        <s-swatch value="color(display-p3 1 0 0)"></s-swatch>
+        <s-box style="gap: 10px;">
+          <s-swatch value="#bada55" size="small"></s-swatch>
+          <s-swatch value="#bada55"></s-swatch>
+          <s-swatch value="#bada55" size="large"></s-swatch>
+        </s-box>
+
+        <h1>Stepper</h1>
+        <s-stepper></s-stepper>
+        <s-stepper disabled></s-stepper>
+        <s-stepper disabled="increment" style="margin: 5px 0;"></s-stepper>
+        <s-stepper disabled="decrement"></s-stepper>
+
+        <h1>Slider</h1>
+        <s-slider value="10"></s-slider>
+        <s-slider value="10" step="10"></s-slider>
+        <s-slider value="10" step="10" ticks></s-slider>
+        <s-slider value="10" min="-50" max="50"></s-slider>
+
+        <h1>Shortcut</h1>
+        <s-shortcut value="Control+C"></s-shortcut>
+        <s-shortcut value="Control+Alt+Shift+P"></s-shortcut>
+
+        <h1>Input</h1>
+        <s-input></s-input>
+        <s-input value="Sample text"></s-input>
+        <s-input>
+          <s-icon href="#person"></s-icon>
+          <s-label>Name</s-label>
+        </s-input>
+        <s-input value="There is a typo here" spellcheck></s-input>
+                
       </s-content>
     
       <s-footer slot="footer">© 2025 My Company</s-footer>

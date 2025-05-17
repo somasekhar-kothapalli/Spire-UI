@@ -529,7 +529,7 @@ export default class SNumberInput extends HTMLElement {
   }
 
   #updateStepper() {
-    let stepper = this.querySelector("x-stepper");
+    let stepper = this.querySelector("s-stepper");
 
     if (stepper) {
       let canDecrement = this.value > this.min;
@@ -636,7 +636,7 @@ export default class SNumberInput extends HTMLElement {
 
 
   #onPointerDown(pointerDownEvent) {
-    if (pointerDownEvent.target.localName === "x-stepper") {
+    if (pointerDownEvent.target.localName === "s-stepper") {
       // Don't focus the input when user clicks stepper
       pointerDownEvent.preventDefault();
     }

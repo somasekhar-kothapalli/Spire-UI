@@ -103,7 +103,7 @@ export let getClosestScrollableAncestor = (element) => {
       return document.body;
     } else if (
       isScrollable(currentElement) &&
-      currentElement.localName !== "x-texteditor"
+      currentElement.localName !== "s-texteditor"
     ) {
       return currentElement;
     } else {

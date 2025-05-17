@@ -233,7 +233,7 @@ s-tooltip {
   border-radius: 4px;
 }
 
-x-stepper {
+s-stepper {
   width: 40px;
   height: 70px;
   background-color: var(--material-surface-container-color);
@@ -241,38 +241,38 @@ x-stepper {
   box-shadow: var(--material-elevation-2);
 }
 
-x-stepper::part(increment-button),
-x-stepper::part(decrement-button) {
+s-stepper::part(increment-button),
+s-stepper::part(decrement-button) {
   color: var(--material-on-surface-variant-color);
 }
 
-x-stepper::part(increment-button):hover,
-x-stepper::part(decrement-button):hover {
+s-stepper::part(increment-button):hover,
+s-stepper::part(decrement-button):hover {
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.08);
 }
 
-x-stepper[pressed="increment"]::part(increment-button),
-x-stepper[pressed="decrement"]::part(decrement-button) {
+s-stepper[pressed="increment"]::part(increment-button),
+s-stepper[pressed="decrement"]::part(decrement-button) {
   background-color: oklch(
     from var(--material-on-secondary-container-color) l c h / 0.1
   );
 }
 
-x-stepper::part(increment-arrow),
-x-stepper::part(decrement-arrow) {
+s-stepper::part(increment-arrow),
+s-stepper::part(decrement-arrow) {
   width: 18px;
   height: 18px;
 }
 
-x-stepper::part(increment-arrow) {
+s-stepper::part(increment-arrow) {
   --path-data: var(--arrow-up-path-data);
 }
 
-x-stepper::part(decrement-arrow) {
+s-stepper::part(decrement-arrow) {
   --path-data: var(--arrow-down-path-data);
 }
 
-x-swatch {
+s-swatch {
   border-color: var(--material-outline-variant-color);
   border-radius: 99px;
 }
@@ -458,7 +458,7 @@ s-button[skin="dock"][toggled][pressed]::before {
   opacity: 0.1;
 }
 
-x-tag {
+s-tag {
   color: var(--material-on-surface-variant-color);
   background-color: var(--material-surface-container-low-color);
   border-width: 1px;
@@ -468,36 +468,36 @@ x-tag {
   position: relative;
 }
 
-x-tag:hover {
+s-tag:hover {
   color: var(--material-on-surface-color);
 }
 
-x-tag:focus {
+s-tag:focus {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-primary-color);
   outline-offset: -1px;
 }
 
-x-tag[scoped]::part(main) {
+s-tag[scoped]::part(main) {
   background-color: var(--material-surface-container-low-color);
 }
 
-x-tag[toggled] {
+s-tag[toggled] {
   color: var(--material-on-primary-color);
   background-color: var(--material-primary-color);
   border-color: transparent;
 }
 
-x-tag[toggled]:hover {
+s-tag[toggled]:hover {
   filter: brightness(0.95);
 }
 
-x-tag[toggled]:focus {
+s-tag[toggled]:focus {
   outline-offset: 1px;
 }
 
-x-tag::before {
+s-tag::before {
   display: none;
   position: absolute;
   top: 0;
@@ -509,38 +509,38 @@ x-tag::before {
   z-index: 1;
 }
 
-x-tag:hover::before {
+s-tag:hover::before {
   display: block;
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.08);
 }
 
-x-tag:active::before {
+s-tag:active::before {
   display: block;
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.1);
 }
 
-x-tag::part(remove-button) {
+s-tag::part(remove-button) {
   --path-data: var(--clear-path-data);
 }
 
-x-tag::part(scope) {
+s-tag::part(scope) {
   border-color: var(--material-outline-variant-color);
 }
 
-x-tag[toggled]::part(scope) {
+s-tag[toggled]::part(scope) {
   color: var(--material-on-surface-color);
   border-color: var(--material-primary-color);
 }
 
-x-tag > s-icon {
+s-tag > s-icon {
   color: var(--material-primary-color);
 }
 
-x-tag[toggled] > s-icon {
+s-tag[toggled] > s-icon {
   color: var(--material-on-primary-color);
 }
 
-x-tagsinput {
+s-tagsinput {
   color: var(--material-on-surface-color);
   border-width: 1px;
   border-style: solid;
@@ -548,18 +548,18 @@ x-tagsinput {
   border-radius: 4px;
 }
 
-x-tagsinput:hover {
+s-tagsinput:hover {
   border-color: var(--material-on-surface-color);
 }
 
-x-tagsinput:focus {
+s-tagsinput:focus {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-primary-color);
   outline-offset: -1px;
 }
 
-x-tagsinput[error] {
+s-tagsinput[error] {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-error-color);
@@ -569,16 +569,16 @@ x-tagsinput[error] {
   );
 }
 
-x-tagsinput > x-tag {
+s-tagsinput > s-tag {
   background-color: transparent;
 }
 
-x-tagsinput > s-label {
+s-tagsinput > s-label {
   color: oklch(from var(--material-on-surface-variant-color) l c h / 0.7);
   font-weight: 400;
 }
 
-x-tabs {
+s-tabs {
   color: var(--material-on-surface-variant-color);
   background-color: var(--material-surface-color);
   border-width: 1px;
@@ -586,21 +586,21 @@ x-tabs {
   border-color: var(--material-surface-variant-color);
 }
 
-x-tab:hover,
-x-tab:focus {
+s-tab:hover,
+s-tab:focus {
   color: var(--material-on-surface-color);
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.08);
 }
 
-x-tab[pressed] {
+s-tab[pressed] {
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.1);
 }
 
-x-tab[toggled] {
+s-tab[toggled] {
   color: var(--material-on-surface-color);
 }
 
-x-tab::part(selection-indicator) {
+s-tab::part(selection-indicator) {
   margin-bottom: -0.5px;
   width: 100%;
   height: 2px;
@@ -1028,7 +1028,7 @@ s-radio[toggled]:focus::part(indicator)::before {
   background-color: var(--material-primary-color);
 }
 
-x-switch::part(indicator-track) {
+s-switch::part(indicator-track) {
   height: 100%;
   background-color: var(--material-surface-container-highest-color);
   border-width: 2px;
@@ -1036,12 +1036,12 @@ x-switch::part(indicator-track) {
   border-color: var(--material-outline-color);
 }
 
-x-switch[toggled]::part(indicator-track) {
+s-switch[toggled]::part(indicator-track) {
   background-color: var(--material-primary-color);
   border-color: var(--material-primary-color);
 }
 
-x-switch::part(indicator-thumb) {
+s-switch::part(indicator-thumb) {
   left: 2px;
   width: 15px;
   height: 15px;
@@ -1049,39 +1049,39 @@ x-switch::part(indicator-thumb) {
   background-color: var(--material-outline-color);
 }
 
-x-switch:hover::part(indicator-thumb) {
+s-switch:hover::part(indicator-thumb) {
   background-color: var(--material-on-surface-variant-color);
 }
 
-x-switch[toggled]::part(indicator-thumb) {
+s-switch[toggled]::part(indicator-thumb) {
   left: calc(100% - 17px);
   transform: scale(0.9);
   background-color: var(--material-on-primary-color);
 }
 
-x-switch[toggled]:hover::part(indicator-thumb) {
+s-switch[toggled]:hover::part(indicator-thumb) {
   background-color: var(--material-primary-container-color);
 }
 
-x-switch[size="small"]::part(indicator-thumb) {
+s-switch[size="small"]::part(indicator-thumb) {
   width: 12px;
   height: 12px;
 }
 
-x-switch[size="small"][toggled]::part(indicator-thumb) {
+s-switch[size="small"][toggled]::part(indicator-thumb) {
   left: calc(100% - 14px);
 }
 
-x-switch[size="large"]::part(indicator-thumb) {
+s-switch[size="large"]::part(indicator-thumb) {
   width: 18px;
   height: 18px;
 }
 
-x-switch[size="large"][toggled]::part(indicator-thumb) {
+s-switch[size="large"][toggled]::part(indicator-thumb) {
   left: calc(100% - 21px);
 }
 
-x-switch::part(indicator-thumb)::before {
+s-switch::part(indicator-thumb)::before {
   display: none;
   position: absolute;
   top: 50%;
@@ -1096,13 +1096,13 @@ x-switch::part(indicator-thumb)::before {
   pointer-events: none;
 }
 
-x-switch:focus::part(indicator-thumb)::before {
+s-switch:focus::part(indicator-thumb)::before {
   display: block;
   background-color: var(--material-on-surface-color);
   opacity: 0.12;
 }
 
-x-switch[toggled]:focus::part(indicator-thumb)::before {
+s-switch[toggled]:focus::part(indicator-thumb)::before {
   transform: scale(3);
   background-color: var(--material-primary-color);
 }
@@ -1132,33 +1132,33 @@ x-select::part(arrow) {
   --path-data: var(--arrow-down-path-data);
 }
 
-x-slider::part(groove-track) {
+s-slider::part(groove-track) {
   height: 6px;
   background-color: var(--material-secondary-container-color);
   border-radius: 99px;
 }
 
-x-slider::part(range-track) {
+s-slider::part(range-track) {
   height: 6px;
   background-color: var(--material-primary-color);
   border-radius: 5px;
 }
 
-x-slider::part(thumb) {
+s-slider::part(thumb) {
   width: 5px;
   background-color: var(--material-primary-color);
   border-radius: 10px;
   box-shadow: 0px 2px 4px 0px color(srgb 0 0 0 / 0.1);
 }
 
-x-slider::part(thumb):focus {
+s-slider::part(thumb):focus {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-primary-color);
   outline-offset: 3px;
 }
 
-x-slider::part(tick) {
+s-slider::part(tick) {
   top: 50%;
   width: 3px;
   height: 3px;
@@ -1167,11 +1167,11 @@ x-slider::part(tick) {
   border-radius: 99px;
 }
 
-x-slider::part(range-tick) {
+s-slider::part(range-tick) {
   background-color: var(--material-on-surface-inverse-color);
 }
 
-x-input {
+s-input {
   color: var(--material-on-surface-color);
   border-width: 1px;
   border-style: solid;
@@ -1179,18 +1179,18 @@ x-input {
   border-radius: 4px;
 }
 
-x-input:hover {
+s-input:hover {
   border-color: var(--material-on-surface-color);
 }
 
-x-input:focus {
+s-input:focus {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-primary-color);
   outline-offset: -1px;
 }
 
-x-input[error] {
+s-input[error] {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-error-color);
@@ -1200,16 +1200,16 @@ x-input[error] {
   );
 }
 
-x-input > s-icon {
+s-input > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
-x-input > s-label {
+s-input > s-label {
   color: oklch(from var(--material-on-surface-variant-color) l c h / 0.7);
   font-weight: 400;
 }
 
-x-input > s-icon + s-label {
+s-input > s-icon + s-label {
   padding-top: 1px;
 }
 
@@ -1255,16 +1255,16 @@ s-numberinput > s-icon + s-label {
   padding-top: 1px;
 }
 
-s-numberinput > x-stepper {
+s-numberinput > s-stepper {
   margin: 0 -20px 0 0;
 }
 
-s-numberinput:focus > x-stepper {
+s-numberinput:focus > s-stepper {
   transform: scale(1);
   z-index: 1;
 }
 
-s-numberinput:not(:focus) > x-stepper {
+s-numberinput:not(:focus) > s-stepper {
   height: 20px;
   margin: 0;
   transform: scale(0.7);
@@ -1275,20 +1275,20 @@ s-numberinput:not(:focus) > x-stepper {
   pointer-events: none;
 }
 
-s-numberinput[size="small"]:not(:focus) > x-stepper {
+s-numberinput[size="small"]:not(:focus) > s-stepper {
   transform: scale(0.6);
 }
 
-s-numberinput[size="large"]:not(:focus) > x-stepper {
+s-numberinput[size="large"]:not(:focus) > s-stepper {
   transform: scale(0.8);
 }
 
-s-numberinput:not(:focus) > x-stepper::part(increment-button),
-s-numberinput:not(:focus) > x-stepper::part(decrement-button) {
+s-numberinput:not(:focus) > s-stepper::part(increment-button),
+s-numberinput:not(:focus) > s-stepper::part(decrement-button) {
   opacity: 0.5;
 }
 
-x-texteditor {
+s-texteditor {
   color: var(--material-on-surface-color);
   border-width: 1px;
   border-style: solid;
@@ -1296,18 +1296,18 @@ x-texteditor {
   border-radius: 4px;
 }
 
-x-texteditor:hover {
+s-texteditor:hover {
   border-color: var(--material-on-surface-color);
 }
 
-x-texteditor:focus {
+s-texteditor:focus {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-primary-color);
   outline-offset: -1px;
 }
 
-x-texteditor[error] {
+s-texteditor[error] {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-error-color);
@@ -1317,7 +1317,7 @@ x-texteditor[error] {
   );
 }
 
-x-texteditor > s-label {
+s-texteditor > s-label {
   color: oklch(from var(--material-on-surface-variant-color) l c h / 0.7);
   font-weight: 400;
 }
@@ -1383,7 +1383,7 @@ s-progressbar::part(bar) {
   border-radius: 99px;
 }
 
-x-throbber {
+s-throbber {
   color: var(--material-primary-color);
 }
 

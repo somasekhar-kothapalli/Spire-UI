@@ -194,7 +194,7 @@ x-avatar > s-label {
   font-weight: 700;
 }
 
-x-card {
+s-card {
   background-color: var(--material-surface-color);
   border-width: 1px;
   border-style: solid;
@@ -202,7 +202,7 @@ x-card {
   border-radius: 12px;
 }
 
-x-card > footer {
+s-card > footer {
   background-color: var(--material-surface-container-color);
   border-top-width: 1px;
   border-top-style: solid;

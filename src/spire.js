@@ -3,6 +3,7 @@ import Spire from "./classes/spire.js";
 import "./components/s-box.js";
 import "./components/s-button.js";
 import "./components/s-buttons.js";
+import "./components/s-card.js";
 import "./components/s-content.js";
 import "./components/s-footer.js";
 import "./components/s-header.js";

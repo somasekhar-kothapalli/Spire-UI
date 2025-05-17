@@ -261,7 +261,7 @@ x-avatar > s-label {
   font-weight: 500;
 }
 
-x-card {
+s-card {
   background-color: var(--foreground-color);
   border-width: 1px;
   border-style: solid;
@@ -269,7 +269,7 @@ x-card {
   border-radius: var(--border-radius);
 }
 
-x-card > footer {
+s-card > footer {
   background-color: var(--background-color);
   border-top-width: 1px;
   border-top-style: solid;
@@ -387,7 +387,7 @@ s-button[skin="icon"][size="small"] {
 s-button[skin="icon-outlined"] {
   color: var(--accent-color);
   border-radius: var(--border-radius);
-  border: 2px solid var(--accent-color);
+  border: 1px solid var(--accent-color);
   padding: 10px;
   background: var(--background-color);
 }

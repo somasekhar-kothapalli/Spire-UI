@@ -7,7 +7,7 @@
   interpolate-size: allow-keywords;
   font-family: sans-serif;
   line-height: 1.6;
-  --border-width: 2px;
+  --border-width: 1px;
   --border-style: solid;
   --header-height: 45px;
   --footer-height: 45px;
@@ -254,11 +254,11 @@ img:active {
   }
 }
 
-x-card:not(:defined) {
+s-card:not(:defined) {
   display: none;
 }
 
-x-card > footer {
+s-card > footer {
   padding: 8px 16px;
   width: calc(100% + 40px);
   height: calc(100% + 20px);
@@ -268,37 +268,37 @@ x-card > footer {
   background: lightgrey;
 }
 
-x-card > footer:first-child {
+s-card > footer:first-child {
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 
-x-card > footer:last-child {
+s-card > footer:last-child {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 }
 
-x-card > h1:first-child {
+s-card > h1:first-child {
   margin-top: 0;
 }
 
-x-card > h2:first-child {
+s-card > h2:first-child {
   margin-top: 0;
 }
 
-x-card > h3:first-child {
+s-card > h3:first-child {
   margin-top: 0;
 }
 
-x-card > h4:first-child {
+s-card > h4:first-child {
   margin-top: 0;
 }
 
-x-card > h5:first-child {
+s-card > h5:first-child {
   margin-top: 0;
 }
 
-x-card > h6:first-child {
+s-card > h6:first-child {
   margin-top: 0;
 }
 

@@ -944,11 +944,11 @@ x-notification a:active {
   color: oklch(from var(--accent-color) calc(l + 0.25) c h);
 }
 
-x-checkbox[disabled] {
+s-checkbox[disabled] {
   opacity: 1;
 }
 
-x-checkbox:focus {
+s-checkbox:focus {
   border-radius: 2px;
   outline-width: 2px;
   outline-style: solid;
@@ -956,7 +956,7 @@ x-checkbox:focus {
   outline-offset: 2px;
 }
 
-x-checkbox::part(indicator) {
+s-checkbox::part(indicator) {
   color: color(srgb 1 1 1 / 0.6);
   background-color: color(srgb 0 0 0 / 0.1);
   border-width: 1px;
@@ -966,50 +966,50 @@ x-checkbox::part(indicator) {
   --path-data: var(--checkmark-path-data);
 }
 
-x-checkbox[mixed]::part(indicator) {
+s-checkbox[mixed]::part(indicator) {
   --path-data: var(--mixed-checkmark-path-data);
 }
 
-x-checkbox:hover::part(indicator) {
+s-checkbox:hover::part(indicator) {
   background-color: color(srgb 1 1 1 / 0.0419);
 }
 
-x-checkbox:active::part(indicator) {
+s-checkbox:active::part(indicator) {
   color: color(srgb 1 1 1 / 0.1581);
   background-color: color(srgb 1 1 1 / 0.0698);
   border-color: color(srgb 1 1 1 / 0.1581);
 }
 
-x-checkbox[disabled]::part(indicator) {
+s-checkbox[disabled]::part(indicator) {
   color: color(srgb 1 1 1 / 0.1581);
   border-color: color(srgb 1 1 1 / 0.1581);
   background-color: none;
 }
 
-x-checkbox[toggled]::part(indicator) {
+s-checkbox[toggled]::part(indicator) {
   color: color(srgb 0 0 0);
   background-color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-x-checkbox[toggled]:hover::part(indicator) {
+s-checkbox[toggled]:hover::part(indicator) {
   background-color: oklch(from var(--accent-color) l c h / 0.9);
   border-color: transparent;
 }
 
-x-checkbox[toggled]:active::part(indicator) {
+s-checkbox[toggled]:active::part(indicator) {
   color: color(srgb 0 0 0 / 0.5);
   background-color: oklch(from var(--accent-color) l c h / 0.8);
   border-color: transparent;
 }
 
-x-checkbox[toggled][disabled]::part(indicator) {
+s-checkbox[toggled][disabled]::part(indicator) {
   color: color(srgb 1 1 1 / 0.5302);
   background-color: color(srgb 1 1 1 / 0.1581);
   border-color: transparent;
 }
 
-x-checkbox[disabled] > s-label {
+s-checkbox[disabled] > s-label {
   opacity: 0.3;
   filter: saturate(0);
 }

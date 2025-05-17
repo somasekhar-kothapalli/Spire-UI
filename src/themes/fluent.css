@@ -941,15 +941,15 @@ x-notification a:active {
   color: oklch(from var(--accent-color) calc(l + 0.25) c h);
 }
 
-x-checkbox[disabled] {
+s-checkbox[disabled] {
   filter: saturate(0);
 }
 
-x-checkbox[disabled][toggled] {
+s-checkbox[disabled][toggled] {
   opacity: 0.5;
 }
 
-x-checkbox:focus {
+s-checkbox:focus {
   border-radius: 2px;
   outline-width: 2px;
   outline-style: solid;
@@ -957,7 +957,7 @@ x-checkbox:focus {
   outline-offset: 2px;
 }
 
-x-checkbox::part(indicator) {
+s-checkbox::part(indicator) {
   color: color(srgb 0 0 0 / 0.6);
   background-color: color(srgb 0 0 0 / 0.024);
   border-width: 1px;
@@ -967,32 +967,32 @@ x-checkbox::part(indicator) {
   --path-data: var(--checkmark-path-data);
 }
 
-x-checkbox[mixed]::part(indicator) {
+s-checkbox[mixed]::part(indicator) {
   --path-data: var(--mixed-checkmark-path-data);
 }
 
-x-checkbox:hover::part(indicator) {
+s-checkbox:hover::part(indicator) {
   background-color: color(srgb 0 0 0 / 0.0578);
 }
 
-x-checkbox:active::part(indicator) {
+s-checkbox:active::part(indicator) {
   color: color(srgb 0 0 0 / 0.2169);
   background-color: color(srgb 0 0 0 / 0.0924);
   border-color: color(srgb 0 0 0 / 0.2169);
 }
 
-x-checkbox[toggled]::part(indicator) {
+s-checkbox[toggled]::part(indicator) {
   color: color(srgb 1 1 1);
   background-color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-x-checkbox[toggled]:hover::part(indicator) {
+s-checkbox[toggled]:hover::part(indicator) {
   background-color: oklch(from var(--accent-color) l c h / 0.9);
   border-color: transparent;
 }
 
-x-checkbox[toggled]:active::part(indicator) {
+s-checkbox[toggled]:active::part(indicator) {
   color: color(srgb 1 1 1 / 0.7);
   background-color: oklch(from var(--accent-color) l c h / 0.8);
   border-color: transparent;

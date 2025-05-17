@@ -874,7 +874,7 @@ x-notification a:hover {
   color: var(--material-primary-inverse-color);
 }
 
-x-checkbox::part(indicator) {
+s-checkbox::part(indicator) {
   overflow: visible;
   border-width: 2px;
   border-style: solid;
@@ -883,7 +883,7 @@ x-checkbox::part(indicator) {
   --path-data: var(--checkmark-path-data);
 }
 
-x-checkbox:hover::part(indicator) {
+s-checkbox:hover::part(indicator) {
   border-color: var(--material-on-surface-color);
 }
 
@@ -891,17 +891,17 @@ x-radio:active::part(indicator) {
   border-color: var(--material-on-surface-color);
 }
 
-x-checkbox[mixed]::part(indicator) {
+s-checkbox[mixed]::part(indicator) {
   --path-data: var(--mixed-checkmark-path-data);
 }
 
-x-checkbox[toggled]::part(indicator) {
+s-checkbox[toggled]::part(indicator) {
   color: var(--material-on-primary-color);
   background-color: var(--material-primary-color);
   border-color: var(--material-primary-color);
 }
 
-x-checkbox::part(indicator)::before {
+s-checkbox::part(indicator)::before {
   display: none;
   position: absolute;
   top: 50%;
@@ -915,21 +915,21 @@ x-checkbox::part(indicator)::before {
   pointer-events: none;
 }
 
-x-checkbox:hover::part(indicator)::before {
+s-checkbox:hover::part(indicator)::before {
   display: block;
   transform: scale(1);
   background-color: var(--material-on-surface-color);
   opacity: 0.08;
 }
 
-x-checkbox:active::part(indicator)::before {
+s-checkbox:active::part(indicator)::before {
   display: block;
   transform: scale(1);
   background-color: var(--material-primary-color);
   opacity: 0.1;
 }
 
-x-checkbox:focus::part(indicator)::before {
+s-checkbox:focus::part(indicator)::before {
   display: block;
   transform: scale(2.5);
   background-color: var(--material-on-surface-color);
@@ -937,15 +937,15 @@ x-checkbox:focus::part(indicator)::before {
   opacity: 0.1;
 }
 
-x-checkbox[toggled]:hover::part(indicator)::before {
+s-checkbox[toggled]:hover::part(indicator)::before {
   background-color: var(--material-primary-color);
 }
 
-x-checkbox[toggled]:active::part(indicator)::before {
+s-checkbox[toggled]:active::part(indicator)::before {
   background-color: var(--material-on-surface-color);
 }
 
-x-checkbox[toggled]:focus::part(indicator)::before {
+s-checkbox[toggled]:focus::part(indicator)::before {
   background-color: var(--material-primary-color);
 }
 

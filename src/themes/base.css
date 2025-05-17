@@ -1040,25 +1040,25 @@ x-notification > p {
   margin: 0;
 }
 
-x-checkbox:not(:defined) {
+s-checkbox:not(:defined) {
   display: none;
 }
 
-x-checkbox + x-checkbox {
+s-checkbox + s-checkbox {
   margin-top: 6px;
 }
 
-x-checkbox[size="small"]::part(indicator) {
+s-checkbox[size="small"]::part(indicator) {
   width: 17px;
   height: 17px;
 }
 
-x-checkbox[size="large"]::part(indicator) {
+s-checkbox[size="large"]::part(indicator) {
   width: 21px;
   height: 21px;
 }
 
-x-checkbox > s-label {
+s-checkbox > s-label {
   display: block;
   margin-left: 8px;
   padding: 1px 0;

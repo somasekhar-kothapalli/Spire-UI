@@ -27,23 +27,23 @@ export default class SButton extends HTMLElement {
       opacity: 1;
       position: relative;
       cursor: pointer;
-      border: 2px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      color: var(--color-primary);
       font-size: 16px;
+      border: 2px solid var(--border-color);
+      border-radius: var(--border-radius);
+      color: var(--text-color);
       transition: all 0.3s ease-in-out;
     }
     :host(:focus) {
       outline: none;
     }
     :host(:hover) {
-      border-color: var(--color-primary);
-      color: var(--color-primary-foreground);
+      border-color: var(--accent-color);
+      color: var(--accent-color);
       background-color: var(--color-primary);
     }
     :host(:active) {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
+      border-color: var(--accent-color);
+      color: var(--accent-color);
       background-color: var(--color-primary-foreground);
     }
     :host([disabled]) {
@@ -81,7 +81,11 @@ export default class SButton extends HTMLElement {
     }
     :host([skin="icon"]) {
       min-width: 36px;
-      padding: 4px;
+      padding: 10px;
+    }
+    :host([skin="icon-outlined"]) {
+      padding: 10px;
+      background: var(--background-color);
     }
 
     /* Size variations */
@@ -129,7 +133,7 @@ export default class SButton extends HTMLElement {
 
   // @property
   // @attribute
-  // @type "normal" || "flat" || "stroked" || "icon"
+  // @type "normal" || "flat" || "stroked" || "icon" || "icon-outlined"
   // @default "normal"
   get skin() {
     return this.hasAttribute("skin") ? this.getAttribute("skin") : "normal";

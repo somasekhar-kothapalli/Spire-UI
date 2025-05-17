@@ -20,6 +20,7 @@
     red color(srgb 0.96 0.4 0.38), orange color(srgb 0.98 0.61 0.26),
     yellow color(srgb 1 0.84 0.16), green color(srgb 0.27 0.9 0.2),
     gray color(srgb 0.74 0.73 0.72);
+  --border-radius: 4px;
   --accent-color: color(srgb 0.3 0.76 1);
   --background-color: color(srgb 0.12 0.12 0.12);
   --foreground-color: color(srgb 0.18 0.18 0.18);
@@ -164,7 +165,7 @@ pre,
 code,
 var {
   background-color: color(srgb 1 1 1 / 0.0605);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   outline-width: 1px;
   outline-style: solid;
   outline-color: var(--border-color);
@@ -266,7 +267,7 @@ x-card {
   border-width: 1px;
   border-style: solid;
   border-color: var(--border-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 x-card > footer {
@@ -296,7 +297,7 @@ x-tooltip {
   color: var(--text-color);
   background-color: color(srgb 0.17 0.17 0.17);
   border-color: var(--border-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   box-shadow: 0 4px 8px color(srgb 0 0 0 / 0.26);
 }
 
@@ -344,7 +345,7 @@ x-stepper::part(decrement-arrow) {
 
 x-swatch {
   border-color: var(--border-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 s-button:focus {
@@ -365,10 +366,9 @@ s-button[disabled] {
 s-button[skin="normal"] {
   color: var(--text-color);
   background-color: color(srgb 1 1 1 / 0.0605);
-  border-width: 1px;
   border-style: solid;
   border-color: var(--border-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 s-button[skin="normal"]:hover {
@@ -451,7 +451,7 @@ s-button[skin="flat"][toggled][pressed] {
 
 s-button[skin="recessed"] {
   color: color(srgb 1 1 1 / 0.8);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 s-button[skin="recessed"][disabled] {
@@ -486,7 +486,6 @@ s-button[skin="recessed"] > x-label {
 s-button[skin="dock"] {
   color: var(--text-color);
   background-color: color(srgb 1 1 1 / 0.0605);
-  border-width: 1px;
   border-style: solid;
   border-color: var(--border-color);
 }
@@ -616,12 +615,12 @@ x-tagsinput > x-label {
 
 x-tabs {
   background-color: color(srgb 1 1 1 / 0);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   box-shadow: 0 0 0px 1px color(srgb 1 1 1 / 0.0698);
 }
 
 x-tab {
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 x-tab:hover {
@@ -750,7 +749,7 @@ x-menu {
 
 x-menuitem {
   color: var(--text-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   --trigger-effect: none;
 }
 
@@ -873,7 +872,7 @@ x-popover {
   border-width: 1px;
   border-style: solid;
   border-color: color(srgb 0.46 0.46 0.46 / 0.4);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   box-shadow: 0px 8px 16px color(srgb 0 0 0 / 0.26);
   --arrow-size: 14px;
   --open-transition: none;
@@ -889,7 +888,7 @@ x-popover > footer {
 x-notification {
   color: color(srgb 1 1 1);
   background-color: var(--foreground-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   box-shadow: 0 4px 8px color(srgb 0 0 0 / 0.14);
 }
 

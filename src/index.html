@@ -30,7 +30,15 @@
     <script src="spire.js" type="module"></script>
   </head>
   <body>
-    <h1>Welcome to Spire UI</h1>
+    <s-sidebar id="sidebar" expandable="true">
+      <div slot="container">
+        <h1>Welcome to Spire UI</h1>
+        sidebar
+      </div>
+      <div slot="footer">
+        <s-button>Primary</s-button>
+      </div>
+    </s-sidebar>
     <p>A modular and reusable UI component library.</p>
     <h1 style="color: var(--accent-color);">Buttons Examples</h1>
     <h1 style="color: var(--color-primary);">Buttons Examples</h1>
@@ -48,15 +56,5 @@
       <s-button skin="icon" size="large">1️⃣</s-button>
       <s-button skin="icon" size="large">2️⃣</s-button>
     </div>
-    <s-sidebar id="sidebar">
-      <div id="s-header">
-        <x-box>
-          <x-icon href="/icons/portal.svg#xel"></x-icon>
-          <h1>Xel</h1>
-        </x-box>
-      </div>
-      <div id="s-body"></div>
-      <div id="s-footer"></div>
-    </s-sidebar>
   </body>
 </html>

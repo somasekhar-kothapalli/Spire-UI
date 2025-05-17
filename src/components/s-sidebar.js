@@ -1,17 +1,16 @@
-import { normalize } from "../utils/math.js";
 import { html, css } from "../utils/template.js";
-import Spire from "../classes/spire.js";
+import { createElement } from "../utils/element.js";
 
 export default class SSidebar extends HTMLElement {
   static observedAttributes = ["expanded", "expandable"];
   static #shadowTemplate = html`
     <template>
       <s-header id="sidebar-header"> </s-header>
-      <s-container>
-        <slot name="container"></slot>
-      </s-container>
-      <s-footer class="border-top">
-        <slot name="footer"></slot>
+      <s-content id="sidebar-content">
+        <slot name="content">Default Content</slot>
+      </s-content>
+      <s-footer id="sidebar-footer">
+        <slot name="footer">Default Footer</slot>
       </s-footer>
     </template>
   `;
@@ -38,21 +37,34 @@ export default class SSidebar extends HTMLElement {
     :host([expandable="false"]) {
       width: var(--sidebar-width-collapsed);
     }
-    s-header {
-      justify-content: start;
-      background: transparent;
-    }
+
+    s-header,
     s-footer {
-      display: block;
-      padding: 10px;
-      justify-content: start;
+      justify-content: center;
       background: transparent;
+      padding: 10px;
     }
-    s-container {
+
+    s-content {
       flex: 1;
       overflow-y: auto;
       background: var(--foreground-color);
-      padding: 15px;
+      padding: 10px 15px;
+      overflow-x: hidden;
+    }
+
+    :host([expanded="false"]) s-header {
+      flex-direction: column;
+      height: fit-content;
+    }
+
+    s-header {
+      border-bottom: 1px solid gray;
+    }
+
+    s-footer {
+      height: fit-content;
+      border-top: 1px solid gray;
     }
   `;
 
@@ -81,17 +93,13 @@ export default class SSidebar extends HTMLElement {
     super();
 
     this.#shadowRoot = this.attachShadow({ mode: "closed" });
-    this.#shadowRoot.adoptedStyleSheets = [
-      Spire.themeStyleSheet,
-      SSidebar.#shadowStyleSheet,
-    ];
+    this.#shadowRoot.adoptedStyleSheets = [SSidebar.#shadowStyleSheet];
     this.#shadowRoot.append(
       document.importNode(SSidebar.#shadowTemplate.content, true)
     );
 
     this.sidebarHeaderContainer =
       this.#shadowRoot.querySelector("#sidebar-header");
-    this._updateSidebarHeader();
 
     this.footerElement = this.#shadowRoot.querySelector("s-footer");
     this.footerSlot = this.#shadowRoot.querySelector('slot[name="footer"]');
@@ -99,22 +107,17 @@ export default class SSidebar extends HTMLElement {
       this._updateFooterVisibility()
     );
     this._updateFooterVisibility();
-    for (let element of this.#shadowRoot.querySelectorAll("[id]")) {
-      this["#" + element.id] = element;
-    }
-
-    for (let element of this.#shadowRoot.querySelectorAll("[id]")) {
-      this["#" + element.id] = element;
-    }
   }
 
   connectedCallback() {
+    this._updateSidebarHeader();
     this._updateExpandedAttribute();
   }
 
   disconnectedCallback() {}
 
   attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue === newValue) return;
     if (name === "expanded") {
       this._updateExpandedAttribute();
     } else if (name === "expandable") {
@@ -123,12 +126,12 @@ export default class SSidebar extends HTMLElement {
   }
 
   _updateSidebarHeader() {
-    this.sidebarHeaderContainer.style.padding = this.expandable
-      ? "10px"
-      : "0px";
     this.sidebarHeaderContainer.innerHTML = this.expandable
-      ? `<s-button class="toggle-btn" id="toggle" skin="icon-outlined"> <s-icon src="menu"></s-icon> </s-button>`
-      : "";
+      ? `
+      <s-button class="toggle-btn" id="toggle" skin="icon-outlined"> <s-icon src="menu"></s-icon> </s-button>
+      <slot name="header">Default Header</slot>
+      `
+      : `<slot name="header">Default Header</slot>`;
     if (this.expandable) {
       this.toggleButton =
         this.sidebarHeaderContainer.querySelector(".toggle-btn");
@@ -162,6 +165,7 @@ export default class SSidebar extends HTMLElement {
   _updateFooterVisibility() {
     const hasFooter = this.footerSlot.assignedNodes().length > 0;
     this.footerElement.style.display = hasFooter ? "" : "none";
+    this.footerElement.style.border = hasFooter ? "" : "none";
   }
 }
 

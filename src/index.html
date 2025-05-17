@@ -221,6 +221,153 @@
           <x-stepper></x-stepper>
         </s-numberinput>
 
+        <h1>Menu</h1>
+        <s-menu opened>
+          <s-menuitem>
+            <s-icon href="#history-undo"></s-icon>
+            <s-label>Undo</s-label>
+            <s-shortcut value="Control+Z"></s-shortcut>
+          </s-menuitem>
+        
+          <s-menuitem>
+            <s-icon href="#history-redo"></s-icon>
+            <s-label>Redo</s-label>
+            <s-shortcut value="Control+Shift+Z"></s-shortcut>
+          </s-menuitem>
+        
+          <hr>
+        
+          <s-menuitem>
+            <s-icon href="#cut"></s-icon>
+            <s-label>Cut</s-label>
+            <s-shortcut value="Control+X"></s-shortcut>
+          </s-menuitem>
+        
+          <s-menuitem>
+            <s-icon href="#copy"></s-icon>
+            <s-label>Copy</s-label>
+            <s-shortcut value="Control+C"></s-shortcut>
+          </s-menuitem>
+        
+          <s-menuitem>
+            <s-icon href="#paste"></s-icon>
+            <s-label>Paste</s-label>
+            <s-shortcut value="Control+V"></s-shortcut>
+          </s-menuitem>
+        
+          <hr>
+        
+          <s-menuitem>
+            <s-icon></s-icon>
+            <s-label>Refresh</s-label>
+          </s-menuitem>
+        </s-menu>
+
+        <h1>Menu item</h1>
+        <s-menu opened>
+          <s-menuitem>
+            <s-label>Copy</s-label>
+          </s-menuitem>
+        </s-menu>
+
+        <h1>Menubar</h1>
+        <s-menubar>
+          <s-menuitem>
+            <s-label>File</s-label>
+        
+            <s-menu>
+              <s-menuitem>
+                <s-label>New</s-label>
+                <x-shortcut value="Control+N"></x-shortcut>
+              </s-menuitem>
+        
+              <s-menuitem>
+                <s-label>Open…</s-label>
+                <x-shortcut value="Control+O"></x-shortcut>
+              </s-menuitem>
+        
+              <hr>
+        
+              <s-menuitem>
+                <s-label>Save</s-label>
+                <x-shortcut value="Control+S"></x-shortcut>
+              </s-menuitem>
+        
+              <s-menuitem>
+                <s-label>Save as…</s-label>
+                <x-shortcut value="Control+Shift+S"></x-shortcut>
+              </s-menuitem>
+            </s-menu>
+          </s-menuitem>
+        
+          <s-menuitem>
+            <s-label>Edit</s-label>
+        
+            <s-menu>
+              <s-menuitem>
+                <x-icon href="#history-undo"></x-icon>
+                <s-label>Undo</s-label>
+                <x-shortcut value="Control+Z"></x-shortcut>
+              </s-menuitem>
+        
+              <s-menuitem disabled>
+                <x-icon href="#history-redo"></x-icon>
+                <s-label>Redo</s-label>
+                <x-shortcut value="Control+Shift+Z"></x-shortcut>
+              </s-menuitem>
+        
+              <hr>
+        
+              <s-menuitem>
+                <x-icon href="#cut"></x-icon>
+                <s-label>Cut</s-label>
+                <x-shortcut value="Control+X"></x-shortcut>
+              </s-menuitem>
+        
+              <s-menuitem>
+                <x-icon href="#copy"></x-icon>
+                <s-label>Copy</s-label>
+                <x-shortcut value="Control+C"></x-shortcut>
+              </s-menuitem>
+        
+              <s-menuitem>
+                <x-icon href="#paste"></x-icon>
+                <s-label>Paste</s-label>
+                <x-shortcut value="Control+V"></x-shortcut>
+              </s-menuitem>
+            </s-menu>
+          </s-menuitem>
+        
+          <s-menuitem>
+            <s-label>View</s-label>
+        
+            <s-menu>
+              <s-menuitem togglable toggled>
+                <s-label>Show ruler</s-label>
+              </s-menuitem>
+        
+              <s-menuitem togglable>
+                <s-label>Show spelling suggestions</s-label>
+              </s-menuitem>
+            </s-menu>
+          </s-menuitem>
+        
+          <s-menuitem>
+            <s-label>Help</s-label>
+        
+            <s-menu>
+              <s-menuitem>
+                <x-icon href="#help"></x-icon>
+                <s-label>Documentation</s-label>
+              </s-menuitem>
+            </s-menu>
+          </s-menuitem>
+        </s-menubar>
+
+        <h1>Message</h1>
+        <s-message href="#about"></s-message>
+        <s-message href="#slogan-1"></s-message>
+        
       </s-content>
     
       <s-footer slot="footer">© 2025 My Company</s-footer>

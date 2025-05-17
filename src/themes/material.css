@@ -690,7 +690,7 @@ s-navitem > s-label + s-icon {
   color: var(--material-primary-color);
 }
 
-x-menu {
+s-menu {
   background-color: var(--material-surface-container-color);
   border-radius: 4px;
   box-shadow: var(--material-elevation-2);
@@ -700,61 +700,61 @@ x-menu {
     var(--material-easing-standard);
 }
 
-x-menuitem {
+s-menuitem {
   color: var(--material-on-surface-color);
   --trigger-effect: none;
 }
 
-x-menuitem:hover,
-x-menuitem:focus,
-x-menuitem[expanded] {
+s-menuitem:hover,
+s-menuitem:focus,
+s-menuitem[expanded] {
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.08);
 }
 
-x-menuitem[pressed] {
+s-menuitem[pressed] {
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.1);
 }
 
-x-menuitem[highlighted] {
+s-menuitem[highlighted] {
   color: var(--material-on-primary-color);
   background: var(--material-primary-color);
 }
 
-x-menuitem::part(checkmark) {
+s-menuitem::part(checkmark) {
   color: var(--material-on-surface-variant-color);
   --path-data: var(--checkmark-path-data);
 }
 
-x-menuitem::part(arrow) {
+s-menuitem::part(arrow) {
   color: var(--material-on-surface-variant-color);
   width: 14px;
   height: 14px;
   --path-data: var(--arrow-right-path-data);
 }
 
-x-menuitem > s-icon {
+s-menuitem > s-icon {
   color: var(--material-on-surface-variant-color);
 }
 
-x-menuitem > x-shortcut {
+s-menuitem > s-shortcut {
   color: oklch(from var(--material-on-surface-color) l c h / 0.5);
 }
 
-x-menubar {
+s-menubar {
   padding: 0 3px;
 }
 
-x-menubar > x-menuitem {
+s-menubar > s-menuitem {
   border-radius: 4px;
 }
 
-x-menubar > x-menuitem[pressed] {
+s-menubar > s-menuitem[pressed] {
   background-color: oklch(from var(--material-on-surface-color) l c h / 0.08);
 }
 
-x-menubar > x-menuitem,
-x-menubar > x-menuitem[size="small"],
-x-menubar > x-menuitem[size="large"] {
+s-menubar > s-menuitem,
+s-menubar > s-menuitem[size="small"],
+s-menubar > s-menuitem[size="large"] {
   height: calc(100% - 6px);
 }
 

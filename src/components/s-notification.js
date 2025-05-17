@@ -3,7 +3,7 @@ import { html, css } from "../utils/template.js";
 import { getTimeStamp } from "../utils/time.js";
 
 // @element s-notification
-export default class XNotificationElement extends HTMLElement {
+export default class SNotification extends HTMLElement {
   static observedAttributes = ["opened"];
 
   static #shadowTemplate = html`
@@ -101,10 +101,10 @@ export default class XNotificationElement extends HTMLElement {
 
     this.#shadowRoot = this.attachShadow({ mode: "closed" });
     this.#shadowRoot.adoptedStyleSheets = [
-      XNotificationElement.#shadowStyleSheet,
+      SNotification.#shadowStyleSheet,
     ];
     this.#shadowRoot.append(
-      document.importNode(XNotificationElement.#shadowTemplate.content, true)
+      document.importNode(SNotification.#shadowTemplate.content, true)
     );
   }
 
@@ -197,4 +197,4 @@ export default class XNotificationElement extends HTMLElement {
   }
 }
 
-customElements.define("s-notification", XNotificationElement);
+customElements.define("s-notification", SNotification);

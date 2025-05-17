@@ -773,7 +773,7 @@ s-nav s-label + s-icon {
   color: var(--accent-color);
 }
 
-x-menu {
+s-menu {
   padding: 4px;
   color: var(--text-color);
   background-color: var(--foreground-color);
@@ -786,46 +786,46 @@ x-menu {
   --close-transition: 200 opacity cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-x-menuitem {
+s-menuitem {
   color: var(--text-color);
   border-radius: var(--border-radius);
   --trigger-effect: none;
 }
 
-x-menuitem:focus {
+s-menuitem:focus {
   background-color: color(srgb 0 0 0 / 0.0373);
 }
 
-x-menuitem[expanded] {
+s-menuitem[expanded] {
   background-color: color(srgb 0 0 0 / 0.0373);
 }
 
-x-menuitem[pressed]:active {
+s-menuitem[pressed]:active {
   background-color: color(srgb 0 0 0 / 0.0241);
 }
 
-x-menu x-menuitem + x-menuitem {
+s-menu s-menuitem + s-menuitem {
   margin-top: 4px;
 }
 
-x-menuitem::part(checkmark) {
+s-menuitem::part(checkmark) {
   --path-data: var(--checkmark-path-data);
 }
 
-x-menuitem::part(arrow) {
+s-menuitem::part(arrow) {
   --path-data: var(--arrow-right-path-data);
 }
 
-x-menuitem x-shortcut {
+s-menuitem s-shortcut {
   color: color(srgb 0 0 0 / 0.6063);
   font-size: 0.75rem;
 }
 
-x-menubar > x-menuitem:hover {
+s-menubar > s-menuitem:hover {
   background-color: color(srgb 0 0 0 / 0.0373);
 }
 
-x-menubar > x-menuitem[highlighted] {
+s-menubar > s-menuitem[highlighted] {
   color: color(srgb 1 1 1);
   background-color: var(--accent-color);
 }
@@ -1213,11 +1213,11 @@ x-select::part(arrow) {
   --path-data: var(--arrow-down-path-data);
 }
 
-x-select x-menuitem[toggled] {
+x-select s-menuitem[toggled] {
   background-color: color(srgb 0 0 0 / 0.0373);
 }
 
-x-select x-menuitem::part(checkmark) {
+x-select s-menuitem::part(checkmark) {
   width: 4px;
   margin: 0 8px 0 -22px;
   color: var(--accent-color);
@@ -1496,11 +1496,11 @@ x-colorinput::part(arrow) {
   --path-data: var(--arrow-down-path-data);
 }
 
-x-colorinput x-menuitem[toggled] {
+x-colorinput s-menuitem[toggled] {
   background-color: color(srgb 0 0 0 / 0.05);
 }
 
-x-colorinput x-menuitem::part(checkmark) {
+x-colorinput s-menuitem::part(checkmark) {
   margin: 0px 4px 0 -22px;
   color: var(--accent-color);
   --path-data: M 0 0 L 22 0 L 22 100 L 0 100 Z;

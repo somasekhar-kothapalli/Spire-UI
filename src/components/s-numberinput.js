@@ -33,7 +33,7 @@ const NUMERIC_KEYS = [
 // @event ^changeend
 // @event ^textinputmodestart
 // @event ^textinputmodeend
-export default class XNumberInputElement extends HTMLElement {
+export default class SNumberInput extends HTMLElement {
   static observedAttributes = [
     "value",
     "min",
@@ -310,10 +310,10 @@ export default class XNumberInputElement extends HTMLElement {
       delegatesFocus: true,
     });
     this.#shadowRoot.adoptedStyleSheets = [
-      XNumberInputElement.#shadowStyleSheet,
+      SNumberInput.#shadowStyleSheet,
     ];
     this.#shadowRoot.append(
-      document.importNode(XNumberInputElement.#shadowTemplate.content, true)
+      document.importNode(SNumberInput.#shadowTemplate.content, true)
     );
 
     for (let element of this.#shadowRoot.querySelectorAll("[id]")) {
@@ -881,4 +881,4 @@ export default class XNumberInputElement extends HTMLElement {
   }
 }
 
-customElements.define("s-numberinput", XNumberInputElement);
+customElements.define("s-numberinput", SNumberInput);

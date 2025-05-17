@@ -53,7 +53,7 @@ let DialogElementMixin = {
         this.addEventListener(
           "close",
           (closeListener = (event) => {
-            // Note that "close" event might also dispatched by e.g. <bx-menu> inside the dialog, so we must
+            // Note that "close" event might also dispatched by e.g. <bs-menu> inside the dialog, so we must
             // ensure that the event target is this dialog
             if (event.target === this) {
               this.removeEventListener("close", closeListener);
@@ -135,7 +135,7 @@ let DialogElementMixin = {
         this.addEventListener(
           "close",
           (closeListener = (event) => {
-            // Note that "close" event might also dispatched by e.g. <bx-menu> inside the dialog, so we must
+            // Note that "close" event might also dispatched by e.g. <bs-menu> inside the dialog, so we must
             // ensure that the event target is this dialog
             if (event.target === this) {
               this.removeEventListener("close", closeListener);
@@ -184,7 +184,7 @@ let DialogElementMixin = {
         this.addEventListener(
           "close",
           (closeListener = (event) => {
-            // Note that "close" event might also dispatched by e.g. <bx-menu> inside the dialog, so we must
+            // Note that "close" event might also dispatched by e.g. <bs-menu> inside the dialog, so we must
             // ensure that the event target is this dialog
             if (event.target === this) {
               this.removeEventListener("pointerdown", pointerDownListener);

@@ -396,7 +396,7 @@ s-label:not(:defined) {
   display: none;
 }
 
-x-shortcut:not(:defined) {
+s-shortcut:not(:defined) {
   display: none;
 }
 
@@ -472,7 +472,7 @@ s-button > s-icon ~ s-label {
   margin: 0 0 0 6px;
 }
 
-s-button > x-menu {
+s-button > s-menu {
   font-size: 0.875rem;
 }
 
@@ -764,60 +764,60 @@ x-tabs:not(:defined) {
   display: none;
 }
 
-x-menu:not(:defined) {
+s-menu:not(:defined) {
   display: none;
 }
 
-x-menu:has(x-menu[opened]) {
+s-menu:has(s-menu[opened]) {
   overflow: -webkit-paged-x;
 }
 
-x-menu img {
+s-menu img {
   margin: 0;
   background: none;
   border: none;
 }
 
-x-menu hr {
+s-menu hr {
   width: 100%;
   height: 1px;
   margin: 4px 0px;
   box-sizing: border-box;
 }
 
-x-menu hr + hr,
-x-menu hr:last-child {
+s-menu hr + hr,
+s-menu hr:last-child {
   display: none;
 }
 
-x-menuitem[size="small"] {
+s-menuitem[size="small"] {
   min-height: 24px;
 }
 
-x-menuitem[size="large"] {
+s-menuitem[size="large"] {
   min-height: 38px;
 }
 
-x-menuitem:not(:defined) {
+s-menuitem:not(:defined) {
   display: none;
 }
 
-x-menuitem[highlighted] {
+s-menuitem[highlighted] {
   color: white;
   background: var(--accent-color);
 }
 
-x-menuitem img {
+s-menuitem img {
   width: 16px;
   height: 16px;
 }
 
-x-menuitem s-icon {
+s-menuitem s-icon {
   width: 16px;
   height: 16px;
 }
 
-x-menuitem s-label {
+s-menuitem s-label {
   display: block;
   flex: 1;
   white-space: nowrap;
@@ -826,33 +826,33 @@ x-menuitem s-label {
   font-size: inherit;
 }
 
-x-menuitem img + s-label,
-x-menuitem x-swatch + s-label,
-x-menuitem s-icon + s-label {
+s-menuitem img + s-label,
+s-menuitem x-swatch + s-label,
+s-menuitem s-icon + s-label {
   margin-left: 8px;
 }
 
-x-menuitem x-shortcut {
+s-menuitem s-shortcut {
   margin-left: auto;
 }
 
-x-menuitem s-label + x-shortcut {
+s-menuitem s-label + s-shortcut {
   margin-left: 8px;
 }
 
-x-menubar[size="small"] {
+s-menubar[size="small"] {
   height: 30px;
 }
 
-x-menubar[size="large"] {
+s-menubar[size="large"] {
   height: 42px;
 }
 
-x-menubar:not(:defined) {
+s-menubar:not(:defined) {
   display: none;
 }
 
-x-menubar > x-menuitem {
+s-menubar > s-menuitem {
   height: 100%;
   padding: 0 11px;
   min-height: 0;

@@ -336,21 +336,21 @@ x-avatar[size="large"] > s-label {
   font-size: 1.5rem;
 }
 
-x-accordion:not(:defined) {
+s-accordion:not(:defined) {
   display: none;
 }
 
-x-accordion[size="small"]::part(arrow) {
+s-accordion[size="small"]::part(arrow) {
   width: 14px;
   height: 14px;
 }
 
-x-accordion[size="large"]::part(arrow) {
+s-accordion[size="large"]::part(arrow) {
   width: 18px;
   height: 18px;
 }
 
-x-accordion > header {
+s-accordion > header {
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -358,23 +358,23 @@ x-accordion > header {
   padding: 7px 0 7px 20px;
 }
 
-x-accordion[size="small"] > header {
+s-accordion[size="small"] > header {
   padding-left: 18px;
 }
 
-x-accordion[size="large"] > header {
+s-accordion[size="large"] > header {
   padding-left: 22px;
 }
 
-x-accordion > header > s-label:first-child {
+s-accordion > header > s-label:first-child {
   flex: 1;
 }
 
-x-accordion > header > *:not(:last-child) {
+s-accordion > header > *:not(:last-child) {
   margin-right: 20px;
 }
 
-x-accordion:not([expanded]):not([animating]) > *:not(header) {
+s-accordion:not([expanded]):not([animating]) > *:not(header) {
   display: none !important;
 }
 

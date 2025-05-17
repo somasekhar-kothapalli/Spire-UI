@@ -276,19 +276,19 @@ s-card > footer {
   border-top-color: var(--border-color);
 }
 
-x-accordion::part(arrow) {
+s-accordion::part(arrow) {
   color: color(srgb 0.14 0.14 0.14);
   --path-data: var(--arrow-right-path-data);
 }
 
-x-accordion::part(arrow):focus {
+s-accordion::part(arrow):focus {
   border-radius: 2px;
   outline-width: 2px;
   outline-style: solid;
   outline-color: color(srgb 0 0 0 / 0.9);
 }
 
-x-accordion > header > s-label {
+s-accordion > header > s-label {
   font-weight: 500;
 }
 

@@ -46,6 +46,23 @@
       </s-sidebar>
     
       <s-content slot="content">
+        <h1>Accordion</h1>
+        <s-accordion>
+          <header>
+            <s-label>Header</s-label>
+          </header>
+        
+          <s-label>Main content</s-label>
+        </s-accordion>
+        <s-accordion expanded>
+          <header>
+            <s-label>Header</s-label>
+          </header>
+        
+          <s-label>Main content</s-label>
+        </s-accordion>
+        
+
         <h1>Box</h1>
         <s-box style="gap: 10px;" class="my-2">
           <s-icon href="#mail"></s-icon>
@@ -122,11 +139,11 @@
         <s-checkbox toggled mixed></s-checkbox>
         <s-checkbox toggled disabled></s-checkbox>
         <s-checkbox>
-          <x-label><strong>Option</strong></x-label>
-          <x-label>Description with a <a href="#">link</a>.</x-label>
+          <s-label><strong>Option</strong></s-label>
+          <s-label>Description with a <a href="#">link</a>.</s-label>
         </s-checkbox>
         <s-checkbox>
-          <x-label>This is sample description</x-label>
+          <s-label>This is sample description</s-label>
         </s-checkbox>
 
       </s-content>

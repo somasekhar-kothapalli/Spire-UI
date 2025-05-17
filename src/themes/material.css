@@ -209,19 +209,19 @@ s-card > footer {
   border-top-color: var(--material-outline-variant-color);
 }
 
-x-accordion::part(arrow) {
+s-accordion::part(arrow) {
   color: var(--material-on-surface-variant-color);
   --path-data: var(--arrow-right-path-data);
 }
 
-x-accordion::part(arrow):focus {
+s-accordion::part(arrow):focus {
   border-radius: 2px;
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--material-primary-color);
 }
 
-x-accordion > header > s-label {
+s-accordion > header > s-label {
   color: var(--material-on-secondary-container-color);
   font-weight: 700;
 }
